@@ -1,0 +1,14 @@
+{
+    "window":
+    {
+        "title":"Default Game Window",
+        "size":{
+            "width":512,
+            "height":512
+        },
+        "fullscreen": false
+    },
+    "scene": {
+        "clear-color": {"r": 1.0, "g": 0.0, "b": 0.0, "a": 1.0}
+    }
+}

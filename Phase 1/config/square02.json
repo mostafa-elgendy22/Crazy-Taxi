@@ -1,0 +1,28 @@
+{
+    "start-scene": "fullscreen-triangle",
+    "window":
+    {
+        "title":"Square",
+        "size":{
+            "width":512,
+            "height":512
+        },
+        "fullscreen": false
+    },
+    "screenshots":{
+        "directory": "screenshots",
+        "requests": [
+            { "file": "square02.png", "frame":  1 }
+        ]
+    },
+    "scene": {
+        "vertex-shader": "assets/shaders/fullscreen.vert",
+        "fragment-shader": "assets/shaders/square.frag",
+        "uniforms":{
+            "center": { "type": "vec2", "value": [128, 256] },
+            "side_length": { "type": "float", "value": 64 },
+            "inside_color": { "type": "vec4", "value": [1.0, 0.8, 0.1, 1.0] },
+            "outside_color": { "type": "vec4", "value": [0.5, 0.2, 0.8, 1.0] }
+        }
+    }
+}
