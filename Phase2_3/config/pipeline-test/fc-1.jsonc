@@ -1,0 +1,55 @@
+{
+    "start-scene": "pipeline-test",
+    "window":
+    {
+        "title":"Pipeline Test Window",
+        "size":{
+            "width":512,
+            "height":512
+        },
+        "fullscreen": false
+    },
+    "screenshots":{
+        "directory": "screenshots/pipeline-test",
+        "requests": [
+            { "file": "fc-1.png", "frame":  1 }
+        ]
+    },
+    "scene": {
+        "pipeline":{
+            "faceCulling":{
+                "enabled": true
+            }
+        },
+        "objects": [
+            {
+                "position": [2, 0, 2],
+                "rotation": [0, -45, 0],
+                "scale": [0.9, 1.1, 0.9]
+            },
+            {
+                "position": [2, 0, -2],
+                "rotation": [90, 45, 0],
+                "scale": [1.1, 0.9, 0.9]
+            },
+            {
+                "position": [-2, 0, 2],
+                "rotation": [0, -135, 90],
+                "scale": [0.9, 0.9, 1.1]
+            },
+            {
+                "position": [-2, 0, -2],
+                "rotation": [45, 135, 45],
+                "scale": [1.0, 1.0, 1.0]
+            }
+        ],
+        "camera": {
+            "eye": [4, 1, 5],
+            "center": [0, 0, 0],
+            "up": [0, 1, 0],
+            "fov": 90,
+            "near": 0.01,
+            "far": 1000
+        }
+    }
+}

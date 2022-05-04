@@ -1,0 +1,22 @@
+{
+    "start-scene": "mesh-test",
+    "window":
+    {
+        "title":"Mesh Test Window",
+        "size":{
+            "width":512,
+            "height":512
+        },
+        "fullscreen": false
+    },
+    "screenshots":{
+        "directory": "screenshots/mesh-test",
+        "requests": [
+            { "file": "monkey-1.png", "frame":  1 }
+        ]
+    },
+    "scene": {
+        "mesh": "assets/models/monkey.obj",
+        "output_type": 1
+    }
+}

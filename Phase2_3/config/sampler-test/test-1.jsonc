@@ -1,0 +1,27 @@
+{
+    "start-scene": "sampler-test",
+    "window":
+    {
+        "title":"Sampler Test Window",
+        "size":{
+            "width":512,
+            "height":512
+        },
+        "fullscreen": false
+    },
+    "screenshots":{
+        "directory": "screenshots/sampler-test",
+        "requests": [
+            { "file": "test-1.png", "frame":  1 }
+        ]
+    },
+    "scene": {
+        "sampler": {
+            "MAG_FILTER": "GL_LINEAR",
+            "MIN_FILTER": "GL_NEAREST",
+            "WRAP_S": "GL_REPEAT",
+            "WRAP_T": "GL_REPEAT"
+        },
+        "texture": "assets/textures/smile.png"
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "start-scene": "material-test",
+    "window":
+    {
+        "title":"Material Test Window",
+        "size":{
+            "width":512,
+            "height":512
+        },
+        "fullscreen": false
+    },
+    "screenshots":{
+        "directory": "screenshots/material-test",
+        "requests": [
+            { "file": "test-0.png", "frame":  1 }
+        ]
+    },
+    "scene": {
+        "assets":{
+            "shaders":{
+                "tinted":{
+                    "vs":"assets/shaders/tinted.vert",
+                    "fs":"assets/shaders/tinted.frag"
+                }
+            },
+            "meshes":{
+                "mesh": "assets/models/monkey.obj"
+            },
+            "materials":{
+                "material":{
+                    "type": "tinted",
+                    "shader": "tinted",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [0.8, 0.6, 0.5, 1]
+                }
+            }
+        },
+        "objects": [
+            {
+                "position": [2, 0, 2],
+                "rotation": [0, -45, 0]
+            },
+            {
+                "position": [2, 0, -2],
+                "rotation": [0, 45, 0]
+            },
+            {
+                "position": [-2, 0, 2],
+                "rotation": [0, -135, 0]
+            },
+            {
+                "position": [-2, 0, -2],
+                "rotation": [0, 135, 0]
+            }
+        ],
+        "camera": {
+            "eye": [4, 1, 5],
+            "center": [0, 0, 0],
+            "up": [0, 1, 0],
+            "fov": 90,
+            "near": 0.01,
+            "far": 1000
+        }
+    }
+}

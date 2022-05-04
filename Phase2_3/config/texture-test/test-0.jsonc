@@ -1,0 +1,21 @@
+{
+    "start-scene": "texture-test",
+    "window":
+    {
+        "title":"Texture Test Window",
+        "size":{
+            "width":512,
+            "height":512
+        },
+        "fullscreen": false
+    },
+    "screenshots":{
+        "directory": "screenshots/texture-test",
+        "requests": [
+            { "file": "test-0.png", "frame":  1 }
+        ]
+    },
+    "scene": {
+        "texture": "assets/textures/color-grid.png"
+    }
+}

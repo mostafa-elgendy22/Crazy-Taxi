@@ -1,0 +1,34 @@
+{
+    "start-scene": "renderer-test",
+    "window":
+    {
+        "title":"Sky Test Window",
+        "size":{
+            "width":1024,
+            "height":512
+        },
+        "fullscreen": false
+    },
+    "screenshots":{
+        "directory": "screenshots/sky-test",
+        "requests": [
+            { "file": "test-0.png", "frame":  1 }
+        ]
+    },
+    "scene": {
+        "renderer": {
+            "sky": "assets/textures/sky.jpg"
+        },
+        "assets":{},
+        "world":[
+            {
+                "position": [0, 0, 10],
+                "components": [
+                    {
+                        "type": "Camera"
+                    }
+                ]
+            }
+        ]
+    }
+}

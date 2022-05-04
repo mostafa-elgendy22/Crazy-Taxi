@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>instructions.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #A31515; /* Change the old color so it seems less like an error (YAHIA: the old value was #C9AE75) */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="cmp3060-project-document">CMP3060 Project Document</h1>
+<h2 id="learning-outcomes">Learning Outcomes</h2>
+<p>The goals of this project are to learn how to:</p>
+<ol>
+<li>Use buffers to store mesh data.</li>
+<li>Use vertex array objects to render meshes.</li>
+<li>Change an object's position, rotation and scale via matrices.</li>
+<li>Use depth testing, face culling, blending and color/depth masks.</li>
+<li>Use textures to draw images.</li>
+<li>Use samplers to configure the texture sampling process.</li>
+<li>Combine shaders, pipeline states and uniform data into a Material object.</li>
+<li>Describe and process a scene using the Entity-Component-System ECS framework.</li>
+<li>Implement a forward renderer with support for transparent objects.</li>
+<li>Implement a lighting model and support multiple lights of different types.</li>
+<li>Use the engine to implement a simple game.</li>
+</ol>
+<hr>
+<h2 id="grading-notes">Grading Notes</h2>
+<p>Please note that the main focus of the project is to apply graphics algorithms. The focus is not about art, game design, audio, etc. Don’t put too much effort in things that deviate from the main goal of the project.</p>
+<p>Each student will be graded individually according to their contribution and understanding of the project. Each student is expected to understand all the covered topics about the rendering process using OpenGL.</p>
+<p>For both phases, you should document your code in a clear and descriptive manner.</p>
+<hr>
+<h2 id="deadline-summary">Deadline Summary</h2>
+<ul>
+<li><strong>Game Proposal:</strong> Week 11 Saturday 30th April 2022 23:59.</li>
+<li><strong>Phase 2 Delivery:</strong> Week 12 Saturday 7th May 2022 23:59.</li>
+<li><strong>Phase 2 Discussion:</strong> During the tutorials in Week 12.</li>
+<li><strong>Phase 3 Delivery:</strong> Week 14 Saturday 21st May 2022 23:59.</li>
+<li><strong>Phase 3 Discussion:</strong> During the tutorial in Week 14.</li>
+</ul>
+<hr>
+<h1 id="phase-2">Phase 2</h1>
+<h2 id="assets-and-configurations">Assets and Configurations</h2>
+<p>Other than code files, we have shader, model and texture files which are stored in the <code>&quot;assets&quot;</code> folder. We also have json configuration files inside the <code>&quot;config&quot;</code> folder.</p>
+<p>The configuration files are split into folders based on the requirement they test. To allow testing each requirement in a batch, there are a set of scripts in the folder <code>&quot;scripts&quot;</code>. In addition, there is a script to run all the tests for all the requirements which is <code>&quot;scripts/run-all.ps1&quot;</code> and another script to compare all the outputs with the expected output which is <code>&quot;scripts/compare-all.ps1&quot;</code>.</p>
+<hr>
+<h2 id="how-to-run">How to run</h2>
+<p>To compile the code, you need <code>CMake</code> and a <code>C++17</code> compiler. Thus, you <strong>CANNOT</strong> use an version of Visual Studio older than <code>Visual Studio 2017</code>. As alternatives, you can use <code>GCC 9</code> (or newer) or <code>CLang 5</code> (or newer).</p>
+<p>If you are using <code>Visual Studio Code</code> with the <code>CMake Tools</code> extension, you should find the <code>GAME_APPLICATION.exe</code> inside the folder <code>bin</code>. You should run the executable using a terminal from the project folder where the execution command will be:</p>
+<pre><code>./bin/GAME_APPLICATION.exe
+</code></pre>
+<p>This will run the application using the default configuration file <code>config/app.json</code>. To run another configuration (e.g. <code>config\app.jsonc</code>), you should execute the command:</p>
+<pre><code>./bin/GAME_APPLICATION.exe -c='config/app.jsonc'
+</code></pre>
+<p>If you want the want the application to automatically close after a certain number of frames (e.g. 10 frames), you should run:</p>
+<pre><code>./bin/GAME_APPLICATION.exe -c='config/app.jsonc' -f=10
+</code></pre>
+<p>If you are working on Linux, remove the <code>&quot;.exe&quot;</code> from the path for the executable.</p>
+<p>To run all the configuration in sequence, you can run <code>scripts/run-all.ps1</code> on Powershell. You can select a certain subset of the configurations by setting the option <code>tests</code>. For example, to run all the sampler tests, you can run:</p>
+<pre><code>  ./scripts/run-all.ps1 -tests sampler-test
+</code></pre>
+<p>The screenshots should automatically be generated and added to the <code>screenshots</code> folder. Compare the results with the expected output from the folder <code>expected</code>. To compare the results, you can run <code>scripts/compare-all.ps1</code>. This script also supports the <code>tests</code> option similar to <code>scripts/run-all.ps1</code>.</p>
+<p>If you have issues with running the scripts due to the execution policy, you could do the following to pypass it:</p>
+<pre><code>  powershell -executionpolicy bypass -file ./scripts/run-all.ps1
+  powershell -executionpolicy bypass -file ./scripts/compare-all.ps1
+</code></pre>
+<hr>
+<h2 id="requirements">Requirements</h2>
+<p>For each the following requirements, you should write the code to solve the requirement and document your code in a clear and descriptive manner. You only need to modify the code at the locations marked as follows:</p>
+<pre><code>\\TODO: .......
+</code></pre>
+<p>For this phase, you should not modify any code outside the requirement TODOs.</p>
+<hr>
+<h3 id="requirement-1-mesh">Requirement 1: Mesh</h3>
+<p>The mesh is a collection of vertices and faces. In OpenGL, we define a mesh using 3 OpenGL objects:</p>
+<ul>
+<li><strong>Vertex Buffer</strong>: which is a buffer that contains the data of all the vertices.</li>
+<li><strong>Element Buffer</strong>: which is a buffer that contains data that defines the indices of the 3 vertices needed to draw each triangle (or 2 if lines or 1 if points). We will only handle the case of the triangles.</li>
+<li><strong>Vertex Array</strong>: which is an object that defines how the data in the vertex buffer is interpreted and sent to the vertex shader as attributes.</li>
+</ul>
+<p align="center">
+<img src="expected/mesh-test/default-0.png" width="256"/>
+</p>
+<p>In the code, there is a class &quot;Mesh&quot; which is defined in <code>source\common\mesh\mesh.hpp</code>. You will have some <strong>TODOs</strong> to finish before the class is fully functional.</p>
+<p>The <em>Mesh</em> class is tested by the <em>MeshTestState</em> which is run by the configurations in <code>config\mesh-test</code>. If your implementation of <em>Mesh</em> is correct, your outputs should match the expected outputs.</p>
+<hr>
+<h3 id="requirement-2-transform">Requirement 2: Transform</h3>
+<p>To draw different instances of a mesh at different positions, orientations and/or scales, we send a transformation matrix to the vertex shader as a uniform. The transformation matrix is used to transform the vertex positions from the object's local space to the world space.</p>
+<p>Since matrices are not human friendly (not trivial to edit by hand), we store transformations in the files (as seen in <code>config\transform-test</code>) using 3 vectors:</p>
+<ul>
+<li><strong>Position</strong> which represents the object translation along the <strong>x</strong>, <strong>y</strong> and <strong>z</strong> axes. The default value is (0, 0, 0).</li>
+<li><strong>Rotation</strong> which represents the object rotation around its origin. The x, y &amp; z values represents euler angles which are the rotation angles around the x, y &amp; z axes respectively. The order of rotation is around z (roll), then around x (pitch) and finally around y (yaw). The default value is (0, 0, 0).</li>
+<li><strong>Scale</strong> which defines the scale along each axis. The default value is (1, 1, 1).</li>
+</ul>
+<p>We use a struct &quot;Transform&quot; to store these three vectors and during rendering, we should convert it to a 4x4 Matrix. <em>Transform</em> is defined in <code>source\common\ecs\transform.hpp</code> and <code>source\common\ecs\transform.cpp</code> and you will have some <strong>TODOs</strong> to finish before the struct is fully functional. You also have a <strong>TODO</strong> in <code>assets\shaders\transform-test.vert</code>.</p>
+<p><strong>IMPORTANT NOTE</strong>: In the configuration files, we store the rotation angle in degrees but we convert them to radians during deserialization. So, you don't need to convert them to radians by yourself.</p>
+<p align="center">
+<img src="expected/transform-test/test-0.png" width="256"/>
+</p>
+<p>The <em>Transform</em> struct is tested by the <em>TransformTestState</em> which is run by the configurations in <code>config\transform-test</code>. If your implementation of <em>Transform</em> is correct, your outputs should match the expected outputs.</p>
+<hr>
+<h3 id="requirement-3-pipeline-state">Requirement 3: Pipeline State</h3>
+<p>OpenGL is a state machine where the options we pick are stored in the OpenGL context and affect the upcoming draw calls. Since each object may require different options while drawing (e.g. transparent objects require blending while Opaque objects don't), we would need to store the options for each object in a data structure and set the OpenGL options to match the given options before drawing.</p>
+<p>This is where we use the &quot;PipelineState&quot; structure which we will use to store the depth testing, face culling, blending and color/depth mask options. The <code>setup</code> function of the <em>PipelineState</em> sets the OpenGL options to match the ones stored in the corresponding <em>PipelineState</em> instance.</p>
+<p align="center">
+<img src="expected/pipeline-test/dt-1.png" width="256"/>
+</p>
+<p>The <em>PipelineState</em> struct is defined in <code>source\common\material\pipeline-state.hpp</code> and <code>source\common\material\pipeline-state.cpp</code>. You will have some <strong>TODOs</strong> to finish before the struct is fully functional.</p>
+<p>The <em>PipelineState</em> struct is tested by the <em>PipelineTestState</em> which is run by the configurations in <code>config\pipeline-test</code>. If your implementation of <em>Pipeline</em> is correct, your outputs should match the expected outputs.</p>
+<hr>
+<h3 id="requirement-4-texture">Requirement 4: Texture</h3>
+<p>A 2D Texture is a sampleable storage containing a 2D array of pixels. By &quot;sampleable&quot;, we mean that we can sample a color from it in the shaders.</p>
+<p>In the code, there is a class &quot;Texture2D&quot; which is defined in <code>source\common\texture\texture2d.hpp</code>. You will have some <strong>TODOs</strong> to finish before the class is fully functional. To load a texture from an image file, you will find a <code>loadImage</code> function defined in <code>source\common\texture\texture-utils.hpp</code> and <code>source\common\texture\texture-utils.cpp</code>. You will have some <strong>TODOs</strong> to finish before the class is fully functional. There is also a <strong>TODO</strong> inside the function <code>empty</code> function which will be needed in <strong>Requirment 10</strong>.
+Finally, you will need to finish the fragment shader <code>assets\shaders\texture-test.frag</code>.</p>
+<p align="center">
+<img src="expected/texture-test/test-0.png" width="256"/>
+</p>
+<p>The <em>Texture</em> class and <em>loadImage</em> function are tested by the <em>TextureTestState</em> which is run by the configurations in <code>config\texture-test</code>. If your implementation of <em>Texture2D</em> and <em>loadImage</em> is correct, your outputs should match the expected outputs.</p>
+<hr>
+<h3 id="requirement-5-sampler">Requirement 5: Sampler</h3>
+<p>There are more than one way to sample a texture. For example, we can choose between nearest or linear filtering and we can select between different wrapping options. A sampler is an OpenGL object that can store the sampling options to use while sampling a texture.</p>
+<p>In the code, there is a class &quot;Sampler&quot; which is defined in <code>source\common\texture\sampler.hpp</code> and <code>source\common\texture\sampler.cpp</code>. You will have some <strong>TODOs</strong> to finish before the class is fully functional.</p>
+<p align="center">
+<img src="expected/sampler-test/test-0.png" width="256"/>
+</p>
+<p>The <em>Sampler</em> class is tested by the <em>SamplerTestState</em> which is run by the configurations in <code>config\sampler-test</code>. If your implementation of <em>Sampler</em> is correct, your outputs should match the expected outputs.</p>
+<hr>
+<h3 id="requirement-6-material">Requirement 6: Material</h3>
+<p>In the previous phase and the previous requirements, we learned about shaders, pipeline states, textures and samplers. We also learned how to use them to define how an object should be drawn and how it will look. Now we want to combine all of that into one class which we will call &quot;Material&quot;.</p>
+<p>In our engine, a material answers the following questions:</p>
+<ul>
+<li>Which shader will be used to draw the object?</li>
+<li>Which pipeline state will be set before drawing the object?</li>
+<li>What uniform values will be sent to the shaders before drawing the objects? (This does not include the transformation matrix which is stored separately).</li>
+<li>Is this material transparent? (this will be useful for sorting in the last requirement &quot;Forward Renderer&quot;).</li>
+</ul>
+<p>Since there are lots of different types of Materials, we chose to create a base class for all materials (which we call &quot;Material&quot;) and we inherit from it to create more specific materials (e.g. &quot;TintedMaterial&quot; and &quot;TexturedMaterial&quot;).</p>
+<p align="center">
+<img src="expected/material-test/test-1.png" width="256"/>
+</p>
+<p>You will find the base class &quot;Material&quot; and the two derived classes &quot;TintedMaterial&quot; and &quot;TexturedMaterial&quot; defined in <code>source\common\material\material.hpp</code> and <code>source\common\material\material.cpp</code>. You will have some <strong>TODOs</strong> to finish before the class is fully functional. You will also need to finish the followings shaders:</p>
+<ul>
+<li><code>assets\shaders\tinted.vert</code> &amp; <code>assets\shaders\tinted.frag</code></li>
+<li><code>assets\shaders\textured.vert</code> &amp; <code>assets\shaders\textured.frag</code></li>
+</ul>
+<p>The <em>Material</em> classes are tested by the <em>MaterialTestState</em> which is run by the configurations in <code>config\material-test</code>. If your implementation of <em>Material</em> is correct, your outputs should match the expected outputs.</p>
+<hr>
+<h3 id="requirement-7-entities-and-components">Requirement 7: Entities and Components</h3>
+<p>Now, we want to organize our code in a form that would allow us to easily extend our application. To do this, we will implement an entity-component-system framework.</p>
+<p>An entity-component-system ECS framework consists of 3 parts:</p>
+<ul>
+<li><strong>Entities</strong>: which are containers that contain a set of components. An entity does nothing more than being a simple container and ideally, it should contain no logic of its own.</li>
+<li><strong>Components</strong>: which are data objects that can be added to entities. The rolea and the data of the entities are defined by their components. For example, if an entity contains a camera component, then it is a camera and we should be able to find camera specific data (e.g. field of view angle) inside the camera component. In ECS, components should have no logic (only data is allowed) but we are not going to stick with this rule for simplicity.</li>
+<li><strong>Systems</strong>: which defines the logic. For example, if we want to render a set of entities, we should implement a renderer system that draws the entities every frame.</li>
+</ul>
+<p>For the sake of organization, we will add one more class called &quot;World&quot; which is a container of entities. And to keep the code simple, we will define the entity transformation directly inside the entity class (instead of defining a transform component). The entity transformation will be specified by: <code>localTransform</code> which defines the entity's transformation relative to its parent and <code>parent</code> which defines the entity's parent (or null if the entity is a root).</p>
+<p>In this requirement, we will focus on 3 classes:</p>
+<ul>
+<li><strong>Entity</strong> class which is defined in <code>source\common\ecs\entity.hpp</code> and <code>source\common\ecs\entity.cpp</code>.</li>
+<li><strong>CameraComponent</strong> class which is defined in <code>source\common\components\camera.hpp</code> and <code>source\common\components\camera.cpp</code>. This specifies that its owning entity in a camera and contains the data needed to construct the camera projection matrix (except the aspect ratio which is computed using the window size). This component does not store any data about the camera position or orientation since it can be retrieved from the owning entity.</li>
+<li><strong>MeshRendererComponent</strong> class which is defined in <code>source\common\components\mesh-renderer.hpp</code> and <code>source\common\components\mesh-renderer.cpp</code>. This specifies that its owning entity is a drawable object. This class contains the material and the mesh used to draw this object.</li>
+</ul>
+<p align="center">
+<img src="expected/entity-test/test-1.png" width="512"/>
+</p>
+<p>Both the <em>Entity</em> and the <em>CameraComponent</em> classes contains <strong>TODOs</strong> that should be finished. Then go to the &quot;EntityTestState&quot; and finish the available <strong>TODOs</strong>. The <em>EntityTestState</em> is run by the configurations in <code>config\entity-test</code>. If your implementation of the TODOs is correct, your outputs should match the expected outputs.</p>
+<hr>
+<h3 id="requirement-8-forward-renderer-system">Requirement 8: Forward Renderer System</h3>
+<p>Finally, we want to isolate the rendering code into a separate system. The &quot;ForwardRenderer&quot; system class is defined in <code>source\common\systems\forward-renderer.hpp</code>. You will have some <strong>TODOs</strong> to finish before the class is fully functional.</p>
+<p>The difference between the implementation of the forward renderer system and the previous requirement is that the forward renderer will handle the transparent objects by sorting them by the distance along camera forward direction. The draw order of transparent objects is from far to near.</p>
+<p><strong>NOTE:</strong> We called this system a forward renderer since it uses forward rendering (which is what we were learning during the tutorials). There are more complex rendering techniques such as deferred rendering, light pre-pass rendering and tiled/clustered forward rendering which are outside the scope of this project.</p>
+<p align="center">
+<img src="expected/renderer-test/test-1.png" width="512"/>
+</p>
+<p>The <em>ForwardRenderer</em> class is tested by the <em>RendererTestState</em> which is run by the configurations in <code>config\renderer-test</code>. If your implementation of <em>ForwardRenderer</em> is correct, your outputs should match the expected outputs.</p>
+<h3 id="requirement-9-sky-rendering">Requirement 9: Sky Rendering</h3>
+<p>A background that is a single color is boring. We want to modify the &quot;ForwardRenderer&quot; system class (defined in <code>source\common\systems\forward-renderer.hpp</code>) to draw a sky sphere around the camera. You will have some <strong>TODOs</strong> to finish in order to render the sky.</p>
+<p>A couple of notes about rendering skies:</p>
+<ul>
+<li>While we could render the sky before everything, we will choose not to for performance reasons. Instead, we will draw it after rendering the opaque objects and before rendering the transparent objects. Can you guess why?</li>
+<li>The sky should never occlude any other object so we should make sure that it is rendered as the farthest object in the scene. We can acheive that by modifying the transformation matrix to ensure that the <code>z = 1</code> for every pixel of the sky in the Normalized device coordinates space. How?</li>
+</ul>
+<p align="center">
+<img src="expected/sky-test/test-1.png" width="512"/>
+</p>
+<p>Sky rendering is implemented the <em>ForwardRenderer</em> class which is tested by the <em>RendererTestState</em>. To test the sky, run the configurations in <code>config\sky-test</code>. If your implementation of <em>ForwardRenderer</em> is correct, your outputs should match the expected outputs.</p>
+<h3 id="requirement-10-postprocessing">Requirement 10: Postprocessing</h3>
+<p>Sometimes, we want to apply an image effect on the rendered scene. This is called postprocessing which can be applied by rendering the scene to a texture and then render the texture to the screen using the effect shader. We want to modify the &quot;ForwardRenderer&quot; system class (defined in <code>source\common\systems\forward-renderer.hpp</code>) to render the scene to a framebuffer (containing a color and a depth target), then render the color target to the screen using one of the postprocessing shaders. You will have some <strong>TODOs</strong> to finish in order to apply postprocessing effects. Don't forget to finish the <strong>TODO</strong> inside the function <code>empty</code> which you can find in <code>source\common\texture\texture-utils.cpp</code>. In addition some postprocessing shaders (<code>assets\shaders\postprocess\vignette.frag</code> and <code>assets\shaders\postprocess\chromatic-aberration.frag</code>) are incomplete, so you will need to finish them.</p>
+<p align="center">
+<img src="expected/postprocess-test/test-1.png" width="512"/>
+</p>
+<p>Postprocessing is implemented the <em>ForwardRenderer</em> class which is tested by the <em>RendererTestState</em>. To test the sky, run the configurations in <code>config\sky-test</code>. If your implementation of <em>ForwardRenderer</em> is correct, your outputs should match the expected outputs.</p>
+<hr>
+<h3 id="summary">Summary</h3>
+<p>This is a list of the requirements with their corresponding files:</p>
+<ol>
+<li>Mesh
+<ul>
+<li><code>source\common\mesh\mesh.hpp</code></li>
+</ul>
+</li>
+<li>Transform
+<ul>
+<li><code>source\common\ecs\transform.cpp</code></li>
+<li><code>assets\shaders\transform-test.vert</code></li>
+</ul>
+</li>
+<li>Pipeline State
+<ul>
+<li><code>source\common\material\pipeline-state.hpp</code></li>
+</ul>
+</li>
+<li>Texture
+<ul>
+<li><code>source\common\texture\texture2d.hpp</code></li>
+<li><code>source\common\texture\texture-utils.cpp</code></li>
+<li><code>assets\shaders\texture-test.frag</code></li>
+</ul>
+</li>
+<li>Sampler
+<ul>
+<li><code>source\common\texture\sampler.hpp</code></li>
+</ul>
+</li>
+<li>Material
+<ul>
+<li><code>source\common\material\material.cpp</code></li>
+<li><code>assets\shaders\tinted.frag</code></li>
+<li><code>assets\shaders\textured.frag</code></li>
+</ul>
+</li>
+<li>Entities and Components
+<ul>
+<li><code>source\common\ecs\entity.cpp</code></li>
+<li><code>source\common\components\camera.cpp</code></li>
+<li><code>source\states\entity-test-state.hpp</code></li>
+</ul>
+</li>
+<li>Forward Renderer
+<ul>
+<li><code>source\common\systems\forward-renderer.hpp</code></li>
+</ul>
+</li>
+<li>Sky Rendering
+<ul>
+<li><code>source\common\systems\forward-renderer.hpp</code></li>
+</ul>
+</li>
+<li>Postprocessing
+<ul>
+<li><code>source\common\systems\forward-renderer.hpp</code></li>
+<li><code>source\common\texture\texture-utils.cpp</code></li>
+<li><code>assets\shaders\postprocess\vignette.frag</code></li>
+<li><code>assets\shaders\postprocess\chromatic-aberration.frag</code></li>
+</ul>
+</li>
+</ol>
+<p>The following diagram shows the relationship between the classes (and structs) in the project:</p>
+<p align="center">
+<img src="docs/relationships.png" alt="relationships"/>
+</p>
+<h2 id="delivery">Delivery</h2>
+<p>Phase 2 should be delivered on Saturday 7th May 2022 23:59 and discussed in the tutorial during Week 12.</p>
+<p>The delivered files should only include the modified files. Only one member of each team needs to deliver the project on blackboard.</p>
+<h1 id="phase-3-final-phase">Phase 3 (Final Phase)</h1>
+<p>The goal of this phase is to deliver a simple game implemented using the framework implemented in the previous phases.</p>
+<h2 id="requirment-1-lighting">Requirment 1: Lighting</h2>
+<p>Since we already have an ECS framework with a forward renderer, we want to add lighting support to it. To do this, we should do the following:</p>
+<ol>
+<li>Create a light component. The component will identify that the entity is a light and will contain all the data related to the light (e.g. color, type, cone angles) except the position and the direction which should be calculated from the entity component.</li>
+<li>Add support for lighting in the shaders.</li>
+<li>Create a lit material class that includes all the needed texture maps (albedo, specular, roughness, ambient occlusion, emission).</li>
+<li>Add support for lighting in the forward renderer.</li>
+</ol>
+<p>The renderer and the shaders should support having more than one light affecting the same object and these lights can have different parameters (types, positions, color, etc).</p>
+<h2 id="requirment-2-game">Requirment 2: Game</h2>
+<p>In this requirement, we implement a game using the render engine we already built. The game must satisfy the following requirments:</p>
+<ul>
+<li>Usage of 3D models (created using any modeling program or downloaded from the internet).</li>
+<li>Lighting with multiple lights in the scene.</li>
+<li>Texture mapping (for models, environment, … etc.) with support for different texture types in lit materials (albedo, specular, roughness, etc).</li>
+<li>A sky.</li>
+<li>At least one postprocessing effect that we was not implemented or provided in Phase 2.</li>
+<li>3D motion.</li>
+<li>Any form of collision detection in 3D (obstacles, ray-picking, etc).</li>
+<li>Game logic (some form of game-like user interaction with the world where the player has to work towards one or more goals).</li>
+<li>Scene Deserialization (All scenes should be defined in external data files. No scene data should be hard coded).</li>
+<li>More than one state (e.g. a menu state and a play state).</li>
+</ul>
+<p><strong>NOTE:</strong> you are allowed to use external libraries for functionalities that are not related to rendering. For example, you can use a physics engine to support collisions and physics, and if youn wish to add audio, you can use an audio library.</p>
+<h2 id="game-proposal-document">Game Proposal Document</h2>
+<p>By Week 11 Saturday 30th April 2022 23:59, you should submit a game proposal. It should contain a game name, a paragraph describing the game and an image demonstrating the game idea. The description should describe how the game will be played and what is the goal of the game. Don’t forget to add the team member names, IDs and team number. Some example proposals are included in the appendix. Only one member of each team needs to deliver the game proposal on blackboard.</p>
+<h2 id="delivery">Delivery</h2>
+<p>With Phase 3, you have to submit a PDF report that contains the following:</p>
+<ol>
+<li>The names and IDs of the team members.</li>
+<li>The contribution of each member in the project.</li>
+<li>Three screenshots of your game.</li>
+</ol>
+<p>Phase 3 should be delivered on Saturday 21st May 2022 23:59 and discussed in the tutorial during Week 14.</p>
+<p>You should deliver all the project files except the <code>&quot;bin&quot;</code> and <code>&quot;build&quot;</code> folders. Including any of these 2 folders will cause your project to be penalized. Only one member of each team needs to deliver the project on blackboard.</p>
+<h1 id="appendix">Appendix</h1>
+<h2 id="proposal-examples">Proposal Examples</h2>
+<hr>
+<h3 id="lamazone-delivery-service">Lamazone Delivery Service</h3>
+<p>Lamazone online shopping service has built the perfect delivery robot, a robot that can never stop moving. You play as a RoboLarry who is new to the job and has to finish his daily delivery quota. Your battery is limited and you can only hold one package at a time. Go to storage locations to take a package and deliver them to their corresponding customers. Steer left and right to avoid hitting buildings and moving cars and collect batteries on the road to recharge. Beware, the more energy you have, the faster you’ll move.</p>
+<p align="center">
+<img src="docs/prop1.png" alt="circle" width="256"/>
+</p>
+<p align="center">
+<code>Example Image (Drawn in Paint)</code>
+</p>
+<hr>
+<h3 id="towers-of-the-demon-lord">Towers of the Demon Lord</h3>
+<p>The army of light is approaching the city of the demon lord so he hires you, the underworld engineer, to build him a defense system against them. Add turrets, traps, and other obstacles to stop them from reaching the demon lord’s castle. Collect coins from dead knights to buy more tools and materials.</p>
+<p align="center">
+<img src="docs/prop2.jpg" alt="circle" width="256"/>
+</p>
+<p align="center">
+<code>Example Image (Photo from Defenders of Ardania)</code>
+</p>
+<hr>
+<h3 id="nice-day-to-die-again">Nice Day to Die Again</h3>
+<p>It was a nice day so you went shopping with your friends. Unfortunately, the zombies thought it was a nice day to go shopping too. Use your machine gun to make sure they are dead again. Get all the shopping items you want and get to the cashier without allowing any zombie to bite you. Shoot them if they get near you.</p>
+<p align="center">
+<img src="docs/prop3.png" alt="circle" width="256"/>
+</p>
+<p align="center">
+<code>Example Image: (Assembled together in GIMP)</code>
+</p>
+<hr>
+<h2 id="useful-resources">Useful Resources</h2>
+<ul>
+<li>Tutorials
+<ul>
+<li><a href="https://learnopengl.com/">Learn OpenGL</a></li>
+<li><a href="https://open.gl/introduction">Open.GL</a></li>
+<li><a href="http://www.opengl-tutorial.org/">OpenGL-Tutorial</a></li>
+<li><a href="https://thebookofshaders.com/">The Book of Shaders</a></li>
+</ul>
+</li>
+<li>References
+<ul>
+<li><a href="https://www.khronos.org/opengl/wiki/">OpenGL Wiki</a></li>
+<li><a href="https://www.khronos.org/registry/OpenGL-Refpages/gl4/">OpenGL Reference</a></li>
+<li><a href="https://docs.gl/">docs.GL</a></li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>

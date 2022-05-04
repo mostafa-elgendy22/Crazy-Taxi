@@ -1,0 +1,28 @@
+{
+    "start-scene": "sampler-test",
+    "window":
+    {
+        "title":"Sampler Test Window",
+        "size":{
+            "width":512,
+            "height":512
+        },
+        "fullscreen": false
+    },
+    "screenshots":{
+        "directory": "screenshots/sampler-test",
+        "requests": [
+            { "file": "test-7.png", "frame":  1 }
+        ]
+    },
+    "scene": {
+        "sampler": {
+            "MAG_FILTER": "GL_NEAREST",
+            "MIN_FILTER": "GL_NEAREST",
+            "WRAP_S": "GL_CLAMP_TO_BORDER",
+            "WRAP_T": "GL_CLAMP_TO_BORDER",
+            "BORDER_COLOR": [0.25, 0.5, 1.0, 1]
+        },
+        "texture": "assets/textures/smile.png"
+    }
+}
