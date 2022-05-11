@@ -15,5 +15,6 @@ void main(){
     //TODO: (Req 4) Change the following line to read the fragment color
     // from the texture at the received texture coordinates
     //frag_color = vec4(0.0, 0.0, 0.0, 1.0);
-    frag_color=texture(tex,fs_in.tex_coord);
+    // frag_color = vec4(255, 0.0, 1.0, 1.0); //texture(tex, fs_in.tex_coord);
+    frag_color = vec4(255.0, 255.0, 255.0, 1.0);
 }
