@@ -58,7 +58,7 @@ namespace our {
         // Left and Right are the same but after being multiplied by the aspect ratio
         // For the perspective camera, you can use glm::perspective
 
-        viewportSize
+        
 
 
         return glm::mat4(1.0f);
