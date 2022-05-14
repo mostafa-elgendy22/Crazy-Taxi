@@ -154,12 +154,22 @@ namespace our
 
         //TODO: (Req 8) Modify the following line such that "cameraForward" contains a vector pointing the camera forward direction
         // HINT: See how you wrote the CameraComponent::getViewMatrix, it should help you solve this one
-        glm::vec3 cameraForward = glm::vec3(0.0, 0.0, 0.0);
+        auto modelCamera = camera->getOwner()->getLocalToWorldMatrix();
+        // center - eye
+        glm::vec3 cameraForward = modelCamera * glm::vec4(0,0,-1,1) - modelCamera * glm::vec4(0,0,0,1);
+
         std::sort(transparentCommands.begin(), transparentCommands.end(),
                   [cameraForward](const RenderCommand &first, const RenderCommand &second)
                   {
                       //TODO: (Req 8) Finish this function
                       // HINT: the following return should return true "first" should be drawn before "second".
+
+                      // sort the furthest first
+
+                      // project on camera forward direction then compare magnitudes
+                      return glm::dot(first.center, cameraForward) > glm::dot(second.center, cameraForward);
+
+//                      return first.center.z < second.center.z;
                       return false;
                   });
 
@@ -191,8 +201,8 @@ namespace our
         // Don't forget to set the "transform" uniform to be equal the model-view-projection matrix for each render command
         for (int i = 0; i < opaqueCommands.size(); i++)
         {
-            glUniformMatrix4fv(opaqueCommands[i].material->shader->getUniformLocation("transform"), 1, false,
-                               (float *) &opaqueCommands[i].localToWorld);
+            opaqueCommands[i].material->setup();
+            opaqueCommands[i].material->shader->set("transform", VP * opaqueCommands[i].localToWorld);
             opaqueCommands[i].mesh->draw();
         }
 
@@ -213,7 +223,7 @@ namespace our
 
 
             //TODO: (Req 9) We want the sky to be drawn behind everything (in NDC space, z=1)
-            // We can acheive the is by multiplying by an extra matrix after the projection but what values should we put in it?
+            // We can achieve the is by multiplying by an extra matrix after the projection but what values should we put in it?
 
             //? x=x, y=y, z=1
             // 1 0 0 0     x     x'
@@ -238,8 +248,8 @@ namespace our
         // Don't forget to set the "transform" uniform to be equal the model-view-projection matrix for each render command
         for (int i = 0; i < transparentCommands.size(); i++)
         {
-            glUniformMatrix4fv(transparentCommands[i].material->shader->getUniformLocation("transform"), 1, false,
-                               (float *) &transparentCommands[i].localToWorld);
+            transparentCommands[i].material->setup();
+            transparentCommands[i].material->shader->set("transform", VP * transparentCommands[i].localToWorld);
             transparentCommands[i].mesh->draw();
         }
 
