@@ -59,12 +59,18 @@ namespace our
         if (config.contains("postprocess"))
         {
             //TODO: (Req 10) Create a framebuffer
+            glGenFramebuffers(1, &postprocessFrameBuffer);
+            glBindFramebuffer(GL_DRAW_FRAMEBUFFER, postprocessFrameBuffer);
 
             //TODO: (Req 10) Create a color and a depth texture and attach them to the framebuffer
             // Hints: The color format can be (Red, Green, Blue and Alpha components with 8 bits for each channel).
             // The depth format can be (Depth component with 24 bits).
+            colorTarget = texture_utils::empty(GL_RGBA8, windowSize);
+            depthTarget = texture_utils::empty(GL_DEPTH_COMPONENT32, windowSize);
 
             //TODO: (Req 10) Unbind the framebuffer just to be safe
+            glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+
 
             // Create a vertex array to use for drawing the texture
             glGenVertexArrays(1, &postProcessVertexArray);
@@ -181,7 +187,8 @@ namespace our
         if (postprocessMaterial)
         {
             //TODO: (Req 10) bind the framebuffer
-
+            glBindFramebuffer(GL_DRAW_FRAMEBUFFER, postprocessFrameBuffer);
+            glBindVertexArray(postProcessVertexArray);//- where????
         }
 
         //TODO: (Req 8) Clear the color and depth buffers
@@ -247,9 +254,12 @@ namespace our
         if (postprocessMaterial)
         {
             //TODO: (Req 10) Return to the default framebuffer
+            //- I DON'T KNOW
+            glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0); // draw on screen
 
             //TODO: (Req 10) Setup the postprocess material and draw the fullscreen triangle
-
+            postprocessMaterial->setup();
+            glDrawArrays(GL_TRIANGLES, 0, 3); //-- ???
         }
     }
 
