@@ -265,10 +265,10 @@ namespace our
             glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0); // draw on screen
 
             //TODO: (Req 10) Setup the postprocess material and draw the fullscreen triangle
-            glBindVertexArray(postProcessVertexArray);//- where????
+            glBindVertexArray(postProcessVertexArray);
             postprocessMaterial->setup();
 
-            glDrawArrays(GL_TRIANGLES, 0, 3); //-- ???
+            glDrawArrays(GL_TRIANGLES, 0, 3); 
         }
     }
 
