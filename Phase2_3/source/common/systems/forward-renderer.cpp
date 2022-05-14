@@ -176,9 +176,6 @@ namespace our
 
                       // project on camera forward direction then compare magnitudes
                       return glm::dot(first.center, cameraForward) > glm::dot(second.center, cameraForward);
-
-//                      return first.center.z < second.center.z;
-                      return false;
                   });
 
         //TODO: (Req 8) Get the camera ViewProjection matrix and store it in VP
@@ -200,8 +197,6 @@ namespace our
         {
             //TODO: (Req 10) bind the framebuffer
             glBindFramebuffer(GL_DRAW_FRAMEBUFFER, postprocessFrameBuffer);
-            //--glBindVertexArray(postProcessVertexArray);//- where????
-            
         }
 
         //TODO: (Req 8) Clear the color and depth buffers
@@ -267,11 +262,12 @@ namespace our
         if (postprocessMaterial)
         {
             //TODO: (Req 10) Return to the default framebuffer
-            //- I DON'T KNOW
             glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0); // draw on screen
 
             //TODO: (Req 10) Setup the postprocess material and draw the fullscreen triangle
+            glBindVertexArray(postProcessVertexArray);//- where????
             postprocessMaterial->setup();
+
             glDrawArrays(GL_TRIANGLES, 0, 3); //-- ???
         }
     }
