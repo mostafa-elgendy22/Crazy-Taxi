@@ -26,3 +26,6 @@ screenshots/
 
 # Errors
 errors/
+
+# imgcmp.exe
+scripts/imgcmp.exe
