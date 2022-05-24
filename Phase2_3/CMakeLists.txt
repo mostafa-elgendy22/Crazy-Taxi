@@ -69,6 +69,8 @@ set(COMMON_SOURCES
         source/common/ecs/world.hpp
         source/common/ecs/world.cpp
 
+        source/common/components/light.hpp
+        source/common/components/light.cpp
         source/common/components/camera.hpp
         source/common/components/camera.cpp
         source/common/components/mesh-renderer.hpp
