@@ -1,5 +1,6 @@
 # Blender v2.93.0 OBJ File: ''
 # www.blender.org
+mtllib Suzanne.mtl
 o Suzanne_Suzanne.001
 v 0.468750 0.242188 0.757812
 v 0.437500 0.164062 0.765625
