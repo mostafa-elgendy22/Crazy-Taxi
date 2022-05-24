@@ -168,15 +168,15 @@
                 ]
             },
             {
-                "position": [0, 15, 0],
-                "rotation": [0, 0, 90],
+                "position": [5, 0, 0],
+                "rotation": [0, 0, 270],
                 "components": [
                     {
                         "type": "Light",
                         "lightType": "spot",
                         "color": [0, 10, 0],
-                        "attenuation": [0, 1, 0],
-                        "cone_angles":[4, 5]
+                        "attenuation": [1, 0, 0],
+                        "cone_angles":[10, 20]
                     }
                 ]
             },

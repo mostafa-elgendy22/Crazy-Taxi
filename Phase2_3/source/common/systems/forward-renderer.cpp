@@ -234,12 +234,12 @@ namespace our
 
             for(int j = 0; j < (int)lights.size(); j++){
                 //TODO 11 check if correct - assumption: default light direction is bottom
-                glm::vec3 position = VP * lights[j]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, 0, 1);
+                glm::vec3 position = lights[j]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, 0, 1);
 
                 // TODO 11 should this be normalized???? - assuming default is down
                 glm::vec4 directionVector = lights[j]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, -1, 0, 0);
                 glm::vec3 direction = glm::vec3(directionVector.x, directionVector.y, directionVector.z);
-
+                
                 lights[j]->sendData(shader, j, direction, position);
             }
 
