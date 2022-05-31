@@ -38,13 +38,18 @@
                 "monkey-specular": "assets/textures/monkey/specular.jpg",
                 "monkey-roughness": "assets/textures/monkey/roughness.jpg",
                 "monkey-ambient_occlusion": "assets/textures/monkey/ambient_occlusion.jpg",
-                "monkey-emissive": "assets/textures/monkey/emissive.jpg"
+                "monkey-emissive": "assets/textures/monkey/emissive.jpg",
+                "car-albedo":"assets/models/car/bodybkgd.jpg",
+                "black":"assets/textures/black.png",
+                "road":"assets/textures/road.jpg",
+                "buildings":"assets/textures/buildings.jpg"
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
                 "monkey": "assets/models/monkey.obj",
                 "plane": "assets/models/plane.obj",
-                "sphere": "assets/models/sphere.obj"
+                "sphere": "assets/models/sphere.obj",
+                "car":"assets/models/car/1967-shelby-ford-mustang.obj"
             },
             "samplers":{
                 "default":{},
@@ -103,6 +108,37 @@
                     "texture": "grass",
                     "sampler": "default"
                 },
+                // TODO 12 lit?
+                "road":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "road",
+                    "sampler": "default"
+                },
+                "building":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "buildings",
+                    "sampler": "default"
+                },
                 "monkey":{
                     "type": "lit",
                     "shader": "lit",
@@ -138,12 +174,38 @@
                     "tint": [1, 1, 1, 1],
                     "texture": "moon",
                     "sampler": "default"
+                },
+                "car":
+                {
+                    "type": "lit",
+                    "shader":"lit",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+
+                    // TODO 12 if textured, it gives interior??
+                    // "texture":"car-albedo",
+                    
+                    "albedo":"car-albedo",
+                    // TODO 12 this should be changed
+                    "specular": "car-albedo",
+                    "roughness": "black",
+                    "ambient_occlusion": "black",
+                    "emissive": "black",
+
+                    "sampler":"default"
                 }
             }
         },
         "world":[
             {
-                "position": [0, 0, 10],
+                "position": [0, 3, 10],
                 "components": [
                     {
                         "type": "Camera"
@@ -154,22 +216,45 @@
                 ],
                 "children": [
                     {
-                        "position": [1, -1, -1],
-                        "rotation": [45, 45, 0],
-                        "scale": [0.1, 0.1, 1.0],
-                        "components": [
+                        "position":[0, -4, -7],
+                        "scale": [0.5, 0.5, 0.5],
+                        "components":[
                             {
-                                "type": "Mesh Renderer",
-                                "mesh": "cube",
-                                "material": "metal"
+                                "type":"Mesh Renderer",
+                                "mesh":"car",
+                                "material":"car"
                             }
                         ]
                     }
                 ]
             },
+            // {
+            //     "position":[0, -1, 5],
+            //     "scale": [0.8, 0.8, 0.8],
+            //     "components":[
+            //         {
+            //             "type":"Mesh Renderer",
+            //             "mesh":"car",
+            //             "material":"car"
+            //         }
+            //     ]
+            // },
             {
-                "position": [0, 0, 0],
-                "rotation": [0, 0, 180],
+                "position": [0, 5, 0],
+                // "rotation": [0, 0, 180],
+                "components": [
+                    {
+                        "type": "Light",
+                        "lightType": "spot",
+                        "color": [1, 1, 1],
+                        "attenuation": [0, 0, 1],
+                        "cone_angles":[10, 11]
+                    }
+                ]
+            },
+            {
+                "position": [0, 10, 0],
+                // "rotation": [0, 0, 180],
                 "components": [
                     {
                         "type": "Light",
@@ -179,107 +264,115 @@
                         "cone_angles":[10, 11]
                     }
                 ]
-            },
+            },            
+            // vertical road
             {
-                "rotation": [-45, 0, 0],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "monkey",
-                        "material": "monkey"
-                    },
-                    {
-                        "type": "Movement",
-                        "linearVelocity": [0, 0.1, 0],
-                        "angularVelocity": [0, 45, 0]
-                    }
-                ]
-            },
-            {
-                "position": [0, -1, 0],
+                "position": [0, -1, -40],
                 "rotation": [-90, 0, 0],
-                "scale": [10, 10, 1],
+                "scale": [10, 50, 1],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "plane",
-                        "material": "grass"
+                        "material": "road"
                     }
                 ]
             },
+            // horizontal raod
             {
-                "position": [0, 1, 2],
+                "position": [0, -1.1, -40],
+                "rotation": [90, -90, 0],
+                "scale": [10, 50, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
+            },
+            // <buildings>
+            {
+                "position": [30, -1, -50],
                 "rotation": [0, 0, 0],
-                "scale": [2, 2, 2],
+                "scale": [20, 20, 1],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "plane",
-                        "material": "glass"
+                        "material": "building"
                     }
                 ]
             },
             {
-                "position": [0, 1, -2],
+                "position": [-30, -1, -50],
                 "rotation": [0, 0, 0],
-                "scale": [2, 2, 2],
+                "scale": [20, 20, 1],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "plane",
-                        "material": "glass"
+                        "material": "building"
                     }
                 ]
             },
             {
-                "position": [2, 1, 0],
+                "position": [10, -1, -70],
                 "rotation": [0, 90, 0],
-                "scale": [2, 2, 2],
+                "scale": [20, 20, 1],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "plane",
-                        "material": "glass"
+                        "material": "building"
                     }
                 ]
             },
             {
-                "position": [-2, 1, 0],
+                "position": [-10, -1, -70],
                 "rotation": [0, 90, 0],
-                "scale": [2, 2, 2],
+                "scale": [20, 20, 1],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "plane",
-                        "material": "glass"
+                        "material": "building"
                     }
                 ]
             },
             {
-                "position": [0, 3, 0],
-                "rotation": [90, 0, 0],
-                "scale": [2, 2, 2],
+                "position": [-10, -1, -70],
+                "rotation": [0, 90, 0],
+                "scale": [20, 20, 1],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "plane",
-                        "material": "glass"
+                        "material": "building"
                     }
                 ]
             },
             {
-                "position": [0, 10, 0],
-                "rotation": [45, 45, 0],
-                "scale": [5, 5, 5],
+                "position": [-10, -1, -10],
+                "rotation": [0, 90, 0],
+                "scale": [20, 20, 1],
                 "components": [
                     {
                         "type": "Mesh Renderer",
-                        "mesh": "sphere",
-                        "material": "moon"
-                    },
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "position": [10, -1, -10],
+                "rotation": [0, 90, 0],
+                "scale": [20, 20, 1],
+                "components": [
                     {
-                        "type": "Movement",
-                        "angularVelocity": [0, 90, 0]
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
                     }
                 ]
             }
