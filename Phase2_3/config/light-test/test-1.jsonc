@@ -188,7 +188,7 @@
                         }
                     },
                     "tint": [1, 1, 1, 1],
-
+                    // "transparent": true,
                     // TODO 12 if textured, it gives interior??
                     // "texture":"car-albedo",
                     

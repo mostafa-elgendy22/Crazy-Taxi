@@ -243,8 +243,14 @@ namespace our
                 lights[j]->sendData(shader, j, direction, position);
             }
 
-            // TODO 11 SEND SKY LIGHT OR REFACTOR TO USE AMBIENT
-            
+             // sending skylight data
+            // TODO 11 should these values be constants? or read them from jsonc???
+            // shader->set("sky.top", glm::vec3(0.3, 0.6, 1.0));
+            shader->set("sky.top", glm::vec3(0.0, 0, 1.0));
+            shader->set("sky.middle", glm::vec3(0.3, 0.3, 0.3));
+            shader->set("sky.bottom", glm::vec3(0.1, 0.1, 0.0));
+
+
             glm::vec4 cameraPos = modelCamera * glm::vec4(0, 0, 0, 1); // TODO 11 calculated twice --> calculate it once
             
             // TODO 11 don't send if TexturedMaterial - dynamic casting??
@@ -303,9 +309,57 @@ namespace our
         // Don't forget to set the "transform" uniform to be equal the model-view-projection matrix for each render command
         for (int i = 0; i < transparentCommands.size(); i++)
         {
-            transparentCommands[i].material->setup();
-            transparentCommands[i].material->shader->set("transform", VP * transparentCommands[i].localToWorld);
+             transparentCommands[i].material->setup();
+
+            ShaderProgram* shader = transparentCommands[i].material->shader;
+
+            glm::mat4 modelMaterial = transparentCommands[i].localToWorld;
+
+            // TODO 11 don't send if LitMaterial
+            shader->set("transform", VP * transparentCommands[i].localToWorld);
+
+            // send lights count
+            shader->set("light_count", (int)lights.size());
+
+            // find position and direction of light
+            // assume initial direcion of light is (0, -1, 0) (down) - changing direction happens through rotation
+            // to change initial direction, set rotation in jsonc file
+
+            for(int j = 0; j < (int)lights.size(); j++){
+                //TODO 11 check if correct - assumption: default light direction is bottom
+                glm::vec3 position = lights[j]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, 0, 1);
+
+                // TODO 11 should this be normalized???? - assuming default is down
+                glm::vec4 directionVector = lights[j]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, -1, 0, 0);
+                glm::vec3 direction = glm::vec3(directionVector.x, directionVector.y, directionVector.z);
+                
+                lights[j]->sendData(shader, j, direction, position);
+            }
+
+            // sending skylight data
+            // TODO 11 should these values be constants? or read them from jsonc???
+            shader->set("sky.top", glm::vec3(0.3, 0.6, 1.0));
+            shader->set("sky.middle", glm::vec3(0.3, 0.3, 0.3));
+            shader->set("sky.bottom", glm::vec3(0.1, 0.1, 0.0));
+
+
+            glm::vec4 cameraPos = modelCamera * glm::vec4(0, 0, 0, 1); // TODO 11 calculated twice --> calculate it once
+            
+            // TODO 11 don't send if TexturedMaterial - dynamic casting??
+            shader->set("eye", glm::vec3(cameraPos.x, cameraPos.y, cameraPos.z));
+            shader->set("VP", VP);
+            shader->set("M", modelMaterial);
+
+            glm::mat4 M_IT = glm::transpose(glm::inverse(modelMaterial));
+
+
+            shader->set("M_IT", M_IT);
+
+
             transparentCommands[i].mesh->draw();
+            // transparentCommands[i].material->setup();
+            // transparentCommands[i].material->shader->set("transform", VP * transparentCommands[i].localToWorld);
+            // transparentCommands[i].mesh->draw();
         }
 
         // If there is a postprocess material, apply postprocessing
