@@ -214,9 +214,9 @@
                     },
                     {
                         "type":"Car Movement",
-                        "maxSpeed":1.0,
+                        "maxSpeed":0.1,
                         "maxAngle":0.1,
-                        "accelerationSensitivity":0.3,
+                        "accelerationSensitivity":0.05,
                         "rotationSensitivity":0.05
                     }
                 ],
