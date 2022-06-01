@@ -6,6 +6,7 @@
 #include "free-camera-controller.hpp"
 #include "movement.hpp"
 #include "light.hpp"
+#include "car-movement.hpp"
 
 namespace our {
 
@@ -24,6 +25,9 @@ namespace our {
             component = entity->addComponent<MovementComponent>();
         } else if (type == LightComponent::getID()){
             component = entity->addComponent<LightComponent>();
+        }
+        else if (type == CarMovementComponent::getID()){
+            component = entity->addComponent<CarMovementComponent>();
         }
         if(component) component->deserialize(data);
     }
