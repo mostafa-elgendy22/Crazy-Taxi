@@ -8,7 +8,14 @@ namespace our {
 
     class CarMovementComponent : public Component {
     public:
-        float speed=0.1f;
+        float maxSpeed=5.0f;
+        float maxAngle=3.0f;
+
+        float acceleration=0;
+        float rotation=0;
+
+        float accelerationSensitivity=1.0f;
+        float rotationSensitivity=1.0f;
 
         // The ID of this component type is "CarMovement"
         static std::string getID() { return "Car Movement"; }

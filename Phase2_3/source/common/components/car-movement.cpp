@@ -6,6 +6,10 @@ namespace our {
 
     void CarMovementComponent::deserialize(const nlohmann::json& data){
         if(!data.is_object()) return;
-        speed = data.value("speed", speed);
+        maxSpeed = data.value("maxSpeed", maxSpeed);
+        maxAngle = data.value("maxSpeed", maxAngle);
+
+        accelerationSensitivity = data.value("accelerationSensitivity", accelerationSensitivity);
+        rotationSensitivity = data.value("rotationSensitivity", rotationSensitivity);
     }
 }
