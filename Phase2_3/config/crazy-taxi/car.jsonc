@@ -205,30 +205,6 @@
         },
         "world":[
             {
-                "position": [0, 3, 10],
-                "components": [
-                    {
-                        "type": "Camera"
-                    },
-                    {
-                        "type": "Free Camera Controller"
-                    }
-                ]
-                // "children": [
-                //     {
-                //         "position":[0, -4, -7],
-                //         "scale": [0.5, 0.5, 0.5],
-                //         "components":[
-                //             {
-                //                 "type":"Mesh Renderer",
-                //                 "mesh":"car",
-                //                 "material":"car"
-                //             }
-                //         ]
-                //     }
-                // ]
-            },
-            {
                 "position":[0, 0, 0],
                 "components":[
                     {
@@ -240,7 +216,17 @@
                         "type":"Car Movement",
                         "speed":0.2
                     }
-                ]
+                ],
+                "children": [
+                    {
+                    "position": [0, 3, 10],
+                    "components": [
+                        {
+                            "type": "Camera"
+                        }
+                    ]
+                    }
+            ]
             },
             // {
             //     "position":[0, -1, 5],
