@@ -18,7 +18,9 @@ namespace our {
         // We need to remember the number of elements that will be drawn by glDrawElements
         GLsizei elementCount;
     public:
-
+        // Phase 3 - Gheiath: Add vertices arr to check collisions later if needed !
+        std::vector<glm::vec3> vertices;
+        
         // The constructor takes two vectors:
         // - vertices which contain the vertex data.
         // - elements which contain the indices of the vertices out of which each rectangle will be constructed.
@@ -55,6 +57,10 @@ namespace our {
             glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * elements.size(), &elements.front(), GL_STATIC_DRAW);
 
             glBindVertexArray(0); // unbind VAO, no longer needed
+                                  
+            // Phase 3 - Gheiath: Add vertices arr to check collisions later if needed !
+            for (auto &idx: elements)
+              this->vertices.emplace_back(vertices[idx].position);
         }
 
         // this function should render the mesh

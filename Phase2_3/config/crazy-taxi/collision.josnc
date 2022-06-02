@@ -1,0 +1,400 @@
+{
+    "start-scene": "main",
+    "window":
+    {
+        "title":"Default Game Window",
+        "size":{
+            "width":1280,
+            "height":720
+        },
+        "fullscreen": false
+    },
+    "scene": {
+        "renderer":{
+            "sky": "assets/textures/sky.jpg",
+            "postprocess": "assets/shaders/postprocess/vignette.frag"
+        },
+        "assets":{
+            "shaders":{
+                "tinted":{
+                    "vs":"assets/shaders/tinted.vert",
+                    "fs":"assets/shaders/tinted.frag"
+                },
+                "textured":{
+                    "vs":"assets/shaders/textured.vert",
+                    "fs":"assets/shaders/textured.frag"
+                },
+                "lit":{
+                    "vs":"assets/shaders/lit.vert",
+                    "fs":"assets/shaders/lit.frag"
+                }
+            },
+            "textures":{
+                "moon": "assets/textures/moon.jpg",
+                "grass": "assets/textures/grass_ground_d.jpg",
+                "wood": "assets/textures/wood.jpg",
+                "glass": "assets/textures/glass-panels.png",
+                "monkey": "assets/textures/monkey/albedo.jpg",
+                "monkey-specular": "assets/textures/monkey/specular.jpg",
+                "monkey-roughness": "assets/textures/monkey/roughness.jpg",
+                "monkey-ambient_occlusion": "assets/textures/monkey/ambient_occlusion.jpg",
+                "monkey-emissive": "assets/textures/monkey/emissive.jpg",
+                "car-albedo":"assets/models/car/bodybkgd.jpg",
+                "black":"assets/textures/black.png",
+                "road":"assets/textures/road.jpg",
+                "buildings":"assets/textures/buildings.jpg"
+            },
+            "meshes":{
+                "cube": "assets/models/cube.obj",
+                "monkey": "assets/models/monkey.obj",
+                "plane": "assets/models/plane.obj",
+                "sphere": "assets/models/sphere.obj",
+                "car":"assets/models/car/1967-shelby-ford-mustang.obj"
+            },
+            "samplers":{
+                "default":{},
+                "pixelated":{
+                    "MAG_FILTER": "GL_NEAREST"
+                }
+            },
+            "materials":{
+                "metal":{
+                    "type": "tinted",
+                    "shader": "tinted",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [0.45, 0.4, 0.5, 1]
+                },
+                "glass":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        },
+                        "blending":{
+                            "enabled": true,
+                            "sourceFactor": "GL_SRC_ALPHA",
+                            "destinationFactor": "GL_ONE_MINUS_SRC_ALPHA"
+                        },
+                        "depthMask": false
+                    },
+                    "transparent": true,
+                    "tint": [1, 1, 1, 1],
+                    "texture": "glass",
+                    "sampler": "pixelated"
+                },
+                "grass":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "grass",
+                    "sampler": "default"
+                },
+                // TODO 12 lit?
+                "road":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "road",
+                    "sampler": "default"
+                },
+                "building":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "buildings",
+                    "sampler": "default"
+                },
+                "monkey":{
+                    "type": "lit",
+                    "shader": "lit",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+
+                    "albedo": "monkey",
+                    "specular": "monkey-specular",
+                    "roughness": "monkey-roughness",
+                    "ambient_occlusion": "monkey-ambient_occlusion",
+                    "emissive": "monkey-emissive",
+
+                    "sampler": "default"
+                },
+                "moon":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "moon",
+                    "sampler": "default"
+                },
+                "car":
+                {
+                    "type": "lit",
+                    "shader":"lit",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+
+                    // TODO 12 if textured, it gives interior??
+                    // "texture":"car-albedo",
+                    
+                    "albedo":"car-albedo",
+                    // TODO 12 this should be changed
+                    "specular": "car-albedo",
+                    "roughness": "black",
+                    "ambient_occlusion": "black",
+                    "emissive": "black",
+
+                    "sampler":"default"
+                }
+            }
+        },
+        "world":[
+            {
+                "name": "maincar",
+                "position":[0, 0, 0],
+                "components":[
+                    {
+                        "type":"Mesh Renderer",
+                        "mesh":"car",
+                        "material":"car"
+                    },
+                    {
+                        "type":"Car Movement",
+                        "maxSpeed":5.1,
+                        "maxAngle":0.1,
+                        "accelerationSensitivity":1.5,
+                        "rotationSensitivity":0.05
+                    }
+                ],
+                "children": [
+                    {
+                    "name": "maincam",
+                    "position": [0, 3, 10],
+                    "components": [
+                        {
+                            "type": "Camera"
+                        },
+                        {
+                        //    "type": "Free Camera Controller"
+                        }
+                    ]
+                    }
+            ]
+            },
+            // {
+            //     "name": "car","position":[0, -1, 5],
+            //     "scale": [0.8, 0.8, 0.8],
+            //     "components":[
+            //         {
+            //             "type":"Mesh Renderer",
+            //             "mesh":"car",
+            //             "material":"car"
+            //         }
+            //     ]
+            // },
+            {
+                "name": "light",
+                "position": [0, 5, 0],
+                // "rotation": [0, 0, 180],
+                "components": [
+                    {
+                        "type": "Light",
+                        "lightType": "spot",
+                        "color": [1, 1, 1],
+                        "attenuation": [0, 0, 1],
+                        "cone_angles":[10, 11]
+                    }
+                ]
+            },
+            {
+                "name": "light",
+                "position": [0, 10, 0],
+                // "rotation": [0, 0, 180],
+                "components": [
+                    {
+                        "type": "Light",
+                        "lightType": "directional",
+                        "color": [1, 1, 1],
+                        "attenuation": [0, 0, 1],
+                        "cone_angles":[10, 11]
+                    }
+                ]
+            },            
+            // vertical road
+            {
+                "name": "road",
+                "position": [0, -1, -40],
+                "rotation": [-90, 0, 0],
+                "scale": [10, 50, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
+            },
+            // horizontal raod
+            {
+                "name": "road",
+                "position": [0, -1.1, -40],
+                "rotation": [90, -90, 0],
+                "scale": [10, 50, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
+            },
+            // <buildings>
+            {
+                "name": "building",
+                "position": [30, -1, -50],
+                "rotation": [0, 0, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+          //  {
+          //      "name": "building",
+          //      "position": [-30, -1, -50],
+          //      "rotation": [0, 0, 0],
+          //      "scale": [20, 20, 1],
+          //      "components": [
+          //          {
+          //              "type": "Mesh Renderer",
+          //              "mesh": "plane",
+          //              "material": "building"
+          //          }
+          //      ]
+          //  },
+            {
+                "name": "building",
+                "position": [10, -1, -70],
+                "rotation": [0, 90, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            }
+          //  {
+          //      "name": "building",
+          //      "position": [-10, -1, -70],
+          //      "rotation": [0, 90, 0],
+          //      "scale": [20, 20, 1],
+          //      "components": [
+          //          {
+          //              "type": "Mesh Renderer",
+          //              "mesh": "plane",
+          //              "material": "building"
+          //          }
+          //      ]
+          //  },
+          //  {
+          //      "name": "building",
+          //      "position": [-10, -1, -70],
+          //      "rotation": [0, 90, 0],
+          //      "scale": [20, 20, 1],
+          //      "components": [
+          //          {
+          //              "type": "Mesh Renderer",
+          //              "mesh": "plane",
+          //              "material": "building"
+          //          }
+          //      ]
+          //  },
+          //  {
+          //      "name": "building",
+          //      "position": [-10, -1, -10],
+          //      "rotation": [0, 90, 0],
+          //      "scale": [20, 20, 1],
+          //      "components": [
+          //          {
+          //              "type": "Mesh Renderer",
+          //              "mesh": "plane",
+          //              "material": "building"
+          //          }
+          //      ]
+          //  },
+          //  {
+          //      "name": "building",
+          //      "position": [10, -1, -10],
+          //      "rotation": [0, 90, 0],
+          //      "scale": [20, 20, 1],
+          //      "components": [
+          //          {
+          //              "type": "Mesh Renderer",
+          //              "mesh": "plane",
+          //              "material": "building"
+          //          }
+          //      ]
+          //  }
+        ]
+    }
+}
