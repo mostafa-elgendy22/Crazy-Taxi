@@ -7,6 +7,7 @@
 #include "movement.hpp"
 #include "light.hpp"
 #include "car-movement.hpp"
+#include "passenger.hpp"
 
 namespace our {
 
@@ -28,6 +29,8 @@ namespace our {
         }
         else if (type == CarMovementComponent::getID()){
             component = entity->addComponent<CarMovementComponent>();
+        } else if (type == PassengerComponent::getID()){
+            component = entity->addComponent<PassengerComponent>();
         }
         if(component) component->deserialize(data);
     }

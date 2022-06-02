@@ -43,7 +43,8 @@
                 "black":"assets/textures/black.png",
                 "road":"assets/textures/road.jpg",
                 "buildings":"assets/textures/buildings.jpg",
-                "man-tex":"assets/models/Human/dennis-posed-004-obj/rp_dennis_posed_004_dif.jpg"
+                "man-tex":"assets/models/Human/dennis-posed-004-obj/rp_dennis_posed_004_dif.jpg",
+                "greenGlass":"assets/textures/greenGlass.jpg"
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
@@ -143,6 +144,28 @@
                     "texture": "buildings",
                     "sampler": "default"
                 },
+                "greenCarpet":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        },
+                        "blending":{
+                            "enabled": true,
+                            "sourceFactor": "GL_SRC_ALPHA",
+                            "destinationFactor": "GL_ONE_MINUS_SRC_ALPHA"
+                        },
+                        "depthMask": false
+                    },
+                    "transparent": true,
+                    "tint": [1, 1, 1, 1],
+                    "texture": "greenGlass",
+                    "sampler": "pixelated"
+                },
                 "monkey":{
                     "type": "lit",
                     "shader": "lit",
@@ -234,6 +257,19 @@
         },
         "world":[
             {
+                "name":"greenCarpet",
+                "scale": [4, 4, 4],
+                "position":[0,-100,0],
+                "rotation": [90, -90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "greenCarpet"
+                    }
+                ]
+            },
+            {
                 "position":[0, 0, 0],
                 "components":[
                     {
@@ -269,18 +305,6 @@
                     }
             ]
             },
-            // {
-            //     "position":[0, -1, 5],
-            //     "scale": [0.8, 0.8, 0.8],
-            //     "components":[
-            //         {
-            //             "type":"Mesh Renderer",
-            //             "mesh":"car",
-            //             "material":"car"
-            //         }
-            //     ]
-            // },
-
             // lights
             {
                 "position": [0, 5, 0],
@@ -310,13 +334,17 @@
             },      
             // man
             {
-                "position": [0, 0, -1],
+                "position": [0, 0, -10],
                 "scale":[2, 2, 2],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "man",
                         "material": "man"
+                    },
+                    {
+                        "type": "Passenger",
+                        "destination": [0, 0, -50]
                     }
                 ]
             },      
