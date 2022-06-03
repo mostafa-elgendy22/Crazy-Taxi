@@ -17,7 +17,7 @@ namespace our {
         // This will deserialize a json array of entities and add the new entities to the current world
         // If parent pointer is not null, the new entities will be have their parent set to that given pointer
         // If any of the entities has children, this function will be called recursively for these children
-        void deserialize(const nlohmann::json& data, Entity* parent = nullptr);
+        void deserialize(const nlohmann::json& data, std::string state = "default", Entity* parent = nullptr);
 
         // This adds an entity to the entities set and returns a pointer to that entity
         // WARNING The entity is owned by this world so don't use "delete" to delete it, instead, call "markForRemoval"

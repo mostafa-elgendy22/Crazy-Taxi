@@ -91,6 +91,7 @@ set(COMMON_SOURCES
         source/common/systems/movement.hpp
         source/common/systems/car-movement.hpp
         source/common/systems/deliver.hpp
+        source/common/systems/menu.hpp
 )
 
 # Define the directories in which to search for the included headers
@@ -118,6 +119,7 @@ set(STATES_SOURCES
         source/states/material-test-state.hpp
         source/states/entity-test-state.hpp
         source/states/renderer-test-state.hpp
+        source/states/menu-state.hpp
 )
 
 # For each example, we add an executable target
