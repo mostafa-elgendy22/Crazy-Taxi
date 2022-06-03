@@ -11,5 +11,7 @@ namespace our {
 
         accelerationSensitivity = data.value("accelerationSensitivity", accelerationSensitivity);
         rotationSensitivity = data.value("rotationSensitivity", rotationSensitivity);
+
+        elasticity = data.value("elasticity", elasticity);
     }
 }

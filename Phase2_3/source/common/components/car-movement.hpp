@@ -17,6 +17,8 @@ namespace our {
         float accelerationSensitivity=1.0f;
         float rotationSensitivity=1.0f;
 
+        float elasticity=-0.5f;
+
         // The ID of this component type is "CarMovement"
         static std::string getID() { return "Car Movement"; }
 

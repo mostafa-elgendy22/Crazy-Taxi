@@ -218,7 +218,8 @@
                         "maxSpeed":5.1,
                         "maxAngle":0.1,
                         "accelerationSensitivity":1.5,
-                        "rotationSensitivity":0.05
+                        "rotationSensitivity":0.05,
+                        "elasticity":-0.3
                     }
                 ],
                 "children": [

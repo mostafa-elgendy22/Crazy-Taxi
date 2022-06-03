@@ -52,6 +52,10 @@ namespace our
             float& accelerationSensitivity=movement->accelerationSensitivity;
             float& rotationSensitivity=movement->rotationSensitivity;
 
+            // [-1, 0]
+            // how much the car will bounce back when it collides
+            float& elasticity=movement->elasticity;
+
             // We get the camera model matrix (relative to its parent) to compute the front, up and right directions
             glm::mat4 matrix = entity->localTransform.toMat4();
 
@@ -192,6 +196,11 @@ namespace our
                   entityPosition -= front * acceleration;
                   entityRotation += up * rotation;
                   entityPosition -= right * rotation;
+                  entityPosition -= front * acceleration;
+                  entityRotation += up * rotation;
+                  entityPosition -= right * rotation;
+
+                  acceleration *= elasticity;
 
                   // break from loop of entites!
                   break;
@@ -220,6 +229,11 @@ namespace our
                   entityPosition -= front * acceleration;
                   entityRotation += up * rotation;
                   entityPosition -= right * rotation;
+                  entityPosition -= front * acceleration;
+                  entityRotation += up * rotation;
+                  entityPosition -= right * rotation;
+
+                  acceleration *= elasticity;
 
                   // break from loop of entites!
                   break;
