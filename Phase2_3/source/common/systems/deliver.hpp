@@ -26,6 +26,7 @@ namespace our
 
             // overallTime += deltaTime;
             Entity* greenCarpet = nullptr;
+            Entity* arrow = nullptr;
             std::vector<PassengerComponent*> passengers;
             CarMovementComponent* car = nullptr;
             Entity* carEntity = nullptr;
@@ -40,6 +41,9 @@ namespace our
                 }
                 if(entity->name=="greenCarpet"){ // used as an indicator for waiting passenger
                     greenCarpet = entity;
+                }
+                if (entity->name == "arrow") {
+                    arrow = entity;
                 }
                 if(auto tempCar = entity->getComponent<CarMovementComponent>(); tempCar){ // if you will add other cars, check for its name
                     car = tempCar;
@@ -64,6 +68,9 @@ namespace our
                 if(distance < CLOSE_DISTANCE){// && car->acceleration==0){
                     if(greenCarpet){
                         greenCarpet->localTransform.position.y = -100; // hide carpet 
+                    }
+                    if (arrow) {
+                        arrow->localTransform.scale = glm::vec3(0, 0, 0);
                     }
                     entityPosition = passengerInside->destination;
                     passengerInside->reached = true;
@@ -93,6 +100,9 @@ namespace our
                     if(greenCarpet){
                         greenCarpet->localTransform.position = passenger->destination;
                         greenCarpet->localTransform.position.y = 0.1f;
+                    }
+                    if(arrow) {
+                        arrow->localTransform.scale = glm::vec3(7, 7, 7);
                     }
                     passenger->inside = true;
                     passenger->waiting = false; // waiting ----> inside

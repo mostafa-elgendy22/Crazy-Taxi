@@ -29,9 +29,15 @@ namespace our
         void update(World* world, float deltaTime) {
 
             CarMovementComponent *movement = nullptr;
+            Entity* arrow = nullptr;
             for(auto entity : world->getEntities()){
-                movement = entity->getComponent<CarMovementComponent>();
-                if(movement) break;
+                if (auto temp = entity->getComponent<CarMovementComponent>(); temp) {
+                  movement = temp;
+                }
+                
+                if (entity->name == "arrow") {
+                    arrow = entity;
+                }
             }
 
             if(!(movement)) return;
@@ -41,6 +47,7 @@ namespace our
             // We get a reference to the entity's position and rotation
             glm::vec3& entityPosition = entity->localTransform.position;
             glm::vec3& entityRotation = entity->localTransform.rotation;
+            glm::vec3& arrowRotation = arrow->localTransform.rotation;
 
             // We get a reference to the component's params
             float& maxSpeed=movement->maxSpeed;
@@ -97,6 +104,7 @@ namespace our
             else rotation=max(-maxAngle,rotation);
 
             entityRotation -= up * rotation;
+            arrowRotation -= up * rotation;
             entityPosition += right * rotation;
             
             entityRotation.y = glm::wrapAngle(entityRotation.y);
