@@ -19,17 +19,19 @@ namespace our
 
     class CarMovementSystem {
         Application* app; // The application in which the state runs
-
+        float timeInCollision = 0.0;
+        const float collisionReturningTime = 0.5f;
     public:
         // When a state enters, it should call this function and give it the pointer to the application
         void enter(Application* app){
             this->app = app;
         }
 
-        void update(World* world, float deltaTime) {
+        void update(World* world, float deltaTime, ForwardRenderer* renderer) {
 
             CarMovementComponent *movement = nullptr;
             Entity* arrow = nullptr;
+            bool collisionHappened = false;
             for(auto entity : world->getEntities()){
                 if (auto temp = entity->getComponent<CarMovementComponent>(); temp) {
                   movement = temp;
@@ -217,6 +219,7 @@ namespace our
                     continue;
                
                   // collision detected
+                  collisionHappened = true;
                   // undo the movement!
                   entityPosition -= front * acceleration;
                   entityRotation += up * rotation;
@@ -250,6 +253,7 @@ namespace our
                 
                   // std::cout<<"COLLISION"<<std::endl;
                   // collision detected
+                  collisionHappened = true;
                   // undo the movement!
                   entityPosition -= front * acceleration;
                   entityRotation += up * rotation;
@@ -288,7 +292,17 @@ namespace our
             
 
           }
-
+          if(collisionHappened){
+            renderer->changeApply(true);
+            timeInCollision = deltaTime;
+            // std::cout<<"COllISION!!!\n";
+          }
+          if(timeInCollision>collisionReturningTime){
+            timeInCollision = 0.0;
+            renderer->changeApply(false);
+          } else{
+            timeInCollision+=deltaTime;
+          }
         }
     };
 

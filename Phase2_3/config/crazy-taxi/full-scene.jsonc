@@ -12,7 +12,8 @@
     "scene": {
         "renderer":{
             "sky": "assets/textures/sky.jpg",
-            "postprocess": "assets/shaders/postprocess/fog.frag"
+            "postprocess": "assets/shaders/postprocess/distortion.frag",
+            "addedTex": "assets/textures/water-normal.png"
         },
         "assets":{
             "shaders":{
