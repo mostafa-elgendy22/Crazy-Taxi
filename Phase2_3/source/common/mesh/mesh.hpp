@@ -20,6 +20,8 @@ namespace our {
     public:
         // Phase 3 - Gheiath: Add vertices arr to check collisions later if needed !
         std::vector<glm::vec3> vertices;
+        // replace by minx, maxx, miny, maxy, minz, maxz
+        glm::vec3 min, max;
         
         // The constructor takes two vectors:
         // - vertices which contain the vertex data.
@@ -60,7 +62,15 @@ namespace our {
                                   
             // Phase 3 - Gheiath: Add vertices arr to check collisions later if needed !
             for (auto &vertex: vertices) 
-                this->vertices.emplace_back(vertex.position);
+            {
+              this->vertices.emplace_back(vertex.position);
+              this->min.x = std::min(this->min.x, vertex.position.x);
+              this->min.y = std::min(this->min.y, vertex.position.y);
+              this->min.z = std::min(this->min.z, vertex.position.z);
+              this->max.x = std::max(this->max.x, vertex.position.x);
+              this->max.y = std::max(this->max.y, vertex.position.y);
+              this->max.z = std::max(this->max.z, vertex.position.z);
+            }
         }
 
         // this function should render the mesh

@@ -120,33 +120,37 @@ namespace our
 
 
             // Gheiath: Collison detection
-            // get car mesh render component
-            MeshRendererComponent* meshRender = entity->getComponent<MeshRendererComponent>();
             // get car model matrix
-            glm::mat4 carModelMatrix = entity->localTransform.toMat4();
-            // loop on vertics of car mesh
-            // get minx, maxx, miny, maxy, minz, maxz
-            float minx = 0, maxx = 0, miny = 0, maxy = 0, minz = 0, maxz = 0;
-            for(int i = 0; i < meshRender->mesh->vertices.size(); i++)
-            {
-                glm::vec4 vertex = carModelMatrix * glm::vec4(meshRender->mesh->vertices[i], 1.0f);
-                if(i == 0)
-                {
-                    minx = maxx = vertex.x;
-                    miny = maxy = vertex.y;
-                    minz = maxz = vertex.z;
-                }
-                else
-                {
-                    minx = min(minx, vertex.x);
-                    maxx = max(maxx, vertex.x);
-                    miny = min(miny, vertex.y);
-                    maxy = max(maxy, vertex.y);
-                    minz = min(minz, vertex.z);
-                    maxz = max(maxz, vertex.z);
-                }
+            glm::mat4 carModelMatrix = entity->getLocalToWorldMatrix();
+            // get minx, maxx, miny, maxy, minz, maxz from car mesh vec3::min vec3::max
+            MeshRendererComponent* MeshRender = entity->getComponent<MeshRendererComponent>();
+            glm::vec3 carMin = MeshRender->mesh->min;
+            glm::vec3 carMax = MeshRender->mesh->max;
+            // get car bounding box
+            glm::vec3 carBoundingBox[8] = {
+                glm::vec3(carMin.x, carMin.y, carMin.z),
+                glm::vec3(carMax.x, carMin.y, carMin.z),
+                glm::vec3(carMax.x, carMax.y, carMin.z),
+                glm::vec3(carMin.x, carMax.y, carMin.z),
+                glm::vec3(carMin.x, carMin.y, carMax.z),
+                glm::vec3(carMax.x, carMin.y, carMax.z),
+                glm::vec3(carMax.x, carMax.y, carMax.z),
+                glm::vec3(carMin.x, carMax.y, carMax.z)
+            };
+            // multiply car bounding box by car model matrix
+            for (int i = 0; i < 8; i++) {
+                carBoundingBox[i] = carModelMatrix * glm::vec4(carBoundingBox[i], 1.0f);
             }
-
+            // get minx, maxx, miny, maxy, minz, maxz from bounding box
+            float minx = carBoundingBox[0].x, maxx = carBoundingBox[0].x, miny = carBoundingBox[0].y, maxy = carBoundingBox[0].y, minz = carBoundingBox[0].z, maxz = carBoundingBox[0].z;
+            for (int i = 1; i < 8; i++) {
+                minx = min(minx, carBoundingBox[i].x);
+                maxx = max(maxx, carBoundingBox[i].x);
+                miny = min(miny, carBoundingBox[i].y);
+                maxy = max(maxy, carBoundingBox[i].y);
+                minz = min(minz, carBoundingBox[i].z);
+                maxz = max(maxz, carBoundingBox[i].z);
+            }
 
             // loop on other entities
             for(auto otherEntity : world->getEntities())
@@ -161,38 +165,43 @@ namespace our
                 // buildings are planes
 
                 // get the building model matrix
-                glm::mat4 buildingModelMatrix = otherEntity->localTransform.toMat4();
-
-                // loop on vertices of the building
-                // get minx, maxx, miny, maxy, minz, maxz of builing renamed
-                float minx2 = 0, maxx2 = 0, miny2 = 0, maxy2 = 0, minz2 = 0, maxz2 = 0;
-                for(int i = 0; i < otherMeshRender->mesh->vertices.size(); i++)
-                {
-                  glm::vec4 vertex = buildingModelMatrix * glm::vec4(otherMeshRender->mesh->vertices[i], 1.0f);
-                  if(i == 0)
-                  {
-                    minx2 = maxx2 = vertex.x;
-                    miny2 = maxy2 = vertex.y;
-                    minz2 = maxz2 = vertex.z;
-                  }
-                  else
-                  {
-                    minx2 = min(minx2, vertex.x);
-                    maxx2 = max(maxx2, vertex.x);
-                    miny2 = min(miny2, vertex.y);
-                    maxy2 = max(maxy2, vertex.y);
-                    minz2 = min(minz2, vertex.z);
-                    maxz2 = max(maxz2, vertex.z);
-                  }
+                glm::mat4 buildingModelMatrix = otherEntity->getLocalToWorldMatrix();
+                // get minx, maxx, miny, maxy, minz, maxz from building mesh vec3::min vec3::max
+                glm::vec3 buildingMin = otherMeshRender->mesh->min;
+                glm::vec3 buildingMax = otherMeshRender->mesh->max;
+                // get building bounding box
+                glm::vec3 buildingBoundingBox[8] = {
+                    glm::vec3(buildingMin.x, buildingMin.y, buildingMin.z),
+                    glm::vec3(buildingMax.x, buildingMin.y, buildingMin.z),
+                    glm::vec3(buildingMax.x, buildingMax.y, buildingMin.z),
+                    glm::vec3(buildingMin.x, buildingMax.y, buildingMin.z),
+                    glm::vec3(buildingMin.x, buildingMin.y, buildingMax.z),
+                    glm::vec3(buildingMax.x, buildingMin.y, buildingMax.z),
+                    glm::vec3(buildingMax.x, buildingMax.y, buildingMax.z),
+                    glm::vec3(buildingMin.x, buildingMax.y, buildingMax.z)
+                };
+                // multiply building bounding box by building model matrix
+                for (int i = 0; i < 8; i++) {
+                    buildingBoundingBox[i] = buildingModelMatrix * glm::vec4(buildingBoundingBox[i], 1.0f);
                 }
-                
+                // get minx2, maxx2, miny2, maxy2, minz2, maxz2 from bounding box
+                float minx2 = buildingBoundingBox[0].x, maxx2 = buildingBoundingBox[0].x, miny2 = buildingBoundingBox[0].y, maxy2 = buildingBoundingBox[0].y, minz2 = buildingBoundingBox[0].z, maxz2 = buildingBoundingBox[0].z;
+                for (int i = 1; i < 8; i++) {
+                    minx2 = min(minx2, buildingBoundingBox[i].x);
+                    maxx2 = max(maxx2, buildingBoundingBox[i].x);
+                    miny2 = min(miny2, buildingBoundingBox[i].y);
+                    maxy2 = max(maxy2, buildingBoundingBox[i].y);
+                    minz2 = min(minz2, buildingBoundingBox[i].z);
+                    maxz2 = max(maxz2, buildingBoundingBox[i].z);
+                }
+
                 // std::cout << "minx: " << minx << " maxx: " << maxx << std::endl;
                 // std::cout << "minx2: " << minx2 << " maxx2: " << maxx2 << std::endl;
 
                 // std::cout << "minz: " << minz << " maxz: " << maxz << std::endl;
                 // std::cout << "minz2: " << minz2 << " maxz2: " << maxz2 << std::endl;
                 
-                auto eq = [](float a, float b) { return fabs(a - b) < 0.01f; };
+                auto eq = [](float a, float b) { return fabs(a - b) < 0.1f; };
 
                 if (eq(minz2, maxz2))
                 {
