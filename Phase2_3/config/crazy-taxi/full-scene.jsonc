@@ -52,7 +52,6 @@
                 "monkey": "assets/models/monkey.obj",
                 "plane": "assets/models/plane.obj",
                 "sphere": "assets/models/sphere.obj",
-                // "car":"assets/models/car/1967-shelby-ford-mustang.obj"
                 "car":"assets/models/car/car.obj",
                 "car-glass":"assets/models/car/glass.obj",
                 "man":"assets/models/Human/dennis-posed-004-obj/dennis-posed-004.obj",
@@ -168,27 +167,6 @@
                     "texture": "greenGlass",
                     "sampler": "pixelated"
                 },
-                "monkey":{
-                    "type": "lit",
-                    "shader": "lit",
-                    "pipelineState": {
-                        "faceCulling":{
-                            "enabled": false
-                        },
-                        "depthTesting":{
-                            "enabled": true
-                        }
-                    },
-                    "tint": [1, 1, 1, 1],
-
-                    "albedo": "monkey",
-                    "specular": "monkey-specular",
-                    "roughness": "monkey-roughness",
-                    "ambient_occlusion": "monkey-ambient_occlusion",
-                    "emissive": "monkey-emissive",
-
-                    "sampler": "default"
-                },
                 "moon":{
                     "type": "textured",
                     "shader": "textured",
@@ -296,6 +274,7 @@
                 ]
             },
             {
+                "name": "maincar",
                 "position":[0, 0, 0],
                 "components":[
                     {
@@ -308,7 +287,8 @@
                         "maxSpeed":0.5,
                         "maxAngle":0.1,
                         "accelerationSensitivity":0.05,
-                        "rotationSensitivity":0.05
+                        "rotationSensitivity":0.05,
+                        "elasticity":-0.3
                     }
                 ],
                 "children": [
@@ -417,6 +397,7 @@
             },
             // <buildings>
             {
+                "name": "building",
                 "position": [30, -1, -50],
                 "rotation": [0, 0, 0],
                 "scale": [20, 20, 1],
@@ -429,6 +410,7 @@
                 ]
             },
             {
+                "name": "building",
                 "position": [-30, -1, -50],
                 "rotation": [0, 0, 0],
                 "scale": [20, 20, 1],
@@ -441,6 +423,7 @@
                 ]
             },
             {
+                "name": "building",
                 "position": [10, -1, -70],
                 "rotation": [0, 90, 0],
                 "scale": [20, 20, 1],
@@ -453,6 +436,7 @@
                 ]
             },
             {
+                "name": "building",
                 "position": [-10, -1, -70],
                 "rotation": [0, 90, 0],
                 "scale": [20, 20, 1],
@@ -465,6 +449,7 @@
                 ]
             },
             {
+                "name": "building",
                 "position": [-10, -1, -70],
                 "rotation": [0, 90, 0],
                 "scale": [20, 20, 1],
@@ -477,6 +462,7 @@
                 ]
             },
             {
+                "name": "building",
                 "position": [-10, -1, -10],
                 "rotation": [0, 90, 0],
                 "scale": [20, 20, 1],
@@ -489,6 +475,7 @@
                 ]
             },
             {
+                "name": "building",
                 "position": [10, -1, -10],
                 "rotation": [0, 90, 0],
                 "scale": [20, 20, 1],

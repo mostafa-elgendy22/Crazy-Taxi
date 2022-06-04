@@ -255,7 +255,7 @@
                     },
                     "transparent": true,
                     "tint": [1, 1, 1, 1],
-                    "texture": "red",
+                    "texture": "black",
                     "sampler": "default"
                 },
                 "man":{
