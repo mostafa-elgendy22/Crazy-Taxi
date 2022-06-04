@@ -39,7 +39,7 @@
                 "monkey-roughness": "assets/textures/monkey/roughness.jpg",
                 "monkey-ambient_occlusion": "assets/textures/monkey/ambient_occlusion.jpg",
                 "monkey-emissive": "assets/textures/monkey/emissive.jpg",
-                "car-albedo":"assets/models/car/bodybkgd.jpg",
+                "car-albedo":"assets/models/car/car.jpg",
                 "black":"assets/textures/black.png",
                 "road":"assets/textures/road.jpg",
                 "buildings":"assets/textures/buildings.jpg"
@@ -49,7 +49,7 @@
                 "monkey": "assets/models/monkey.obj",
                 "plane": "assets/models/plane.obj",
                 "sphere": "assets/models/sphere.obj",
-                "car":"assets/models/car/1967-shelby-ford-mustang.obj"
+                "car":"assets/models/car/car.obj"
             },
             "samplers":{
                 "default":{},

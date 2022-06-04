@@ -12,7 +12,7 @@
     "scene": {
         "renderer":{
             "sky": "assets/textures/sky.jpg",
-            "postprocess": "assets/shaders/postprocess/vignette.frag"
+            "postprocess": "assets/shaders/postprocess/fog.frag"
         },
         "assets":{
             "shaders":{
@@ -33,28 +33,41 @@
                 "moon": "assets/textures/moon.jpg",
                 "grass": "assets/textures/grass_ground_d.jpg",
                 "wood": "assets/textures/wood.jpg",
-                "glass": "assets/textures/glass-panels.png",
+                "glass": "assets/textures/glass3.png",
+                "whiteGlass":"assets/textures/whiteGlass.jpg",
+                "glass2":"assets/textures/glass2.jpg",
+                "glass3":"assets/textures/glass3.png",
                 "monkey": "assets/textures/monkey/albedo.jpg",
                 "monkey-specular": "assets/textures/monkey/specular.jpg",
                 "monkey-roughness": "assets/textures/monkey/roughness.jpg",
                 "monkey-ambient_occlusion": "assets/textures/monkey/ambient_occlusion.jpg",
                 "monkey-emissive": "assets/textures/monkey/emissive.jpg",
-                "car-albedo":"assets/models/car/bodybkgd.jpg",
+                "car-albedo":"assets/models/car/car.jpg",
                 "black":"assets/textures/black.png",
-                "road":"assets/textures/road.jpg",
+                "white":"assets/textures/white.png",
+                "metal":"assets/textures/metal.jpg",
+                "red":"assets/textures/red.jpg",
+                "road":"assets/textures/road_tex.png",
                 "buildings":"assets/textures/buildings.jpg",
+                "wall":"assets/textures/wall.jpg",
+                "wall2":"assets/textures/wall2.jpg",
+                "skin":"assets/textures/human_skin_5_diffuseOriginal.jpg",
                 "man-tex":"assets/models/Human/dennis-posed-004-obj/rp_dennis_posed_004_dif.jpg",
-                "greenGlass":"assets/textures/greenGlass.jpg"
+                "greenGlass":"assets/textures/greenGlass.jpg",
+                //_______________menu only textures
+                "golden":"assets/textures/menu/golden.jpg"
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
                 "monkey": "assets/models/monkey.obj",
                 "plane": "assets/models/plane.obj",
                 "sphere": "assets/models/sphere.obj",
-                // "car":"assets/models/car/1967-shelby-ford-mustang.obj"
                 "car":"assets/models/car/car.obj",
                 "car-glass":"assets/models/car/glass.obj",
-                "man":"assets/models/Human/dennis-posed-004-obj/dennis-posed-004.obj"
+                "man":"assets/models/Human/dennis-posed-004-obj/dennis-posed-004.obj",
+                "arrow": "assets/models/arrow/arrow.obj",
+                //_______________menu only meshes
+                "begin-text":"assets/models/menu/begin-text.obj"
             },
             "samplers":{
                 "default":{},
@@ -95,7 +108,7 @@
                     },
                     "transparent": true,
                     "tint": [1, 1, 1, 1],
-                    "texture": "glass",
+                    "texture": "glass3",
                     "sampler": "pixelated"
                 },
                 "grass":{
@@ -127,11 +140,16 @@
                     },
                     "tint": [1, 1, 1, 1],
                     "texture": "road",
-                    "sampler": "default"
+                    // "albedo":"road",
+                    // "specular": "buildings",
+                    // "roughness": "wall",
+                    // "ambient_occlusion": "white",
+                    // "emissive": "black",
+                    "sampler": "pixelated"
                 },
                 "building":{
-                    "type": "textured",
-                    "shader": "textured",
+                    "type": "lit",
+                    "shader": "lit",
                     "pipelineState": {
                         "faceCulling":{
                             "enabled": false
@@ -141,7 +159,14 @@
                         }
                     },
                     "tint": [1, 1, 1, 1],
-                    "texture": "buildings",
+                    // "texture": "buildings",
+
+                    "albedo":"buildings",
+                    "specular": "buildings",
+                    "roughness": "wall",
+                    "ambient_occlusion": "white",
+                    "emissive": "black",
+
                     "sampler": "default"
                 },
                 "greenCarpet":{
@@ -165,27 +190,6 @@
                     "tint": [1, 1, 1, 1],
                     "texture": "greenGlass",
                     "sampler": "pixelated"
-                },
-                "monkey":{
-                    "type": "lit",
-                    "shader": "lit",
-                    "pipelineState": {
-                        "faceCulling":{
-                            "enabled": false
-                        },
-                        "depthTesting":{
-                            "enabled": true
-                        }
-                    },
-                    "tint": [1, 1, 1, 1],
-
-                    "albedo": "monkey",
-                    "specular": "monkey-specular",
-                    "roughness": "monkey-roughness",
-                    "ambient_occlusion": "monkey-ambient_occlusion",
-                    "emissive": "monkey-emissive",
-
-                    "sampler": "default"
                 },
                 "moon":{
                     "type": "textured",
@@ -226,11 +230,33 @@
                     // "ambient_occlusion":"car-albedo",
                     
                     // "emissive":"car-albedo",
-                    "roughness": "black",
-                    "ambient_occlusion": "black",
+                    "roughness": "metal",
+                    "ambient_occlusion": "white",
                     "emissive": "black",
 
                     "sampler":"default"
+                },
+
+                "arrow":
+                {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": false
+                        },
+                        "blending":{
+                            "enabled": false
+                        },
+                        "depthMask": false
+                    },
+                    "transparent": true,
+                    "tint": [1, 1, 1, 1],
+                    "texture": "greenGlass",
+                    "sampler": "default"
                 },
                 "man":{
                     "type": "lit",
@@ -248,11 +274,29 @@
                     "albedo": "man-tex",
                     "specular": "man-tex",
                     "roughness": "man-tex",
-                    "ambient_occlusion": "man-tex",
+                    "ambient_occlusion": "white",
                     "emissive": "black",
 
                     "sampler": "default"
+                },
+
+                //______________________menu only materials
+                "begin-text":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "golden",
+                    "sampler": "default"
                 }
+
             }
         },
         "world":[
@@ -270,7 +314,9 @@
                 ]
             },
             {
+                "name": "maincar",
                 "position":[0, 0, 0],
+               // "rotation": [0, 180, 0],
                 "components":[
                     {
                         "type":"Mesh Renderer",
@@ -282,29 +328,74 @@
                         "maxSpeed":0.5,
                         "maxAngle":0.1,
                         "accelerationSensitivity":0.05,
-                        "rotationSensitivity":0.05
+                        "rotationSensitivity":0.05,
+                        "elasticity":-0.3,
+                        "arrowScale": [6, 6, 6]
                     }
-                ],
-                "children": [
+                ]
+            },
+            {
+                "name": "camera",
+                "position": [0, 3, 10],
+                "components": [
                     {
-                    "position": [0, 3, 10],
-                    "components": [
-                        {
-                            "type": "Camera"
-                        }
-                    ]
+                        "type": "Camera"
                     },
                     {
-                        "components":[
-                            {
-                                "type":"Mesh Renderer",
-                                "mesh":"car-glass",
-                                "material":"glass"
-                            }
-                        ]
+                        "type":"Car Movement",
+                        "maxSpeed":0.5,
+                        "maxAngle":0.1,
+                        "accelerationSensitivity":0.05,
+                        "rotationSensitivity":0.05,
+                        "elasticity":-0.3,
+                        "arrowScale": [6, 6, 6]
                     }
-            ]
+ 
+                ]
             },
+       //              {
+       //                  "name":"arrow",
+       //                  "scale": [1,1,1],
+       //                  "position": [0,15,-10],
+       //                  "rotation": [90,0,0],
+       //                  "components": [
+       //                      {
+       //                          "type": "Mesh Renderer",
+       //                          "mesh": "arrow",
+       //                          "material": "arrow"
+       //                      }
+       //                  ]
+       //              },
+       //              { // car lights
+       //                  "position": [1.5, 1.5, -3],
+       //                  "rotation": [90, 0, 0],
+       //                  "components": [
+       //                      {
+       //                          "type": "Light",
+       //                          "lightType": "spot",
+       //                          "color": [1, 1, 1],
+       //                          "attenuation": [0, 0.1, 0],
+       //                          "cone_angles":[30, 35]
+       //                      }
+       //                  ],
+       //                  "children":[
+       //                      {
+       //                          "position": [-3, 0, 0],
+       //                          // "rotation": [90, 0, 0],
+       //                          "components": [
+       //                              {
+       //                                  "type": "Light",
+       //                                  "lightType": "spot",
+       //                                  "color": [1, 1, 1],
+       //                                  "attenuation": [0, 0.1, 0],
+       //                                  "cone_angles":[30, 35]
+       //                              }
+       //                          ]
+       //                      }
+       //                  ]
+       //              }
+       //          ]
+       //     },
             // lights
             {
                 "position": [0, 5, 0],
@@ -321,7 +412,7 @@
             },
             {
                 "position": [0, 10, 0],
-                // "rotation": [90, 0, 0],
+                "rotation": [45, -45, 0],
                 "components": [
                     {
                         "type": "Light",
@@ -332,55 +423,11 @@
                     }
                 ]
             },      
-            // man
-            {
-                "position": [0, 0, -10],
-                "scale":[2, 2, 2],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "man",
-                        "material": "man"
-                    },
-                    {
-                        "type": "Passenger",
-                        "destination": [0, 0, -50]
-                    }
-                ]
-            },      
-            {
-                "position": [30, 0, -40],
-                "scale":[2, 2, 2],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "man",
-                        "material": "man"
-                    },
-                    {
-                        "type": "Passenger",
-                        "destination": [-30, 0, -40]
-                    }
-                ]
-            },  
-            // vertical road
+           // vertical road
             {
                 "position": [0, -1, -40],
                 "rotation": [-90, 0, 0],
-                "scale": [10, 50, 1],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "road"
-                    }
-                ]
-            },
-            // horizontal raod
-            {
-                "position": [0, -1.1, -40],
-                "rotation": [90, -90, 0],
-                "scale": [10, 50, 1],
+                "scale": [100, 100, 1],
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -391,7 +438,8 @@
             },
             // <buildings>
             {
-                "position": [30, -1, -50],
+                "name": "building",
+                "position": [40, -1, -60],
                 "rotation": [0, 0, 0],
                 "scale": [20, 20, 1],
                 "components": [
@@ -403,7 +451,8 @@
                 ]
             },
             {
-                "position": [-30, -1, -50],
+                "name": "building",
+                "position": [-40, -1, -60],
                 "rotation": [0, 0, 0],
                 "scale": [20, 20, 1],
                 "components": [
@@ -415,7 +464,21 @@
                 ]
             },
             {
-                "position": [10, -1, -70],
+                "name": "building",
+                "position": [20, -1, -80],
+                "rotation": [0, -90, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-20, -1, -80],
                 "rotation": [0, 90, 0],
                 "scale": [20, 20, 1],
                 "components": [
@@ -427,7 +490,8 @@
                 ]
             },
             {
-                "position": [-10, -1, -70],
+                "name": "building",
+                "position": [-20, -1, -80],
                 "rotation": [0, 90, 0],
                 "scale": [20, 20, 1],
                 "components": [
@@ -439,7 +503,8 @@
                 ]
             },
             {
-                "position": [-10, -1, -70],
+                "name": "building",
+                "position": [-20, -1, 0],
                 "rotation": [0, 90, 0],
                 "scale": [20, 20, 1],
                 "components": [
@@ -451,8 +516,9 @@
                 ]
             },
             {
-                "position": [-10, -1, -10],
-                "rotation": [0, 90, 0],
+                "name": "building",
+                "position": [20, -1, 0],
+                "rotation": [0, -90, 0],
                 "scale": [20, 20, 1],
                 "components": [
                     {
@@ -462,15 +528,70 @@
                     }
                 ]
             },
+            //___________________ menu entities
             {
-                "position": [10, -1, -10],
-                "rotation": [0, 90, 0],
-                "scale": [20, 20, 1],
+                "name": "menu-camera",
+                "position": [0, 3, 10],
                 "components": [
                     {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "building"
+                        "type": "Camera"
+                    }
+                ]
+            },
+            {
+                "name": "menu-vehicle-1",
+                "position":[-15, 0, -5],
+                "components":[
+                    {
+                        "type":"Mesh Renderer",
+                        "mesh":"car",
+                        "material":"car"
+                    },
+                    {
+                        "type": "Movement",
+                        "linearVelocity": [0, 0, 0],
+                        "angularVelocity": [0, 45, 0]
+                    }
+                ]
+            },
+            {
+                "name": "menu-vehicle-2",
+                "position":[15, 0, -5],
+                "components":[
+                    {
+                        "type":"Mesh Renderer",
+                        "mesh":"car",
+                        "material":"car"
+                    },
+                    {
+                        "type": "Movement",
+                        "linearVelocity": [0, 0, 0],
+                        "angularVelocity": [0, -45, 0]
+                    }
+                ]
+            },
+            {
+                "name": "menu-light",
+                "position": [0, 10, 0],
+                "components": [
+                    {
+                        "type": "Light",
+                        "lightType": "directional",
+                        "color": [1, 1, 1],
+                        "attenuation": [0, 0, 1],
+                        "cone_angles":[10, 11]
+                    }
+                ]
+            },
+            {
+                "name": "menu-text",
+                "position":[-3, 4, 5],
+                "rotation":[0,0,0],
+                "components":[
+                    {
+                        "type":"Mesh Renderer",
+                        "mesh":"begin-text",
+                        "material":"begin-text"
                     }
                 ]
             }

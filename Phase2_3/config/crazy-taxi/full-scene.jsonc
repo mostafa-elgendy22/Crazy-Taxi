@@ -42,7 +42,7 @@
                 "monkey-roughness": "assets/textures/monkey/roughness.jpg",
                 "monkey-ambient_occlusion": "assets/textures/monkey/ambient_occlusion.jpg",
                 "monkey-emissive": "assets/textures/monkey/emissive.jpg",
-                "car-albedo":"assets/models/car/bodybkgd.jpg",
+                "car-albedo":"assets/models/car/car.jpg",
                 "black":"assets/textures/black.png",
                 "white":"assets/textures/white.png",
                 "metal":"assets/textures/metal.jpg",
