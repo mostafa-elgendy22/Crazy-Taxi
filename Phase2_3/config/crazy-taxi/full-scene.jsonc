@@ -229,15 +229,13 @@
                             "enabled": false
                         },
                         "blending":{
-                            "enabled": false,
-                            "sourceFactor": "GL_SRC_ALPHA",
-                            "destinationFactor": "GL_ONE_MINUS_SRC_ALPHA"
+                            "enabled": false
                         },
                         "depthMask": false
                     },
                     "transparent": true,
                     "tint": [1, 1, 1, 1],
-                    "texture": "red",
+                    "texture": "greenGlass",
                     "sampler": "default"
                 },
                 "man":{
@@ -310,11 +308,14 @@
                         "maxAngle":0.1,
                         "accelerationSensitivity":0.05,
                         "rotationSensitivity":0.05,
-                        "elasticity":-0.3
+                        "elasticity":-0.3,
+                        "arrowScale": [6, 6, 6]
                     }
                 ],
                 "children": [
                     {
+                      "name": "camera",
+
                     "position": [0, 3, 10],
                     "components": [
                         {
@@ -333,8 +334,8 @@
                     },
                     {
                         "name":"arrow",
-                        "scale": [0,0,0],
-                        "position": [0,10,-10],
+                        "scale": [1,1,1],
+                        "position": [0,15,-10],
                         "rotation": [90,0,0],
                         "components": [
                             {

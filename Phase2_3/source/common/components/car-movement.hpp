@@ -18,6 +18,7 @@ namespace our {
         float rotationSensitivity=1.0f;
 
         float elasticity=-0.5f;
+        glm::vec3 arrowScale=glm::vec3(6.0f);
 
         // The ID of this component type is "CarMovement"
         static std::string getID() { return "Car Movement"; }

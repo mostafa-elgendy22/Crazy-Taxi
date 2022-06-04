@@ -13,5 +13,6 @@ namespace our {
         rotationSensitivity = data.value("rotationSensitivity", rotationSensitivity);
 
         elasticity = data.value("elasticity", elasticity);
+        arrowScale = data.value("arrowScale", arrowScale);
     }
 }

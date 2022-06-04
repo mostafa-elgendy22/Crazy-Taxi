@@ -3,7 +3,7 @@
 #include "../ecs/world.hpp"
 #include "../components/car-movement.hpp"
 #include "../components/passenger.hpp"
-
+#include "../components/camera.hpp"
 #include "../application.hpp"
 
 #include <glm/glm.hpp>
@@ -27,10 +27,12 @@ namespace our
             // overallTime += deltaTime;
             Entity* greenCarpet = nullptr;
             Entity* arrow = nullptr;
+            Entity *camera = nullptr;
             std::vector<PassengerComponent*> passengers;
             CarMovementComponent* car = nullptr;
             Entity* carEntity = nullptr;
             PassengerComponent* passengerInside = nullptr;
+
             for(auto entity : world->getEntities()){
                 if(auto passenger = entity->getComponent<PassengerComponent>(); passenger){
                     passengers.push_back(passenger);
@@ -49,11 +51,48 @@ namespace our
                     car = tempCar;
                     carEntity = car->getOwner();
                 }
+                if (entity->name == "camera") {
+                    camera = entity;
+                }
             }
 
-            if(passengers.size()==0 || !(car)) return;
+            if(passengers.size()==0 || !(car))
+            {
+              // don't draw arrow
+              if (arrow)
+                arrow->localTransform.scale = glm::vec3(0.0f);
+              return;
+            }
 
             glm::vec3 carPos = carEntity->localTransform.position;
+            // make arrow point at greenCarpet
+            if (arrow && greenCarpet->localTransform.position.y > 0.0f)
+            {
+              auto camera_gaze_point = camera->getLocalToWorldMatrix() * glm::vec4(0.0f, 0.0f, -1.0f, 1.0f);
+              auto camera_pos = camera->getLocalToWorldMatrix() * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
+
+              auto carpet_pos = greenCarpet->getLocalToWorldMatrix() * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
+
+              // std::cout<<"camera_gaze_point: "<<camera_gaze_point.x<<" "<<camera_gaze_point.y<<" "<<camera_gaze_point.z<<std::endl;
+              // std::cout<<"camera_pos: "<<camera_pos.x<<" "<<camera_pos.y<<" "<<camera_pos.z<<std::endl;
+              // std::cout<<"carpet_pos: "<<carpet_pos.x<<" "<<carpet_pos.y<<" "<<carpet_pos.z<<std::endl;
+
+              // angle
+              auto v1 = camera_gaze_point - camera_pos;
+              auto v2 = carpet_pos - camera_pos;
+              auto angle = glm::acos(glm::dot(v1, v2) / (glm::length(v1) * glm::length(v2)));
+              angle = glm::min(glm::abs(angle), glm::radians(90.0f));
+
+              // direction of arrow
+              auto isFront = glm::dot(glm::normalize(v1), glm::normalize(v2)) > 0;
+              auto isRight = v1.x * -v2.z + v1.z * v2.x > 0;
+
+              // std::cout << isFront << ' ' << isRight << std::endl;
+              if (isRight)
+                 angle = -angle;
+
+              arrow->localTransform.rotation = glm::vec3(0.0f, 0.0f, angle);
+            }
             
             // ++ Deliver passenger inside if any ++
             if(passengerInside){
@@ -69,9 +108,7 @@ namespace our
                     if(greenCarpet){
                         greenCarpet->localTransform.position.y = -100; // hide carpet 
                     }
-                    if (arrow) {
-                        arrow->localTransform.scale = glm::vec3(0, 0, 0);
-                    }
+                    
                     entityPosition = passengerInside->destination;
                     passengerInside->reached = true;
                     passengerInside->inside = false; // inside ----> reached
@@ -81,6 +118,12 @@ namespace our
                     entityPosition.y = -100;
                 }
                 return;
+            }
+            else
+            {
+              // don't draw arrow
+              if (arrow)
+                arrow->localTransform.scale = glm::vec3(0.0f);
             }
 
 
@@ -101,9 +144,9 @@ namespace our
                         greenCarpet->localTransform.position = passenger->destination;
                         greenCarpet->localTransform.position.y = 0.1f;
                     }
-                    if(arrow) {
-                        arrow->localTransform.scale = glm::vec3(7, 7, 7);
-                    }
+                    if (arrow)
+                      arrow->localTransform.scale = car->arrowScale;
+                    
                     passenger->inside = true;
                     passenger->waiting = false; // waiting ----> inside
                     entityPosition = glm::vec3(0, -100, 0); // hide it -// TODO 13 search for a better way to hide it
