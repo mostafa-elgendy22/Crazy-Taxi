@@ -47,7 +47,10 @@ namespace our
             // We get a reference to the entity's position and rotation
             glm::vec3& entityPosition = entity->localTransform.position;
             glm::vec3& entityRotation = entity->localTransform.rotation;
-            glm::vec3& arrowRotation = arrow->localTransform.rotation;
+
+
+
+            
 
             // We get a reference to the component's params
             float& maxSpeed=movement->maxSpeed;
@@ -104,7 +107,10 @@ namespace our
             else rotation=max(-maxAngle,rotation);
 
             entityRotation -= up * rotation;
-            arrowRotation -= up * rotation;
+            if (arrow) {
+              glm::vec3& arrowRotation = arrow->localTransform.rotation;
+              arrowRotation -= up * rotation;
+            }
             entityPosition += right * rotation;
             
             entityRotation.y = glm::wrapAngle(entityRotation.y);
