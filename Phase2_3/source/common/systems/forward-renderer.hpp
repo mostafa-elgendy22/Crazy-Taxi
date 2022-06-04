@@ -40,6 +40,10 @@ namespace our
         GLuint postprocessFrameBuffer, postProcessVertexArray;
         Texture2D *colorTarget, *depthTarget;
         TexturedMaterial* postprocessMaterial;
+
+        // @@ Akram: 
+        Texture2D *additionalTexture; // used for effects that need additional textures
+        bool apply = false; // only apply if set to true
     public:
         // Initialize the renderer including the sky and the Postprocessing objects.
         // windowSize is the width & height of the window (in pixels).
@@ -48,8 +52,8 @@ namespace our
         void destroy();
         // This function should be called every frame to draw the given world
         void render(World* world);
-
-
+        // Apply postprocessing or not
+        void changeApply(bool ok){apply = ok;}
     };
 
 }

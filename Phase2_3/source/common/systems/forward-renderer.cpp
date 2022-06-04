@@ -90,7 +90,9 @@ namespace our
             postprocessShader->attach("assets/shaders/fullscreen.vert", GL_VERTEX_SHADER);
             postprocessShader->attach(config.value<std::string>("postprocess", ""), GL_FRAGMENT_SHADER);
             postprocessShader->link();
-
+            if(config.contains("addedTex")){
+                additionalTexture = texture_utils::loadImage(config.value<std::string>("addedTex", "assets/textures/water-normal.png"));
+            }
             // Create a post processing material
             postprocessMaterial = new TexturedMaterial();
             postprocessMaterial->shader = postprocessShader;
@@ -203,7 +205,7 @@ namespace our
         glDepthMask(true);
 
         // If there is a postprocess material, bind the framebuffer
-        if (postprocessMaterial)
+        if (postprocessMaterial && apply)
         {
             //TODO: (Req 10) bind the framebuffer
             glBindFramebuffer(GL_DRAW_FRAMEBUFFER, postprocessFrameBuffer);
@@ -362,7 +364,7 @@ namespace our
         }
 
         // If there is a postprocess material, apply postprocessing
-        if (postprocessMaterial)
+        if (postprocessMaterial && apply)
         {
             //TODO: (Req 10) Return to the default framebuffer
             glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
@@ -370,15 +372,15 @@ namespace our
             //TODO: (Req 10) Setup the postprocess material and draw the fullscreen triangle
             glBindVertexArray(postProcessVertexArray);
             postprocessMaterial->setup();
-
-            // Isn't there a better way??? //! Only works in case of fog
-            glActiveTexture(GL_TEXTURE1);
-            depthTarget->bind();
-            // Then we bind the sampler to unit 1
-            postprocessMaterial->sampler->bind(1);
-            postprocessMaterial->shader->set("depth_sampler", 1);
-            postprocessMaterial->shader->set("inverse_projection", glm::inverse(camera->getProjectionMatrix(windowSize)));
             
+            // send other effect
+            if(additionalTexture){
+                glActiveTexture(GL_TEXTURE1);
+                additionalTexture->bind();
+                postprocessMaterial->sampler->bind(1);
+                postprocessMaterial->shader->set("additional_sampler", 1);
+                postprocessMaterial->shader->set("effect_power", 0.05f);
+            }
             glDrawArrays(GL_TRIANGLES, 0, 3); 
         }
     }
