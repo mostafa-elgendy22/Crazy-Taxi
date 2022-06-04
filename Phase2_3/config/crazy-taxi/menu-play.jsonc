@@ -42,14 +42,16 @@
                 "car-albedo":"assets/models/car/bodybkgd.jpg",
                 "black":"assets/textures/black.png",
                 "road":"assets/textures/road.jpg",
-                "buildings":"assets/textures/buildings.jpg"
+                "buildings":"assets/textures/buildings.jpg",
+                "golden":"assets/textures/menu/golden.jpg"
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
                 "monkey": "assets/models/monkey.obj",
                 "plane": "assets/models/plane.obj",
                 "sphere": "assets/models/sphere.obj",
-                "car":"assets/models/car/1967-shelby-ford-mustang.obj"
+                "car":"assets/models/car/1967-shelby-ford-mustang.obj",
+                "begin-text":"assets/models/menu/begin-text.obj"
             },
             "samplers":{
                 "default":{},
@@ -58,6 +60,21 @@
                 }
             },
             "materials":{
+                "begin-text":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "golden",
+                    "sampler": "default"
+                },
                 "metal":{
                     "type": "tinted",
                     "shader": "tinted",
@@ -383,7 +400,7 @@
 
 //___________________ menu entities
             {
-                "name": "menu-1",
+                "name": "menu-camera",
                 "position": [0, 3, 10],
                 "components": [
                     {
@@ -392,7 +409,7 @@
                 ]
             },
             {
-                "name": "menu-2",
+                "name": "menu-vehicle-1",
                 "position":[-15, 0, -5],
                 "components":[
                     {
@@ -408,7 +425,7 @@
                 ]
             },
             {
-                "name": "menu-3",
+                "name": "menu-vehicle-2",
                 "position":[15, 0, -5],
                 "components":[
                     {
@@ -424,7 +441,7 @@
                 ]
             },
             {
-                "name": "menu-4",
+                "name": "menu-light",
                 "position": [0, 10, 0],
                 "components": [
                     {
@@ -433,6 +450,18 @@
                         "color": [1, 1, 1],
                         "attenuation": [0, 0, 1],
                         "cone_angles":[10, 11]
+                    }
+                ]
+            },
+            {
+                "name": "menu-text",
+                "position":[-3, 4, 5],
+                "rotation":[0,0,0],
+                "components":[
+                    {
+                        "type":"Mesh Renderer",
+                        "mesh":"begin-text",
+                        "material":"begin-text"
                     }
                 ]
             }
