@@ -92,6 +92,7 @@ set(COMMON_SOURCES
         source/common/systems/car-movement.hpp
         source/common/systems/deliver.hpp
         source/common/systems/menu.hpp
+        source/common/systems/camera-view.hpp
 )
 
 # Define the directories in which to search for the included headers

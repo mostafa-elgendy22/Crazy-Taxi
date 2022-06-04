@@ -314,14 +314,13 @@
                 ],
                 "children": [
                     {
-                      "name": "camera",
-
-                    "position": [0, 3, 10],
-                    "components": [
-                        {
-                            "type": "Camera"
-                        }
-                    ]
+                        "name": "camera",
+                        "position": [0, 3, 10],
+                        "components": [
+                            {
+                                "type": "Camera"
+                            }
+                        ]
                     },
                     {
                         "components":[
