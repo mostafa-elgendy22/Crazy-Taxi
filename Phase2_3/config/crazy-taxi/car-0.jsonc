@@ -34,6 +34,9 @@
                 "grass": "assets/textures/grass_ground_d.jpg",
                 "wood": "assets/textures/wood.jpg",
                 "glass": "assets/textures/glass-panels.png",
+                "whiteGlass":"assets/textures/whiteGlass.jpg",
+                "glass2":"assets/textures/glass2.jpg",
+                "glass3":"assets/textures/glass3.png",
                 "monkey": "assets/textures/monkey/albedo.jpg",
                 "monkey-specular": "assets/textures/monkey/specular.jpg",
                 "monkey-roughness": "assets/textures/monkey/roughness.jpg",
@@ -41,9 +44,14 @@
                 "monkey-emissive": "assets/textures/monkey/emissive.jpg",
                 "car-albedo":"assets/models/car/bodybkgd.jpg",
                 "black":"assets/textures/black.png",
+                "white":"assets/textures/white.png",
+                "metal":"assets/textures/metal.jpg",
                 "road":"assets/textures/road.jpg",
                 "buildings":"assets/textures/buildings.jpg",
-                "man-tex":"assets/models/Human/dennis-posed-004-obj/rp_dennis_posed_004_dif.jpg"
+                "wall":"assets/textures/wall.jpg",
+                "wall2":"assets/textures/wall2.jpg",
+                "man-tex":"assets/models/Human/dennis-posed-004-obj/rp_dennis_posed_004_dif.jpg",
+                "skin":"assets/textures/human_skin_5_diffuseOriginal.jpg"
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
@@ -94,7 +102,7 @@
                     },
                     "transparent": true,
                     "tint": [1, 1, 1, 1],
-                    "texture": "glass",
+                    "texture": "glass3",
                     "sampler": "pixelated"
                 },
                 "grass":{
@@ -129,8 +137,8 @@
                     "sampler": "default"
                 },
                 "building":{
-                    "type": "textured",
-                    "shader": "textured",
+                    "type": "lit",
+                    "shader": "lit",
                     "pipelineState": {
                         "faceCulling":{
                             "enabled": false
@@ -141,6 +149,13 @@
                     },
                     "tint": [1, 1, 1, 1],
                     "texture": "buildings",
+
+                    "albedo":"buildings",
+                    "specular": "buildings",
+                    "roughness": "wall",
+                    "ambient_occlusion": "white",
+                    "emissive": "black",
+
                     "sampler": "default"
                 },
                 "monkey":{
@@ -203,8 +218,8 @@
                     // "ambient_occlusion":"car-albedo",
                     
                     // "emissive":"car-albedo",
-                    "roughness": "black",
-                    "ambient_occlusion": "black",
+                    "roughness": "metal",
+                    "ambient_occlusion": "white",
                     "emissive": "black",
 
                     "sampler":"default"
@@ -225,7 +240,7 @@
                     "albedo": "man-tex",
                     "specular": "man-tex",
                     "roughness": "man-tex",
-                    "ambient_occlusion": "man-tex",
+                    "ambient_occlusion": "white",
                     "emissive": "black",
 
                     "sampler": "default"
@@ -233,6 +248,56 @@
             }
         },
         "world":[
+            {
+                "position":[0, 1, -7],
+                "components":[
+                    {
+                        "type":"Mesh Renderer",
+                        "mesh":"monkey",
+                        "material":"monkey"
+                    }
+                ]
+            },
+            {
+                "position":[1, 1, -7],
+                "components":[
+                    {
+                        "type":"Mesh Renderer",
+                        "mesh":"monkey",
+                        "material":"monkey"
+                    }
+                ]
+            },
+            {
+                "position":[-1, 1, -7],
+                "components":[
+                    {
+                        "type":"Mesh Renderer",
+                        "mesh":"monkey",
+                        "material":"monkey"
+                    }
+                ]
+            },
+            {
+                "position":[2, 1, -7],
+                "components":[
+                    {
+                        "type":"Mesh Renderer",
+                        "mesh":"monkey",
+                        "material":"monkey"
+                    }
+                ]
+            },
+            {
+                "position":[-2, 1, -7],
+                "components":[
+                    {
+                        "type":"Mesh Renderer",
+                        "mesh":"monkey",
+                        "material":"monkey"
+                    }
+                ]
+            },
             {
                 "position":[0, 0, 0],
                 "components":[
@@ -242,11 +307,12 @@
                         "material":"car"
                     },
                     {
-                        "type":"Car Movement",
-                        "maxSpeed":0.5,
+                        "type":"Car Movement", 
+                        "maxSpeed":5.1,
                         "maxAngle":0.1,
-                        "accelerationSensitivity":0.05,
-                        "rotationSensitivity":0.05
+                        "accelerationSensitivity":1.5,
+                        "rotationSensitivity":0.05,
+                        "elasticity":-0.3
                     }
                 ],
                 "children": [
@@ -256,6 +322,9 @@
                         {
                             "type": "Camera"
                         }
+                        // {
+                        //     "type":"Free Camera Controller"
+                        // }
                     ]
                     },
                     {
@@ -264,6 +333,34 @@
                                 "type":"Mesh Renderer",
                                 "mesh":"car-glass",
                                 "material":"glass"
+                            }
+                        ]
+                    },
+                    {
+                        "position": [1.5, 1.5, -3],
+                        "rotation": [90, 0, 0],
+                        "components": [
+                            {
+                                "type": "Light",
+                                "lightType": "spot",
+                                "color": [1, 1, 1],
+                                "attenuation": [0, 0, 1],
+                                "cone_angles":[10, 13]
+                            }
+                        ],
+                        "children":[
+                            {
+                                "position": [-3, 0, 0],
+                                // "rotation": [90, 0, 0],
+                                "components": [
+                                    {
+                                        "type": "Light",
+                                        "lightType": "spot",
+                                        "color": [1, 1, 1],
+                                        "attenuation": [0, 0, 1],
+                                        "cone_angles":[10, 13]
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -297,7 +394,7 @@
             },
             {
                 "position": [0, 10, 0],
-                // "rotation": [90, 0, 0],
+                "rotation": [45, 45, 0],
                 "components": [
                     {
                         "type": "Light",
@@ -310,7 +407,7 @@
             },      
             // man
             {
-                "position": [0, 0, -1],
+                "position": [0, 0, -15],
                 "scale":[2, 2, 2],
                 "components": [
                     {
@@ -373,7 +470,7 @@
             },
             {
                 "position": [10, -1, -70],
-                "rotation": [0, 90, 0],
+                "rotation": [0, -90, 0],
                 "scale": [20, 20, 1],
                 "components": [
                     {
@@ -421,7 +518,7 @@
             },
             {
                 "position": [10, -1, -10],
-                "rotation": [0, 90, 0],
+                "rotation": [0, -90, 0],
                 "scale": [20, 20, 1],
                 "components": [
                     {

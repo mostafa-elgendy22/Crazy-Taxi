@@ -169,6 +169,8 @@ namespace our
                 // get minx, maxx, miny, maxy, minz, maxz from building mesh vec3::min vec3::max
                 glm::vec3 buildingMin = otherMeshRender->mesh->min;
                 glm::vec3 buildingMax = otherMeshRender->mesh->max;
+                if (otherMeshRender == NULL)
+                  continue;
                 // get building bounding box
                 glm::vec3 buildingBoundingBox[8] = {
                     glm::vec3(buildingMin.x, buildingMin.y, buildingMin.z),
