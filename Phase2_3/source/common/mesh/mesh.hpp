@@ -59,8 +59,8 @@ namespace our {
             glBindVertexArray(0); // unbind VAO, no longer needed
                                   
             // Phase 3 - Gheiath: Add vertices arr to check collisions later if needed !
-            for (auto &idx: elements)
-              this->vertices.emplace_back(vertices[idx].position);
+            for (auto &vertex: vertices) 
+                this->vertices.emplace_back(vertex.position);
         }
 
         // this function should render the mesh
