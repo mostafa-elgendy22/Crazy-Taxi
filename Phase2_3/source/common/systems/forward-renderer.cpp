@@ -371,6 +371,14 @@ namespace our
             glBindVertexArray(postProcessVertexArray);
             postprocessMaterial->setup();
 
+            // Isn't there a better way??? //! Only works in case of fog
+            glActiveTexture(GL_TEXTURE1);
+            depthTarget->bind();
+            // Then we bind the sampler to unit 1
+            postprocessMaterial->sampler->bind(1);
+            postprocessMaterial->shader->set("depth_sampler", 1);
+            postprocessMaterial->shader->set("inverse_projection", glm::inverse(camera->getProjectionMatrix(windowSize)));
+            
             glDrawArrays(GL_TRIANGLES, 0, 3); 
         }
     }
