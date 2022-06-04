@@ -1,5 +1,5 @@
 {
-    "start-scene": "main",
+    "start-scene": "menu",
     "window":
     {
         "title":"Default Game Window",
@@ -45,7 +45,9 @@
                 "road":"assets/textures/road_tex.png",
                 "buildings":"assets/textures/buildings.jpg",
                 "man-tex":"assets/models/Human/dennis-posed-004-obj/rp_dennis_posed_004_dif.jpg",
-                "greenGlass":"assets/textures/greenGlass.jpg"
+                "greenGlass":"assets/textures/greenGlass.jpg",
+                //_______________menu only textures
+                "golden":"assets/textures/menu/golden.jpg"
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
@@ -55,7 +57,9 @@
                 "car":"assets/models/car/car.obj",
                 "car-glass":"assets/models/car/glass.obj",
                 "man":"assets/models/Human/dennis-posed-004-obj/dennis-posed-004.obj",
-                "arrow": "assets/models/arrow/arrow.obj"
+                "arrow": "assets/models/arrow/arrow.obj",
+                //_______________menu only meshes
+                "begin-text":"assets/models/menu/begin-text.obj"
             },
             "samplers":{
                 "default":{},
@@ -256,7 +260,25 @@
                     "emissive": "black",
 
                     "sampler": "default"
+                },
+
+                //______________________menu only materials
+                "begin-text":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "golden",
+                    "sampler": "default"
                 }
+
             }
         },
         "world":[
@@ -484,6 +506,73 @@
                         "type": "Mesh Renderer",
                         "mesh": "plane",
                         "material": "building"
+                    }
+                ]
+            },
+            //___________________ menu entities
+            {
+                "name": "menu-camera",
+                "position": [0, 3, 10],
+                "components": [
+                    {
+                        "type": "Camera"
+                    }
+                ]
+            },
+            {
+                "name": "menu-vehicle-1",
+                "position":[-15, 0, -5],
+                "components":[
+                    {
+                        "type":"Mesh Renderer",
+                        "mesh":"car",
+                        "material":"car"
+                    },
+                    {
+                        "type": "Movement",
+                        "linearVelocity": [0, 0, 0],
+                        "angularVelocity": [0, 45, 0]
+                    }
+                ]
+            },
+            {
+                "name": "menu-vehicle-2",
+                "position":[15, 0, -5],
+                "components":[
+                    {
+                        "type":"Mesh Renderer",
+                        "mesh":"car",
+                        "material":"car"
+                    },
+                    {
+                        "type": "Movement",
+                        "linearVelocity": [0, 0, 0],
+                        "angularVelocity": [0, -45, 0]
+                    }
+                ]
+            },
+            {
+                "name": "menu-light",
+                "position": [0, 10, 0],
+                "components": [
+                    {
+                        "type": "Light",
+                        "lightType": "directional",
+                        "color": [1, 1, 1],
+                        "attenuation": [0, 0, 1],
+                        "cone_angles":[10, 11]
+                    }
+                ]
+            },
+            {
+                "name": "menu-text",
+                "position":[-3, 4, 5],
+                "rotation":[0,0,0],
+                "components":[
+                    {
+                        "type":"Mesh Renderer",
+                        "mesh":"begin-text",
+                        "material":"begin-text"
                     }
                 ]
             }
