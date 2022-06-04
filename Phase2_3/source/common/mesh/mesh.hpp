@@ -61,6 +61,8 @@ namespace our {
             glBindVertexArray(0); // unbind VAO, no longer needed
                                   
             // Phase 3 - Gheiath: Add vertices arr to check collisions later if needed !
+            this->min = glm::vec3(std::numeric_limits<float>::max());
+            this->max = glm::vec3(std::numeric_limits<float>::min());
             for (auto &vertex: vertices) 
             {
               this->vertices.emplace_back(vertex.position);
