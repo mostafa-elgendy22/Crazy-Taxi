@@ -15,7 +15,7 @@ out vec4 frag_color;
 
 void main() {
     // This determines how much the fog affect the scene (0: no fog, 1: background will no longer be visible). Range [0,1]
-    float fog_power = 0.7;
+    float fog_power = 0.4;
     // The fog exponent is 1/D where D is the distance at which the fog color will dominate 63.2% of the output color. This used to affect the density of the fog.
     // Since D ranges from 0 to infinity, fog exponent ranges from infinity (nothing will show up) to 0 (no fog).
     float fog_exponent = 1.0/30.0;

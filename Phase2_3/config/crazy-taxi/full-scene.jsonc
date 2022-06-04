@@ -12,7 +12,7 @@
     "scene": {
         "renderer":{
             "sky": "assets/textures/sky.jpg",
-            "postprocess": "assets/shaders/postprocess/vignette.frag"
+            "postprocess": "assets/shaders/postprocess/fog.frag"
         },
         "assets":{
             "shaders":{
@@ -140,6 +140,11 @@
                     },
                     "tint": [1, 1, 1, 1],
                     "texture": "road",
+                    // "albedo":"road",
+                    // "specular": "buildings",
+                    // "roughness": "wall",
+                    // "ambient_occlusion": "white",
+                    // "emissive": "black",
                     "sampler": "pixelated"
                 },
                 "building":{
@@ -335,6 +340,9 @@
                             {
                                 "type": "Camera"
                             }
+                            // {
+                            //     "type":"Free Camera Controller"
+                            // }
                         ]
                     },
                     {
@@ -367,8 +375,8 @@
                                 "type": "Light",
                                 "lightType": "spot",
                                 "color": [1, 1, 1],
-                                "attenuation": [0, 0, 1],
-                                "cone_angles":[10, 13]
+                                "attenuation": [0, 0.1, 0],
+                                "cone_angles":[30, 35]
                             }
                         ],
                         "children":[
@@ -380,8 +388,8 @@
                                         "type": "Light",
                                         "lightType": "spot",
                                         "color": [1, 1, 1],
-                                        "attenuation": [0, 0, 1],
-                                        "cone_angles":[10, 13]
+                                        "attenuation": [0, 0.1, 0],
+                                        "cone_angles":[30, 35]
                                     }
                                 ]
                             }
@@ -451,7 +459,7 @@
             {
                 "position": [0, -1, -40],
                 "rotation": [-90, 0, 0],
-                "scale": [1000, 1000, 1],
+                "scale": [100, 100, 1],
                 "components": [
                     {
                         "type": "Mesh Renderer",

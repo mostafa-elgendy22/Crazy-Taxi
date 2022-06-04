@@ -245,7 +245,7 @@ namespace our
 
              // sending skylight data
             // TODO 11 should these values be constants? or read them from jsonc???
-            shader->set("sky.top", glm::vec3(0.3, 0.6, 1.0));
+            shader->set("sky.top", glm::vec3(0.6, 0.6, 1.0));
             shader->set("sky.middle", glm::vec3(0.3, 0.3, 0.3));
             shader->set("sky.bottom", glm::vec3(0.1, 0.1, 0.0));
 
