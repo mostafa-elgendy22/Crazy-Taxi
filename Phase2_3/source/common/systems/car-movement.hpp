@@ -13,7 +13,7 @@
 
 #include<iostream>
 #include<algorithm>
-// #include <utils.h>
+#include <utils.h>
 using namespace std;
 
 namespace our
@@ -150,7 +150,7 @@ namespace our
             // honk using f
             if(app->getKeyboard().isPressed(GLFW_KEY_F))
             {
-              // Utils::playAudio("honk.wav");
+              Utils::honk();
             }
 
 
