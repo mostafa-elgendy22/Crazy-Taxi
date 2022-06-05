@@ -93,7 +93,7 @@ namespace our
               if (isRight)
                  angle = -angle;
 
-              arrow->localTransform.rotation = glm::vec3(90.0, 0.0, angle);
+              arrow->localTransform.rotation = glm::vec3(0.0, 0.0, angle);
             }
             
             float CLOSE_DISTANCE = car->closeDistance;
