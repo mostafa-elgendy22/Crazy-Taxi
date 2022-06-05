@@ -638,6 +638,327 @@
             // ROAD!!
 {"name":"road","position":[-190.0,-1,-190.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-190.0,-1,-150.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-190.0,-1,-110.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-190.0,-1,-70.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-190.0,-1,-30.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-190.0,-1,10.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-190.0,-1,50.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-190.0,-1,90.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-190.0,-1,130.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-190.0,-1,170.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-150.0,-1,-190.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-150.0,-1,-150.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-150.0,-1,-110.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-150.0,-1,-70.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-150.0,-1,-30.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-150.0,-1,10.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-150.0,-1,50.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-150.0,-1,90.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-150.0,-1,130.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-150.0,-1,170.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-110.0,-1,-190.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-110.0,-1,-150.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-110.0,-1,-110.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-110.0,-1,-70.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-110.0,-1,-30.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-110.0,-1,10.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-110.0,-1,50.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-110.0,-1,90.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-110.0,-1,130.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-110.0,-1,170.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-70.0,-1,-190.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-70.0,-1,-150.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-70.0,-1,-110.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-70.0,-1,-70.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-70.0,-1,-30.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-70.0,-1,10.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-70.0,-1,50.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-70.0,-1,90.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-70.0,-1,130.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-70.0,-1,170.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-30.0,-1,-190.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-30.0,-1,-150.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-30.0,-1,-110.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-30.0,-1,-70.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-30.0,-1,-30.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-30.0,-1,10.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-30.0,-1,50.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-30.0,-1,90.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-30.0,-1,130.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[-30.0,-1,170.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[10.0,-1,-190.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[10.0,-1,-150.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[10.0,-1,-110.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[10.0,-1,-70.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[10.0,-1,-30.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[10.0,-1,10.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[10.0,-1,50.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[10.0,-1,90.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[10.0,-1,130.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[10.0,-1,170.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[50.0,-1,-190.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[50.0,-1,-150.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[50.0,-1,-110.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[50.0,-1,-70.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[50.0,-1,-30.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[50.0,-1,10.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[50.0,-1,50.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[50.0,-1,90.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[50.0,-1,130.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[50.0,-1,170.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[90.0,-1,-190.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[90.0,-1,-150.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[90.0,-1,-110.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[90.0,-1,-70.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[90.0,-1,-30.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[90.0,-1,10.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[90.0,-1,50.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[90.0,-1,90.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[90.0,-1,130.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[90.0,-1,170.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[130.0,-1,-190.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[130.0,-1,-150.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[130.0,-1,-110.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[130.0,-1,-70.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[130.0,-1,-30.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[130.0,-1,10.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[130.0,-1,50.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[130.0,-1,90.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[130.0,-1,130.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[130.0,-1,170.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[170.0,-1,-190.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[170.0,-1,-150.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[170.0,-1,-110.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[170.0,-1,-70.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[170.0,-1,-30.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[170.0,-1,10.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[170.0,-1,50.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[170.0,-1,90.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[170.0,-1,130.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},{"name":"road","position":[170.0,-1,170.0],"rotation":[-90,0,0],"scale":[20,20,1],"components":[{"type":"Mesh Renderer","mesh":"plane","material":"road"}]},
   // <buildings>
+
+            {
+                "name": "building",
+                "position": [-140, 10, -120],
+                "rotation": [0, 0, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-140, 10, -160],
+                "rotation": [180, 0, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-120, 10, -140],
+                "rotation": [180, -90, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-160, 10, -140],
+                "rotation": [0, -90, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+
+            {
+                "name": "building",
+                "position": [-140, 10, -20],
+                "rotation": [0, 0, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-140, 10, -60],
+                "rotation": [180, 0, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-120, 10, -40],
+                "rotation": [180, -90, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-160, 10, -40],
+                "rotation": [0, -90, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+
+            {
+                "name": "building",
+                "position": [-140, 5, 80],
+                "rotation": [0, 0, 0],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-140, 5, 40],
+                "rotation": [180, 0, 180],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-120, 5, 60],
+                "rotation": [180, -90, 180],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-160, 5, 60],
+                "rotation": [0, -90, 0],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+
+            {
+                "name": "building",
+                "position": [-140, 5, 160],
+                "rotation": [0, 0, 0],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-140, 5, 120],
+                "rotation": [180, 0, 180],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-120, 5, 140],
+                "rotation": [180, -90, 180],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-160, 5, 140],
+                "rotation": [0, -90, 0],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+
+            {
+                "name": "building",
+                "position": [-100, 10, -120],
+                "rotation": [0, 0, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-100, 10, -160],
+                "rotation": [180, 0, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-80, 10, -140],
+                "rotation": [180, -90, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-120, 10, -140],
+                "rotation": [0, -90, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+
+           
+
+            {
+                "name": "building",
+                "position": [-60, 10, -120],
+                "rotation": [0, 0, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-60, 10, -160],
+                "rotation": [180, 0, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-40, 10, -140],
+                "rotation": [180, -90, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-80, 10, -140],
+                "rotation": [0, -90, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+
             {
                 "name": "building",
                 "position": [-60, 10, -20],
@@ -693,7 +1014,7 @@
 
             {
                 "name": "building",
-                "position": [60, 10, -20],
+                "position": [-60, 5, 80],
                 "rotation": [0, 0, 0],
                 "scale": [20, 60, 1],
                 "components": [
@@ -706,7 +1027,7 @@
             },
             {
                 "name": "building",
-                "position": [60, 10, -60],
+                "position": [-60, 5, 40],
                 "rotation": [180, 0, 180],
                 "scale": [20, 60, 1],
                 "components": [
@@ -719,7 +1040,7 @@
             },
             {
                 "name": "building",
-                "position": [80, 10, -40],
+                "position": [-40, 5, 60],
                 "rotation": [180, -90, 180],
                 "scale": [20, 60, 1],
                 "components": [
@@ -732,7 +1053,7 @@
             },
             {
                 "name": "building",
-                "position": [40, 10, -40],
+                "position": [-80, 5, 60],
                 "rotation": [0, -90, 0],
                 "scale": [20, 60, 1],
                 "components": [
@@ -742,7 +1063,379 @@
                         "material": "building"
                     }
                 ]
+            },
+
+            {
+                "name": "building",
+                "position": [-60, 5, 160],
+                "rotation": [0, 0, 0],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-60, 5, 120],
+                "rotation": [180, 0, 180],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-40, 5, 140],
+                "rotation": [180, -90, 180],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-80, 5, 140],
+                "rotation": [0, -90, 0],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+
+            {
+                "name": "building",
+                "position": [-20, 10, -120],
+                "rotation": [0, 0, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-20, 10, -160],
+                "rotation": [180, 0, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [0, 10, -140],
+                "rotation": [180, -90, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-40, 10, -140],
+                "rotation": [0, -90, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+
+
+            {
+                "name": "building",
+                "position": [60, 10, -120],
+                "rotation": [0, 0, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [60, 10, -160],
+                "rotation": [180, 0, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [80, 10, -140],
+                "rotation": [180, -90, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [40, 10, -140],
+                "rotation": [0, -90, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+
+            {
+                "name": "building",
+                "position": [60, 10, -20],
+                "rotation": [0, 0, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [60, 10, -60],
+                "rotation": [180, 0, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [80, 10, -40],
+                "rotation": [180, -90, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [40, 10, -40],
+                "rotation": [0, -90, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+
+            {
+                "name": "building",
+                "position": [60, 5, 80],
+                "rotation": [0, 0, 0],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [60, 5, 40],
+                "rotation": [180, 0, 180],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [80, 5, 60],
+                "rotation": [180, -90, 180],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [40, 5, 60],
+                "rotation": [0, -90, 0],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+
+            {
+                "name": "building",
+                "position": [60, 5, 160],
+                "rotation": [0, 0, 0],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [60, 5, 120],
+                "rotation": [180, 0, 180],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [80, 5, 140],
+                "rotation": [180, -90, 180],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [40, 5, 140],
+                "rotation": [0, -90, 0],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+
+            {
+                "name": "building",
+                "position": [100, 10, -20],
+                "rotation": [0, 0, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [100, 10, -60],
+                "rotation": [180, 0, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [120, 10, -40],
+                "rotation": [180, -90, 180],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [80, 10, -40],
+                "rotation": [0, -90, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
             }
-      ]
+        ]
     }
 }
