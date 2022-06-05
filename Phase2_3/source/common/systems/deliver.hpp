@@ -16,10 +16,8 @@ namespace our
 
     class DeliverSystem {
         Application* app; // The application in which the state runs
-        // float overallTime = 0.0;
-        // TODO 13 Read this from JSON
-        const float CLOSE_DISTANCE = 5.0;
-        Entity* tempPassengerParent = nullptr;
+        // float overallTime = 0.0; // to make users appear at some certain time
+        Entity* tempPassengerParent = nullptr; // current passenger's parent entity
     public:
         // When a state enters, it should call this function and give it the pointer to the application
         void enter(Application* app){
@@ -95,9 +93,11 @@ namespace our
               if (isRight)
                  angle = -angle;
 
-              arrow->localTransform.rotation = glm::vec3(0.0f, 0.0f, angle);
+              arrow->localTransform.rotation = glm::vec3(90.0, 0.0, angle);
             }
             
+            float CLOSE_DISTANCE = car->closeDistance;
+
             // ++ Deliver passenger inside if any ++
             if(passengerInside){
                 
@@ -128,8 +128,8 @@ namespace our
                 }
                 else{
                     entity->parent = carEntity; // make the car your parent
-                    entity->localTransform.position = glm::vec3(1, 2, 0); // local transform as you wish
-                    entity->localTransform.rotation = glm::vec3(0.0, glm::radians(180.0f), 0.0);
+                    entity->localTransform.position = passengerInside->posInCar; // local transform as you wish
+                    entity->localTransform.rotation = passengerInside->rotInCar;
                 }
                 return;
             }
@@ -164,9 +164,7 @@ namespace our
                     
                     passenger->inside = true;
                     passenger->waiting = false; // waiting ----> inside
-                    // entityPosition = glm::vec3(0, -100, 0); // hide it -// TODO 13 search for a better way to hide it
                     tempPassengerParent = entity->parent; // save current parent
-                    // std::cout<<"Passenger inside!!"<<std::endl;
                 }
             }
         }

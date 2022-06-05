@@ -34,16 +34,8 @@ namespace our {
         shader->set(uni + "diffuse", color); // diffuse = specular = color
         shader->set(uni + "specular", color); // diffuse = specular = color
         shader->set(uni + "attenuation", attenuation); // not used for directional light
-        // TODO 11 make with radians?
         shader->set(uni + "cone_angles", glm::vec2(glm::radians(cone_angles.x), glm::radians(cone_angles.y))); // not used for directional, point light
 
-        // if(lightType == LightType::DIRECTIONAL){
-
-        // } else if (lightType == LightType::SPOT){
-
-        // }else{
-
-        // }
         
     }
 

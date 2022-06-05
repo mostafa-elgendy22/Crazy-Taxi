@@ -21,8 +21,7 @@ namespace our
 
     class CarMovementSystem {
         Application* app; // The application in which the state runs
-        float timeInCollision = 0.0;
-        const float collisionReturningTime = 0.5f;
+        float timeInCollision = 0.0; // how much time stayed applying postprocessing effect
     public:
         // When a state enters, it should call this function and give it the pointer to the application
         void enter(Application* app){
@@ -57,7 +56,8 @@ namespace our
             glm::vec3& entityPosition = entity->localTransform.position;
             glm::vec3& entityRotation = entity->localTransform.rotation;
 
-
+            float collisionReturningTime = movement->collisionTime;
+            
             // postprocessing effect in case of collision
             if(timeInCollision>collisionReturningTime){
                 timeInCollision = 0.0;
