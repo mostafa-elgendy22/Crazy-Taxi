@@ -7,6 +7,9 @@
 #include "../application.hpp"
 
 #include <glm/glm.hpp>
+#include <glm/gtx/euler_angles.hpp>
+#include <glm/ext/matrix_transform.hpp>
+#include <glm/ext/matrix_clip_space.hpp>
 
 namespace our
 {
@@ -16,6 +19,7 @@ namespace our
         // float overallTime = 0.0;
         // TODO 13 Read this from JSON
         const float CLOSE_DISTANCE = 5.0;
+        Entity* tempPassengerParent = nullptr;
     public:
         // When a state enters, it should call this function and give it the pointer to the application
         void enter(Application* app){
@@ -101,7 +105,7 @@ namespace our
 
                 // We get a reference to the entity's position
                 glm::vec3& entityPosition = entity->localTransform.position;
-                
+                glm::vec3& entityRotation = entity->localTransform.rotation;
                 float distance = glm::distance(passengerInside->destination, carPos);
                 // std::cout<<"distance to destination = "<<distance<<endl;
                 if(distance < CLOSE_DISTANCE){// && car->acceleration==0){
@@ -109,13 +113,22 @@ namespace our
                         greenCarpet->localTransform.position.y = -100; // hide carpet 
                     }
                     
+                    if(tempPassengerParent){ // reached their destination, return their parent back
+                        entity->parent = tempPassengerParent;
+                    }
+                    else{ // just to be safe if it was nullptr
+                        entity->parent = carEntity->parent;
+                    }
                     entityPosition = passengerInside->destination;
+                    entityRotation = glm::vec3(0.0, 0.0, 0.0);
                     passengerInside->reached = true;
                     passengerInside->inside = false; // inside ----> reached
                     // std::cout<<"Passenger reached their destination!!"<<std::endl;
                 }
                 else{
-                    entityPosition.y = -100;
+                    entity->parent = carEntity; // make the car your parent
+                    entity->localTransform.position = glm::vec3(1, -0.6, 0); // local transform as you wish
+                    entity->localTransform.rotation = glm::vec3(0.0, glm::radians(180.0f), 0.0);
                 }
                 return;
             }
@@ -149,8 +162,8 @@ namespace our
                     
                     passenger->inside = true;
                     passenger->waiting = false; // waiting ----> inside
-                    entityPosition = glm::vec3(0, -100, 0); // hide it -// TODO 13 search for a better way to hide it
-                    
+                    // entityPosition = glm::vec3(0, -100, 0); // hide it -// TODO 13 search for a better way to hide it
+                    tempPassengerParent = entity->parent; // save current parent
                     // std::cout<<"Passenger inside!!"<<std::endl;
                 }
             }
