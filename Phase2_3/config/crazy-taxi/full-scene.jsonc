@@ -379,11 +379,30 @@
                         "position": [0, 3, 10],
                         "components": [
                             {
-                                "type": "Camera"
+                                "type": "Camera",
+
+                                "key1position": [0,3,10],
+                                "key1rotation": [0,0,0],
+
+                                "key2position": [0,8,15],
+                                "key2rotation": [0,0,0],
+
+                                "key3position": [0,2.5,0],
+                                "key3rotation": [0,0,0],
+
+                                "key4position": [-0.9,2.5,-0.5],
+                                "key4rotation": [0,0,0],
+
+                                "key5position": [0,2.5,-1],
+                                "key5rotation": [0,0,0],
+
+                                "key6position": [0,2.5,-4.3],
+                                "key6rotation": [0,0,0],
+
+                                "key7position": [0,34,0],
+                                "key7rotation": [-90,0,0]   
                             }
-                            // {
-                            //     "type":"Free Camera Controller"
-                            // }
+
                         ]
                     },
                     {
