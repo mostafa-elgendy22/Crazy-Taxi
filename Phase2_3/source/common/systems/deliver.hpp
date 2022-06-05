@@ -120,6 +120,7 @@ namespace our
                         entity->parent = carEntity->parent;
                     }
                     entityPosition = passengerInside->destination;
+                    entityPosition.y += 1;
                     entityRotation = glm::vec3(0.0, 0.0, 0.0);
                     passengerInside->reached = true;
                     passengerInside->inside = false; // inside ----> reached
@@ -127,7 +128,7 @@ namespace our
                 }
                 else{
                     entity->parent = carEntity; // make the car your parent
-                    entity->localTransform.position = glm::vec3(1, -0.6, 0); // local transform as you wish
+                    entity->localTransform.position = glm::vec3(1, 2, 0); // local transform as you wish
                     entity->localTransform.rotation = glm::vec3(0.0, glm::radians(180.0f), 0.0);
                 }
                 return;
