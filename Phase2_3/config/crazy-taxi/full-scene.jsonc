@@ -40,6 +40,7 @@
                 "car-albedo":"assets/models/car/car.jpg",
                 "black":"assets/textures/black.png",
                 "white":"assets/textures/white.png",
+                "red":"assets/textures/red.jpg",
                 "metal":"assets/textures/metal.jpg",
                 "road":"assets/textures/r2/basecolor.jpg",
                 "road_specular":"assets/textures/r2/specular.jpg",
@@ -64,6 +65,7 @@
                 "car-glass":"assets/models/car/glass.obj",
                 "man":"assets/models/Human/dennis-posed-004-obj/dennis-posed-004.obj",
                 "arrow": "assets/models/arrow/arrow.obj",
+                "backLight":"assets/models/car/backlight.obj",
                 //_______________menu only meshes
                 "begin-text":"assets/models/menu/begin-text.obj"
             },
@@ -240,6 +242,28 @@
 
                     "sampler":"default"
                 },
+                "backLight":
+                {
+                    "type": "lit",
+                    "shader":"lit",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+
+                    "albedo":"glass",
+                    "specular": "red",
+                    "roughness": "metal",
+                    "ambient_occlusion": "white",
+                    "emissive": "red",
+
+                    "sampler":"default"
+                },
 
                 "arrow":
                 {
@@ -355,6 +379,15 @@
                                 "type":"Mesh Renderer",
                                 "mesh":"car-glass",
                                 "material":"glass"
+                            }
+                        ]
+                    },
+                    {
+                        "components":[
+                            {
+                                "type":"Mesh Renderer",
+                                "mesh":"backLight",
+                                "material":"backLight"
                             }
                         ]
                     },
