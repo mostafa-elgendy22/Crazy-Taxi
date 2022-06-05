@@ -390,6 +390,8 @@
                             {
                                 "type": "Camera",
 
+                                "far":1000.0,
+
                                 "key1position": [0,3,10],
                                 "key1rotation": [0,0,0],
 
@@ -622,7 +624,9 @@
                         "destination": [0, 0, -50],
                         "speed": 2,
                         "steps": 500,
-                        "moveProb": 500    // the probability of moving = 1/moveProb
+                        "moveProb": 500,    // the probability of moving = 1/moveProb
+                        "posInCar" : [1.0, 2.0, 0.0],
+                        "rotInCar" : [0.0, 180.0, 0.0]
                     }
                 ]
             },      

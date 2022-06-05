@@ -12,7 +12,7 @@ namespace our {
         moveProb = data.value("moveProb",moveProb);
 
         posInCar = data.value("posInCar", posInCar);
-        rotInCar = data.value("rotInCar", rotInCar);
+        rotInCar = glm::radians(data.value("rotInCar", glm::degrees(rotInCar)));
         // appearingTime = data.value("appearingTime", appearingTime);
     }
 }
