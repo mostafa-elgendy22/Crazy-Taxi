@@ -97,8 +97,10 @@ namespace our
             }
 
             // A & D moves the player left or right 
-            if(app->getKeyboard().isPressed(GLFW_KEY_D)) rotation += deltaTime * rotationSensitivity;
-            if(app->getKeyboard().isPressed(GLFW_KEY_A)) rotation -= deltaTime * rotationSensitivity;
+            if(app->getKeyboard().isPressed(GLFW_KEY_D) && (app->getKeyboard().isPressed(GLFW_KEY_W))) rotation += deltaTime * rotationSensitivity;
+            if(app->getKeyboard().isPressed(GLFW_KEY_A) && (app->getKeyboard().isPressed(GLFW_KEY_W))) rotation -= deltaTime * rotationSensitivity;
+            if(app->getKeyboard().isPressed(GLFW_KEY_D) && (app->getKeyboard().isPressed(GLFW_KEY_S))) rotation -= deltaTime * rotationSensitivity;
+            if(app->getKeyboard().isPressed(GLFW_KEY_A) && (app->getKeyboard().isPressed(GLFW_KEY_S))) rotation += deltaTime * rotationSensitivity;
             if(!app->getKeyboard().isPressed(GLFW_KEY_D) && !app->getKeyboard().isPressed(GLFW_KEY_A))rotation=0;
             // {   
             //     if(rotation>0)rotation=max(0.0f,rotation-deltaTime*rotationSensitivity);
