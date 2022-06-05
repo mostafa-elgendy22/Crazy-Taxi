@@ -400,6 +400,18 @@
                                 ]
                             }
                         ]
+                    },
+                    {//driver
+                        "position":[-1,-0.6,0],
+                        "rotation":[0, 180, 0],
+                        "scale":[2, 2, 2],
+                        "components":[
+                            {
+                                "type": "Mesh Renderer",
+                                "mesh": "man",
+                                "material": "man"
+                            }
+                        ]
                     }
                 ]
             },
