@@ -3,6 +3,7 @@
 #include "../ecs/world.hpp"
 #include "../components/car-movement.hpp"
 #include "../components/camera.hpp"
+#include "../components/light.hpp"
 #include "../application.hpp"
 
 #include <glm/glm.hpp>
@@ -33,6 +34,7 @@ namespace our
             CarMovementComponent *movement = nullptr;
             Entity* arrow = nullptr;
             bool collisionHappened = false;
+            vector<LightComponent*> backlights;
             for(auto entity : world->getEntities()){
                 if (auto temp = entity->getComponent<CarMovementComponent>(); temp) {
                   movement = temp;
@@ -40,6 +42,10 @@ namespace our
                 
                 if (entity->name == "arrow") {
                     arrow = entity;
+                }
+
+                if(entity->name=="backlight"){
+                  backlights.push_back(entity->getComponent<LightComponent>());
                 }
             }
 
@@ -52,7 +58,13 @@ namespace our
             glm::vec3& entityRotation = entity->localTransform.rotation;
 
 
-
+            // postprocessing effect in case of collision
+            if(timeInCollision>collisionReturningTime){
+                timeInCollision = 0.0;
+                renderer->changeApply(false);
+            } else{
+                timeInCollision+=deltaTime;
+            } 
             
 
             // We get a reference to the component's params
@@ -69,6 +81,8 @@ namespace our
             // [-1, 0]
             // how much the car will bounce back when it collides
             float& elasticity=movement->elasticity;
+            
+            
 
             // We get the camera model matrix (relative to its parent) to compute the front, up and right directions
             glm::mat4 matrix = entity->localTransform.toMat4();
@@ -91,6 +105,11 @@ namespace our
             {
                 if(acceleration>0)acceleration=max(0.0f,acceleration-deltaTime*brakesSensitivity);
                 else acceleration=min(0.0f,acceleration+deltaTime*brakesSensitivity);
+
+                for(int k = 0; k < backlights.size(); k++){ backlights[k]->visible = true; }
+            }
+            else{
+                for(int k = 0; k < backlights.size(); k++){ backlights[k]->visible = false; }
             }
 
             if(acceleration>0)acceleration=min(maxSpeed,acceleration);
@@ -311,12 +330,7 @@ namespace our
             timeInCollision = deltaTime;
             // std::cout<<"COllISION!!!\n";
           }
-          if(timeInCollision>collisionReturningTime){
-            timeInCollision = 0.0;
-            renderer->changeApply(false);
-          } else{
-            timeInCollision+=deltaTime;
-          }
+          
         }
     };
 

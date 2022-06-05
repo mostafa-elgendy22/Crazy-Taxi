@@ -362,8 +362,9 @@
                     },
                     {
                         "type":"Car Movement",
-                        "maxSpeed":0.5,
+                        "maxSpeed":5.1,
                         "maxAngle":0.1,
+
                         "rotationSensitivity":0.02,
                         "accelerationSensitivity":0.04,
                         "brakesSensitivity":0.30,
@@ -436,6 +437,33 @@
                                         "type": "Light",
                                         "lightType": "spot",
                                         "color": [1, 1, 1],
+                                        "attenuation": [0, 0.1, 0],
+                                        "cone_angles":[30, 35]
+                              }
+                          ]
+                    },
+                    { // car backlights
+                        "name":"backlight",
+                        "position": [1.5, 1.5, 1.5],
+                        "rotation": [-70, 20, 0],
+                        "components": [
+                            {
+                                "type": "Light",
+                                "lightType": "spot",
+                                "color": [1, 0, 0],
+                                "attenuation": [0, 0.1, 0],
+                                "cone_angles":[30, 35]
+                            }
+                        ]},
+                    {
+                         "name":"backlight",
+                         "position": [-1.5, 1.5, 1.5],
+                         "rotation": [-70, -20, 0],
+                         "components": [
+                             {
+                                        "type": "Light",
+                                        "lightType": "spot",
+                                        "color": [1, 0, 0],
                                         "attenuation": [0, 0.1, 0],
                                         "cone_angles":[30, 35]
                               }

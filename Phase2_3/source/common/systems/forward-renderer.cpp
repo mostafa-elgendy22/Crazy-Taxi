@@ -214,6 +214,12 @@ namespace our
         //TODO: (Req 8) Clear the color and depth buffers
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+        int lightsCount = 0;
+        for(int i = 0; i < lights.size(); i++){
+            if(lights[i]->visible){
+                lightsCount++;
+            }
+        }
         //TODO: (Req 8) Draw all the opaque commands
         // Don't forget to set the "transform" uniform to be equal the model-view-projection matrix for each render command
         for (int i = 0; i < opaqueCommands.size(); i++)
@@ -228,13 +234,16 @@ namespace our
             shader->set("transform", VP * opaqueCommands[i].localToWorld);
 
             // send lights count
-            shader->set("light_count", (int)lights.size());
+            shader->set("light_count", lightsCount);
 
             // find position and direction of light
             // assume initial direcion of light is (0, -1, 0) (down) - changing direction happens through rotation
             // to change initial direction, set rotation in jsonc file
 
-            for(int j = 0; j < (int)lights.size(); j++){
+            for(int j = 0, k = 0; j < (int)lights.size(); j++){
+                if(!(lights[j]->visible)){ // don't send this light if not visible
+                    continue;
+                }
                 //TODO 11 check if correct - assumption: default light direction is bottom
                 glm::vec3 position = lights[j]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, 0, 1);
 
@@ -242,7 +251,8 @@ namespace our
                 glm::vec4 directionVector = lights[j]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, -1, 0, 0);
                 glm::vec3 direction = glm::vec3(directionVector.x, directionVector.y, directionVector.z);
                 
-                lights[j]->sendData(shader, j, direction, position);
+                lights[j]->sendData(shader, k, direction, position);// k = index used by the shader
+                k++;
             }
 
              // sending skylight data
@@ -320,13 +330,16 @@ namespace our
             shader->set("transform", VP * transparentCommands[i].localToWorld);
 
             // send lights count
-            shader->set("light_count", (int)lights.size());
+            shader->set("light_count", lightsCount);
 
             // find position and direction of light
             // assume initial direcion of light is (0, -1, 0) (down) - changing direction happens through rotation
             // to change initial direction, set rotation in jsonc file
 
-            for(int j = 0; j < (int)lights.size(); j++){
+            for(int j = 0, k =0; j < (int)lights.size(); j++){
+                if(!(lights[j]->visible)){
+                    continue;
+                }
                 //TODO 11 check if correct - assumption: default light direction is bottom
                 glm::vec3 position = lights[j]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, 0, 1);
 
@@ -334,7 +347,8 @@ namespace our
                 glm::vec4 directionVector = lights[j]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, -1, 0, 0);
                 glm::vec3 direction = glm::vec3(directionVector.x, directionVector.y, directionVector.z);
                 
-                lights[j]->sendData(shader, j, direction, position);
+                lights[j]->sendData(shader, k, direction, position);
+                k++;
             }
 
             // sending skylight data
