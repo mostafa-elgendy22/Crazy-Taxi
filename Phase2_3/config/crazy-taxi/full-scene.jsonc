@@ -259,7 +259,7 @@
                     "albedo":"glass",
                     "specular": "red",
                     "roughness": "metal",
-                    "ambient_occlusion": "white",
+                    "ambient_occlusion": "black",
                     "emissive": "red",
 
                     "sampler":"default"
