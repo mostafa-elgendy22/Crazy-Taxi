@@ -24,6 +24,7 @@ namespace our {
         glm::vec3 color = glm::vec3(1, 0.9, 0.7); // always: specular = diffuse - Take ambient as skylight
         glm::vec2 cone_angles = glm::vec2(glm::radians(10.f), glm::radians(11.f)); // used in case of SPOT x: inner, y: outer
         glm::vec3 attenuation = glm::vec3(1, 0, 0); // a*d^2 + b*d + c -> vec3(a, b, c) - used in SPOT, POINT lights
+        bool visible = true;
         // TODO 11 Do we need to add ambient?????
 
         // Direction & Position should be calculated from entity
