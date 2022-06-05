@@ -71,7 +71,7 @@ namespace our
             if(app->getKeyboard().isPressed(GLFW_KEY_4))
             {
               // driver seat view
-              position=glm::vec3(-0.9,2.5,0);
+              position=glm::vec3(-0.9,2.5,-0.5);
               rotation=glm::vec3(0,0,0);
             }
             if(app->getKeyboard().isPressed(GLFW_KEY_5))
