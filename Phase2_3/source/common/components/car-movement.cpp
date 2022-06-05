@@ -10,6 +10,7 @@ namespace our {
         maxAngle = data.value("maxSpeed", maxAngle);
 
         accelerationSensitivity = data.value("accelerationSensitivity", accelerationSensitivity);
+        brakesSensitivity = data.value("brakesSensitivity", brakesSensitivity);
         rotationSensitivity = data.value("rotationSensitivity", rotationSensitivity);
 
         elasticity = data.value("elasticity", elasticity);

@@ -160,6 +160,7 @@ namespace our
                     }
                     if (arrow)
                       arrow->localTransform.scale = car->arrowScale;
+//                    app->playAudio("ride.mp3");
                     
                     passenger->inside = true;
                     passenger->waiting = false; // waiting ----> inside

@@ -14,8 +14,9 @@ namespace our {
         float acceleration=0;
         float rotation=0;
 
-        float accelerationSensitivity=1.0f;
         float rotationSensitivity=1.0f;
+        float accelerationSensitivity=1.0f;
+        float brakesSensitivity=2.0f;
 
         float elasticity=-0.5f;
         glm::vec3 arrowScale=glm::vec3(6.0f);

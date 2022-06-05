@@ -364,9 +364,11 @@
                         "type":"Car Movement",
                         "maxSpeed":0.5,
                         "maxAngle":0.1,
-                        "accelerationSensitivity":0.02,
                         "rotationSensitivity":0.02,
-                        "elasticity":-0.02,
+                        "accelerationSensitivity":0.04,
+                        "brakesSensitivity":0.30,
+                        // [-1, 0]
+                        "elasticity":-0.2,
                         "arrowScale": [6, 6, 6]
                     }
                 ],
@@ -551,7 +553,7 @@
 // --- end of menu items
             // passengers
             {
-                "position": [0, 0.91, -10],
+                "position": [0, 0.81, -10],
                 "scale":[0.02, 0.02, 0.02],
                 "components": [
                     {
@@ -569,7 +571,7 @@
                 ]
             },      
             {
-                "position": [30, 0.91, -40],
+                "position": [30, 0.81, -40],
                 "scale":[0.02, 0.02, 0.02],
                 "components": [
                     {
@@ -601,85 +603,7 @@
                         "material": "building"
                     }
                 ]
-            },
-            {
-                "name": "building",
-                "position": [-40, 10, -60],
-                "rotation": [0, 0, 0],
-                "scale": [20, 20, 1],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "building"
-                    }
-                ]
-            },
-            {
-                "name": "building",
-                "position": [20, 10, -80],
-                "rotation": [0, -90, 0],
-                "scale": [20, 20, 1],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "building"
-                    }
-                ]
-            },
-            {
-                "name": "building",
-                "position": [-20, -1, -80],
-                "rotation": [0, 90, 0],
-                "scale": [20, 20, 1],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "building"
-                    }
-                ]
-            },
-            {
-                "name": "building",
-                "position": [-20, -1, -80],
-                "rotation": [0, 90, 0],
-                "scale": [20, 20, 1],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "building"
-                    }
-                ]
-            },
-            {
-                "name": "building",
-                "position": [-20, -1, 0],
-                "rotation": [0, 90, 0],
-                "scale": [20, 20, 1],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "building"
-                    }
-                ]
-            },
-            {
-                "name": "building",
-                "position": [20, -1, 0],
-                "rotation": [0, -90, 0],
-                "scale": [20, 20, 1],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "building"
-                    }
-                ]
             }
-       ]
+      ]
     }
 }

@@ -12,6 +12,7 @@
 
 #include<iostream>
 #include<algorithm>
+// #include <utils.h>
 using namespace std;
 
 namespace our
@@ -62,6 +63,7 @@ namespace our
             float& rotation=movement->rotation;
 
             float& accelerationSensitivity=movement->accelerationSensitivity;
+            float& brakesSensitivity=movement->brakesSensitivity;
             float& rotationSensitivity=movement->rotationSensitivity;
 
             // [-1, 0]
@@ -83,6 +85,12 @@ namespace our
             {   
                 if(acceleration>0)acceleration=max(0.0f,acceleration-deltaTime*accelerationSensitivity);
                 else acceleration=min(0.0f,acceleration+deltaTime*accelerationSensitivity);
+            }
+            // space for brakes
+            if(app->getKeyboard().isPressed(GLFW_KEY_SPACE)) 
+            {
+                if(acceleration>0)acceleration=max(0.0f,acceleration-deltaTime*brakesSensitivity);
+                else acceleration=min(0.0f,acceleration+deltaTime*brakesSensitivity);
             }
 
             if(acceleration>0)acceleration=min(maxSpeed,acceleration);
@@ -120,7 +128,11 @@ namespace our
             entityRotation.y = glm::wrapAngle(entityRotation.y);
 
 
-            // rotation=0;
+            // honk using f
+            if(app->getKeyboard().isPressed(GLFW_KEY_F))
+            {
+              // Utils::playAudio("honk.wav");
+            }
 
 
             // Gheiath: Collison detection
