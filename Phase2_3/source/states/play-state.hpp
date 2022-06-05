@@ -10,6 +10,7 @@
 #include <systems/car-movement.hpp>
 #include <systems/deliver.hpp>
 #include <systems/camera-view.hpp>
+#include <systems/passenger-movement.hpp>
 
 // This state shows how to use the ECS framework and deserialization.
 class Playstate: public our::State {
@@ -21,6 +22,7 @@ class Playstate: public our::State {
     our::CarMovementSystem carMovementSystem;
     our::DeliverSystem deliverSystem;
     our::CameraViewSystem cameraViewSystem;
+    our::PassengerMovementSystem passengerMovementSystem;
 
     void onInitialize() override {
         // First of all, we get the scene configuration from the app config
@@ -41,6 +43,8 @@ class Playstate: public our::State {
         deliverSystem.enter(getApp());
         // We initialize the camera view system since it needs a pointer to the app
         cameraViewSystem.enter(getApp());
+        // We initialize the passenger movement system since it needs a pointer to the app
+        passengerMovementSystem.enter(getApp());
         // Then we initialize the renderer
         auto size = getApp()->getFrameBufferSize();
         renderer.initialize(size, config["renderer"]);
@@ -53,6 +57,7 @@ class Playstate: public our::State {
         carMovementSystem.update(&world,(float)deltaTime, &renderer);
         deliverSystem.update(&world,(float)deltaTime);
         cameraViewSystem.update(&world,(float)deltaTime);
+        passengerMovementSystem.update(&world,(float)deltaTime);
         // And finally we use the renderer system to draw the scene
         renderer.render(&world);
     }
