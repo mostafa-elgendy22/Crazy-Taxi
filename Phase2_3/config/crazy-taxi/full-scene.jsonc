@@ -654,7 +654,7 @@
             {
                 "name": "building",
                 "position": [-60, 10, -60],
-                "rotation": [180, 0, 0],
+                "rotation": [180, 0, 180],
                 "scale": [20, 20, 1],
                 "components": [
                     {
@@ -667,7 +667,7 @@
             {
                 "name": "building",
                 "position": [-40, 10, -40],
-                "rotation": [180, -90, 0],
+                "rotation": [180, -90, 180],
                 "scale": [20, 20, 1],
                 "components": [
                     {
@@ -707,7 +707,7 @@
             {
                 "name": "building",
                 "position": [60, 10, -60],
-                "rotation": [180, 0, 0],
+                "rotation": [180, 0, 180],
                 "scale": [20, 60, 1],
                 "components": [
                     {
@@ -720,7 +720,7 @@
             {
                 "name": "building",
                 "position": [80, 10, -40],
-                "rotation": [180, -90, 0],
+                "rotation": [180, -90, 180],
                 "scale": [20, 60, 1],
                 "components": [
                     {
