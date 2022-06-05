@@ -621,9 +621,101 @@
   // <buildings>
             {
                 "name": "building",
-                "position": [40, 10, -60],
+                "position": [-60, 10, -20],
                 "rotation": [0, 0, 0],
                 "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-60, 10, -60],
+                "rotation": [180, 0, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-40, 10, -40],
+                "rotation": [180, -90, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [-80, 10, -40],
+                "rotation": [0, -90, 0],
+                "scale": [20, 20, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+
+            {
+                "name": "building",
+                "position": [60, 10, -20],
+                "rotation": [0, 0, 0],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [60, 10, -60],
+                "rotation": [180, 0, 0],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [80, 10, -40],
+                "rotation": [180, -90, 0],
+                "scale": [20, 60, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "building"
+                    }
+                ]
+            },
+            {
+                "name": "building",
+                "position": [40, 10, -40],
+                "rotation": [0, -90, 0],
+                "scale": [20, 60, 1],
                 "components": [
                     {
                         "type": "Mesh Renderer",
