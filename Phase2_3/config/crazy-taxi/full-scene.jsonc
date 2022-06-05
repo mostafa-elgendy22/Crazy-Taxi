@@ -11,7 +11,7 @@
     },
     "scene": {
         "renderer":{
-            "sky": "assets/textures/sky.jpg",
+            "sky": "assets/textures/sky3.jpeg",
             "postprocess": "assets/shaders/postprocess/distortion.frag",
             "addedTex": "assets/textures/water-normal.png"
         },
@@ -33,21 +33,14 @@
             "textures":{
                 "moon": "assets/textures/moon.jpg",
                 "grass": "assets/textures/grass_ground_d.jpg",
-                "wood": "assets/textures/wood.jpg",
                 "glass": "assets/textures/glass3.png",
                 "whiteGlass":"assets/textures/whiteGlass.jpg",
                 "glass2":"assets/textures/glass2.jpg",
                 "glass3":"assets/textures/glass3.png",
-                "monkey": "assets/textures/monkey/albedo.jpg",
-                "monkey-specular": "assets/textures/monkey/specular.jpg",
-                "monkey-roughness": "assets/textures/monkey/roughness.jpg",
-                "monkey-ambient_occlusion": "assets/textures/monkey/ambient_occlusion.jpg",
-                "monkey-emissive": "assets/textures/monkey/emissive.jpg",
                 "car-albedo":"assets/models/car/car.jpg",
                 "black":"assets/textures/black.png",
                 "white":"assets/textures/white.png",
                 "metal":"assets/textures/metal.jpg",
-                "red":"assets/textures/red.jpg",
                 "road":"assets/textures/r2/basecolor.jpg",
                 "road_specular":"assets/textures/r2/specular.jpg",
                 "road_ambient":"assets/textures/r2/ambient.jpg",
@@ -66,10 +59,7 @@
                 "golden":"assets/textures/menu/golden.jpg"
             },
             "meshes":{
-                "cube": "assets/models/cube.obj",
-                "monkey": "assets/models/monkey.obj",
                 "plane": "assets/models/plane.obj",
-                "sphere": "assets/models/sphere.obj",
                 "car":"assets/models/car/car.obj",
                 "car-glass":"assets/models/car/glass.obj",
                 "man":"assets/models/Human/dennis-posed-004-obj/dennis-posed-004.obj",
