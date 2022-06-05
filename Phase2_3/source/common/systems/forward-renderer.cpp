@@ -3,6 +3,8 @@
 #include "../texture/texture-utils.hpp"
 #include "../components/light.hpp"
 
+#include "../deserialize-utils.hpp"
+
 namespace our
 {
 
@@ -33,6 +35,10 @@ namespace our
             skyPipelineState.depthTesting.enabled = true;
             skyPipelineState.depthTesting.function = GL_LEQUAL;
 
+            // lighting using sky light instead of ambient
+            sky_top = config.value("sky_top", sky_top);
+            sky_middle = config.value("sky_middle", sky_middle);
+            sky_bottom = config.value("sky_bottom", sky_bottom);
 
             // Load the sky texture (note that we don't need mipmaps since we want to avoid any unnecessary blurring while rendering the sky)
             std::string skyTextureFile = config.value<std::string>("sky", "");
@@ -91,7 +97,13 @@ namespace our
             postprocessShader->attach(config.value<std::string>("postprocess", ""), GL_FRAGMENT_SHADER);
             postprocessShader->link();
             if(config.contains("addedTex")){
-                additionalTexture = texture_utils::loadImage(config.value<std::string>("addedTex", "assets/textures/water-normal.png"));
+                additionalTexture = texture_utils::loadImage(config.value<std::string>("addedTex", ""));
+            }
+            
+            effect_power = config.value("effect_power", effect_power);
+            alwaysApply = config.value("alwaysApply", alwaysApply);
+            if(alwaysApply){
+                apply = true;
             }
             // Create a post processing material
             postprocessMaterial = new TexturedMaterial();
@@ -257,9 +269,9 @@ namespace our
 
              // sending skylight data
             // TODO 11 should these values be constants? or read them from jsonc???
-            shader->set("sky.top", glm::vec3(0.6, 0.6, 1.0));
-            shader->set("sky.middle", glm::vec3(0.3, 0.3, 0.3));
-            shader->set("sky.bottom", glm::vec3(0.1, 0.1, 0.0));
+            shader->set("sky.top", sky_top);//TODO
+            shader->set("sky.middle", sky_middle);//TODO
+            shader->set("sky.bottom", sky_bottom);//TODO
 
 
             glm::vec4 cameraPos = modelCamera * glm::vec4(0, 0, 0, 1); // TODO 11 calculated twice --> calculate it once
@@ -353,9 +365,9 @@ namespace our
 
             // sending skylight data
             // TODO 11 should these values be constants? or read them from jsonc???
-            shader->set("sky.top", glm::vec3(0.3, 0.6, 1.0));
-            shader->set("sky.middle", glm::vec3(0.3, 0.3, 0.3));
-            shader->set("sky.bottom", glm::vec3(0.1, 0.1, 0.0));
+            shader->set("sky.top", sky_top);
+            shader->set("sky.middle", sky_middle);
+            shader->set("sky.bottom", sky_bottom);
 
 
             glm::vec4 cameraPos = modelCamera * glm::vec4(0, 0, 0, 1); // TODO 11 calculated twice --> calculate it once
@@ -393,7 +405,7 @@ namespace our
                 additionalTexture->bind();
                 postprocessMaterial->sampler->bind(1);
                 postprocessMaterial->shader->set("additional_sampler", 1);
-                postprocessMaterial->shader->set("effect_power", 0.05f);
+                postprocessMaterial->shader->set("effect_power", effect_power);//TODO
             }
             glDrawArrays(GL_TRIANGLES, 0, 3); 
         }

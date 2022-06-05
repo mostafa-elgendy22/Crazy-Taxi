@@ -21,6 +21,9 @@ namespace our {
         float elasticity=-0.5f;
         glm::vec3 arrowScale=glm::vec3(6.0f);
 
+        float collisionTime = 0.5f; // time collision stays applied.
+        float closeDistance = 5.0f; // distance between car and passenger to take him.
+        
         // The ID of this component type is "CarMovement"
         static std::string getID() { return "Car Movement"; }
 
