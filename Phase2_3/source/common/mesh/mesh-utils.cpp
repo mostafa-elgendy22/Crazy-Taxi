@@ -30,7 +30,8 @@ our::Mesh* our::mesh_utils::loadOBJ(const std::string& filename) {
         return nullptr;
     }
     if (!warn.empty()) {
-        std::cout << "WARN while loading obj file \"" << filename << "\": " << warn << std::endl;
+      // wanring? no thanks
+        // std::cout << "WARN while loading obj file \"" << filename << "\": " << warn << std::endl;
     }
 
     // An obj file can have multiple shapes where each shape can have its own material
