@@ -307,24 +307,6 @@ namespace our
               }
             }
 
-
-          // change the camera view if V is pressed
-          if(app->getKeyboard().isPressed(GLFW_KEY_V))
-          {
-            CameraComponent* camera = nullptr;
-            // get the camera
-            for(auto entity : world->getEntities())
-            {
-              camera = entity->getComponent<CameraComponent>();
-              if(camera)break;
-            }
-            //return if there is no camera
-            if(!camera)return;
-            //get the entity of the camera
-            Entity *camEntity=camera->getOwner();
-            
-
-          }
           if(collisionHappened){
             renderer->changeApply(true);
             timeInCollision = deltaTime;
