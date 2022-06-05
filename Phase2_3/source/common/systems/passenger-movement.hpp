@@ -37,19 +37,18 @@ namespace our
 
                 glm::vec3 front = glm::vec3(matrix * glm::vec4(0, 0, 1, 0));
 
-                if(passenger->steps)
+                if(passenger->tknsteps < passenger->steps)
                 {
                     position += passenger->speed * front;
-                    passenger->steps--;
+                    passenger->tknsteps++;
                 }
 
                 int random = std::rand()%500;
 
-                if(random == 1 && passenger->steps == 0)
+                if(random == 1 && passenger->steps == passenger->tknsteps)
                 {
-                    passenger->speed = .02;            //(std::rand()%10+1)/200.0f;
                     rotation.y += std::rand()%181;
-                    passenger->steps = 500;
+                    passenger->tknsteps=0;
                 }
 
             }

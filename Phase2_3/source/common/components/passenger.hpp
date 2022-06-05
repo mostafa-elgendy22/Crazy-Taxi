@@ -12,7 +12,8 @@ namespace our {
         bool waiting = true; // waiting to be delivered
         bool inside = false; // being devlivered (inside the car)
         bool reached = false; // reached destination
-        int steps = 0; // steps to take before stopping
+        int steps = 500; // steps to take before stopping
+        int tknsteps = 0; // taken steps so far
         float speed = 0.01; // speed walking with
         // float appearingTime = 0.0; // time that the passenger should be drawn
         // float reachedTime = 0.0;

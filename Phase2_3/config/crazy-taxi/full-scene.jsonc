@@ -561,7 +561,9 @@
                     },
                     {
                         "type": "Passenger",
-                        "destination": [0, 0, -50]
+                        "destination": [0, 0, -50],
+                        "speed": 1,
+                        "steps": 500
                     }
                 ]
             },      
@@ -576,7 +578,9 @@
                     },
                     {
                         "type": "Passenger",
-                        "destination": [-30, 0, -40]
+                        "destination": [-30, 0, -40],
+                        "speed": 1,
+                        "steps": 500
                     }
                 ]
             },  
