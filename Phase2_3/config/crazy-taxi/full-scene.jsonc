@@ -49,7 +49,14 @@
                 "metal":"assets/textures/metal.jpg",
                 "red":"assets/textures/red.jpg",
                 "road":"assets/textures/r2/basecolor.jpg",
-                "buildings":"assets/textures/b2/basecolor.png",
+                "road_specular":"assets/textures/r2/specular.jpg",
+                "road_ambient":"assets/textures/r2/ambient.jpg",
+                "road_diffuse":"assets/textures/r2/diffuse.jpg",
+                "road_roughness":"assets/textures/r2/displacement.jpg",               
+                "building":"assets/textures/b2/basecolor.png",
+                "building_specular": "assets/textures/b2/metallic.png",
+                "building_ambient": "assets/textures/b2/ambient.png",
+                "building_roughness": "assets/textures/b2/roughness.png",
                 "wall":"assets/textures/wall.jpg",
                 "wall2":"assets/textures/wall2.jpg",
                 "skin":"assets/textures/human_skin_5_diffuseOriginal.jpg",
@@ -134,8 +141,8 @@
                 },
                 // TODO 12 lit?
                 "road":{
-                    "type": "textured",
-                    "shader": "textured",
+                    "type": "lit",
+                    "shader": "lit",
                     "pipelineState": {
                         "faceCulling":{
                             "enabled": false
@@ -145,12 +152,13 @@
                         }
                     },
                     "tint": [1, 1, 1, 1],
-                    "texture": "road",
-                    // "albedo":"road",
-                    // "specular": "buildings",
-                    // "roughness": "wall",
-                    // "ambient_occlusion": "white",
-                    // "emissive": "black",
+                    // "texture": "road",
+                    "albedo":"road",
+                    "specular": "road_specular",
+                    "roughness": "road_roughness",
+                    "ambient_occlusion": "road_ambient",
+                    "diffuse": "road_diffuse",
+                    "emissive": "black",
                     "sampler": "repeat"
                 },
                 "building":{
@@ -165,12 +173,12 @@
                         }
                     },
                     "tint": [1, 1, 1, 1],
-                    // "texture": "buildings",
+                    // "texture": "building",
 
-                    "albedo":"buildings",
-                    "specular": "buildings",
-                    "roughness": "wall",
-                    "ambient_occlusion": "white",
+                    "albedo":"building",
+                    "specular": "building_specular",
+                    "roughness": "building_roughness",
+                    "ambient_occlusion": "building_ambient",
                     "emissive": "black",
 
                     "sampler": "default"
@@ -375,7 +383,7 @@
                     },
                     { // car lights
                         "position": [1.5, 1.5, -4],
-                        "rotation": [90, 0, 0],
+                        "rotation": [70, -20, 0],
                         "components": [
                             {
                                 "type": "Light",
@@ -384,24 +392,22 @@
                                 "attenuation": [0, 0.1, 0],
                                 "cone_angles":[30, 35]
                             }
-                        ],
-                        "children":[
-                            {
-                                "position": [-3, 0, 0],
-                                // "rotation": [90, 0, 0],
-                                "components": [
-                                    {
+                        ]},
+                    {
+                         "position": [-1.5, 1.5, -4],
+                         "rotation": [70, 20, 0],
+                         "components": [
+                             {
                                         "type": "Light",
                                         "lightType": "spot",
                                         "color": [1, 1, 1],
                                         "attenuation": [0, 0.1, 0],
                                         "cone_angles":[30, 35]
-                                    }
-                                ]
-                            }
-                        ]
+                              }
+                          ]
                     },
-                    {//driver
+                    {
+                        //driver
                         "position":[-1,-0.6,0],
                         "rotation":[0, 180, 0],
                         "scale":[2, 2, 2],
