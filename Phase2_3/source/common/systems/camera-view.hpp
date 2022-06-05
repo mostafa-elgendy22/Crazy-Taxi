@@ -53,44 +53,44 @@ namespace our
             if(app->getKeyboard().isPressed(GLFW_KEY_1))
             {
               // normal view
-              position=glm::vec3(0,3,10);
-              rotation=glm::vec3(0,0,0);
+              position=camera->key1position;
+              rotation=camera->key1rotation;
             }
             if(app->getKeyboard().isPressed(GLFW_KEY_2))
             {
               // far a way view
-              position=glm::vec3(0,8,15);
-              rotation=glm::vec3(0,0,0);
+              position=camera->key2position;
+              rotation=camera->key2rotation;
             }
             if(app->getKeyboard().isPressed(GLFW_KEY_3))
             {
               // inside car view
-              position=glm::vec3(0,2.5,0);
-              rotation=glm::vec3(0,0,0);
+              position=camera->key3position;
+              rotation=camera->key3rotation;
             }
             if(app->getKeyboard().isPressed(GLFW_KEY_4))
             {
               // driver seat view
-              position=glm::vec3(-0.9,2.5,-0.5);
-              rotation=glm::vec3(0,0,0);
+              position=camera->key4position;
+              rotation=camera->key4rotation;
             }
             if(app->getKeyboard().isPressed(GLFW_KEY_5))
             {
               // front view
-              position=glm::vec3(0,2.5,-1);
-              rotation=glm::vec3(0,0,0);
+              position=camera->key5position;
+              rotation=camera->key5rotation;
             }
             if(app->getKeyboard().isPressed(GLFW_KEY_6))
             {
               // front of car view
-              position=glm::vec3(0,2.5,-4.3);
-              rotation=glm::vec3(0,0,0);
+              position=camera->key6position;
+              rotation=camera->key6rotation;
             }
             if(app->getKeyboard().isPressed(GLFW_KEY_7))
             {
               // bird's eye view
-              position=glm::vec3(0,34,0);
-              rotation=glm::vec3(glm::radians(-90.0f),0,0);
+              position=camera->key7position;
+              rotation=camera->key7rotation;
             }
 
         }
