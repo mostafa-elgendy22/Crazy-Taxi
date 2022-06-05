@@ -54,7 +54,8 @@
                 "wall":"assets/textures/wall.jpg",
                 "wall2":"assets/textures/wall2.jpg",
                 "skin":"assets/textures/human_skin_5_diffuseOriginal.jpg",
-                "man-tex":"assets/models/Human/dennis-posed-004-obj/rp_dennis_posed_004_dif.jpg",
+                "man1":"assets/models/Human/h1/h.jpg",
+                "man2":"assets/models/Human/h2/h.jpg",
                 "greenGlass":"assets/textures/greenGlass.jpg",
                 //_______________menu only textures
                 "golden":"assets/textures/menu/golden.jpg"
@@ -63,9 +64,10 @@
                 "plane": "assets/models/plane.obj",
                 "car":"assets/models/car/car.obj",
                 "car-glass":"assets/models/car/glass.obj",
-                "man":"assets/models/Human/dennis-posed-004-obj/dennis-posed-004.obj",
                 "arrow": "assets/models/arrow/arrow.obj",
                 "backLight":"assets/models/car/backlight.obj",
+                "man1":"assets/models/Human/h1/h.obj",
+                "man2":"assets/models/Human/h2/h.obj",
                 //_______________menu only meshes
                 "begin-text":"assets/models/menu/begin-text.obj"
             },
@@ -286,9 +288,9 @@
                     "texture": "greenGlass",
                     "sampler": "default"
                 },
-                "man":{
-                    "type": "lit",
-                    "shader": "lit",
+                "man1":{
+                    "type": "textured",
+                    "shader": "textured",
                     "pipelineState": {
                         "faceCulling":{
                             "enabled": false
@@ -298,16 +300,24 @@
                         }
                     },
                     "tint": [1, 1, 1, 1],
-                    // "texture": "man-tex",
-                    "albedo": "man-tex",
-                    "specular": "man-tex",
-                    "roughness": "man-tex",
-                    "ambient_occlusion": "white",
-                    "emissive": "black",
-
+                    "texture": "man1",
                     "sampler": "default"
                 },
-
+                "man2":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "man2",
+                    "sampler": "default"
+                },
                 //______________________menu only materials
                 "begin-text":{
                     "type": "textured",
@@ -354,9 +364,9 @@
                         "type":"Car Movement",
                         "maxSpeed":0.5,
                         "maxAngle":0.1,
-                        "accelerationSensitivity":0.05,
-                        "rotationSensitivity":0.05,
-                        "elasticity":-0.3,
+                        "accelerationSensitivity":0.02,
+                        "rotationSensitivity":0.02,
+                        "elasticity":-0.02,
                         "arrowScale": [6, 6, 6]
                     }
                 ],
@@ -437,8 +447,8 @@
                         "components":[
                             {
                                 "type": "Mesh Renderer",
-                                "mesh": "man",
-                                "material": "man"
+                                "mesh": "man1",
+                                "material": "man1"
                             }
                         ]
                     }
@@ -538,15 +548,16 @@
                     }
                 ]
             },
-            // man
+// --- end of menu items
+            // passengers
             {
-                "position": [0, 0, -10],
-                "scale":[2, 2, 2],
+                "position": [0, 0.91, -10],
+                "scale":[0.02, 0.02, 0.02],
                 "components": [
                     {
                         "type": "Mesh Renderer",
-                        "mesh": "man",
-                        "material": "man"
+                        "mesh": "man2",
+                        "material": "man2"
                     },
                     {
                         "type": "Passenger",
@@ -555,13 +566,13 @@
                 ]
             },      
             {
-                "position": [30, 0, -40],
-                "scale":[2, 2, 2],
+                "position": [30, 0.91, -40],
+                "scale":[0.02, 0.02, 0.02],
                 "components": [
                     {
                         "type": "Mesh Renderer",
-                        "mesh": "man",
-                        "material": "man"
+                        "mesh": "man2",
+                        "material": "man2"
                     },
                     {
                         "type": "Passenger",
