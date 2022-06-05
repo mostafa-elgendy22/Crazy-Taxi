@@ -14,8 +14,10 @@ namespace our {
         bool reached = false; // reached destination
         int steps = 500; // steps to take before stopping
         int tknsteps = 0; // taken steps so far
-        float speed = 0.01f; // speed walking with
-        int moveProb = 500;
+
+        float speed = 5; // speed walking with
+        int moveProb = 10;
+
         // float appearingTime = 0.0; // time that the passenger should be drawn
         // float reachedTime = 0.0;
         glm::vec3 posInCar = {1.0, 2.0, 0.0}; // where to put passenger inside car
