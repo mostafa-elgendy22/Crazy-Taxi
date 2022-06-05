@@ -9,6 +9,7 @@ namespace our {
         destination = data.value("destination", destination);
         speed = data.value("speed", speed);
         steps = data.value("steps", steps);
+        moveProb = data.value("moveProb",moveProb);
         // appearingTime = data.value("appearingTime", appearingTime);
     }
 }

@@ -562,8 +562,9 @@
                     {
                         "type": "Passenger",
                         "destination": [0, 0, -50],
-                        "speed": 1,
-                        "steps": 500
+                        "speed": 2,
+                        "steps": 500,
+                        "moveProb": 500    // the probability of moving = 1/moveProb
                     }
                 ]
             },      
@@ -579,8 +580,9 @@
                     {
                         "type": "Passenger",
                         "destination": [-30, 0, -40],
-                        "speed": 1,
-                        "steps": 500
+                        "speed": 2,
+                        "steps": 500,
+                        "moveProb": 500    // the probability of moving = 1/moveProb
                     }
                 ]
             },  

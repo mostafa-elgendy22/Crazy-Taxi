@@ -43,9 +43,9 @@ namespace our
                     passenger->tknsteps++;
                 }
 
-                int random = std::rand()%500;
+                int random = std::rand()%passenger->moveProb;
 
-                if(random == 1 && passenger->steps == passenger->tknsteps)
+                if(random == 0 && passenger->steps == passenger->tknsteps)
                 {
                     rotation.y += std::rand()%181;
                     passenger->tknsteps=0;

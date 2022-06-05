@@ -15,6 +15,7 @@ namespace our {
         int steps = 500; // steps to take before stopping
         int tknsteps = 0; // taken steps so far
         float speed = 0.01; // speed walking with
+        int moveProb = 500;
         // float appearingTime = 0.0; // time that the passenger should be drawn
         // float reachedTime = 0.0;
 
