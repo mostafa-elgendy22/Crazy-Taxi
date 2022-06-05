@@ -13,7 +13,12 @@
         "renderer":{
             "sky": "assets/textures/sky2.jpeg",
             "postprocess": "assets/shaders/postprocess/distortion.frag",
-            "addedTex": "assets/textures/water-normal.png"
+            "addedTex": "assets/textures/water-normal.png",
+            "effect_power":0.05,
+            "sky_top":[0.6, 0.6, 1.0],
+            "sky_middle":[0.3, 0.3, 0.3],
+            "sky_bottom":[0.1, 0.1, 0.0],
+            "alwaysApply": false
         },
         "assets":{
             "shaders":{
@@ -370,6 +375,10 @@
                         "brakesSensitivity":0.30,
                         // [-1, 0]
                         "elasticity":-0.2,
+
+                        "collisionTime":0.5,
+                        "closeDistance":5.0,
+
                         "arrowScale": [6, 6, 6]
                     }
                 ],

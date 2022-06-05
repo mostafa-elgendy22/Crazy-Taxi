@@ -10,6 +10,9 @@ namespace our {
         speed = data.value("speed", speed);
         steps = data.value("steps", steps);
         moveProb = data.value("moveProb",moveProb);
+
+        posInCar = data.value("posInCar", posInCar);
+        rotInCar = data.value("rotInCar", rotInCar);
         // appearingTime = data.value("appearingTime", appearingTime);
     }
 }

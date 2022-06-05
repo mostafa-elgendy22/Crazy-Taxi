@@ -13,6 +13,10 @@ namespace our {
         brakesSensitivity = data.value("brakesSensitivity", brakesSensitivity);
         rotationSensitivity = data.value("rotationSensitivity", rotationSensitivity);
 
+        collisionTime = data.value("collisionTime", collisionTime);
+        closeDistance = data.value("closeDistance", closeDistance);
+
+
         elasticity = data.value("elasticity", elasticity);
         arrowScale = data.value("arrowScale", arrowScale);
     }

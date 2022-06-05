@@ -25,7 +25,6 @@ namespace our {
         glm::vec2 cone_angles = glm::vec2(glm::radians(10.f), glm::radians(11.f)); // used in case of SPOT x: inner, y: outer
         glm::vec3 attenuation = glm::vec3(1, 0, 0); // a*d^2 + b*d + c -> vec3(a, b, c) - used in SPOT, POINT lights
         bool visible = true;
-        // TODO 11 Do we need to add ambient?????
 
         // Direction & Position should be calculated from entity
 
@@ -37,8 +36,6 @@ namespace our {
 
         // send light data to the given shader - Send to first light by default
         // Don't forget to set light_count before calling this
-        // TODO 11 Do we need to make lightIndex a member and deserialize it??
-        // TODO 11 should we make sparate functions for setting direction & position???
         void sendData(ShaderProgram* shader, int lightIndex, glm::vec3 direction = glm::vec3(-1, 0, 0), glm::vec3 position = glm::vec3(0, 0, 0));
     };
 

@@ -5,6 +5,7 @@
 #include "../components/mesh-renderer.hpp"
 #include "../asset-loader.hpp"
 
+#include <glm/glm.hpp>
 #include <glad/gl.h>
 #include <vector>
 #include <algorithm>
@@ -43,7 +44,15 @@ namespace our
 
         // @@ Akram: 
         Texture2D *additionalTexture; // used for effects that need additional textures
-        bool apply = false; // only apply if set to true
+        bool alwaysApply = false; // choose to make the effect applied the whole game or not
+        bool apply = false; // only apply if set to true - it is always true if alwaysApply = true
+        float effect_power = 0.05f;
+        
+        //lighting data
+        glm::vec3 sky_top = {0.6, 0.6, 1.0};
+        glm::vec3 sky_middle = {0.3, 0.3, 0.3};
+        glm::vec3 sky_bottom = {0.1, 0.1, 0.0};
+
     public:
         // Initialize the renderer including the sky and the Postprocessing objects.
         // windowSize is the width & height of the window (in pixels).
@@ -53,7 +62,13 @@ namespace our
         // This function should be called every frame to draw the given world
         void render(World* world);
         // Apply postprocessing or not
-        void changeApply(bool ok){apply = ok;}
+        void changeApply(bool ok){
+            if(!alwaysApply){ // can change it
+                apply = ok;
+            } else {
+                apply = true;
+            }
+        }
     };
 
 }
