@@ -98,7 +98,7 @@ for _ in range(num):
     zd = z1 + (zdi * 40)
 
     fil.write(f'{{"position":[{x},{y},{z}],"scale":[{s},{s},{s}],"components":[{{"type":"Mesh Renderer","mesh":"man2","material":"{material}"}}')
-    fil.write(f',{{"type":"{typ}","destination":[{xd},{0},{zd}],"speed":{random.uniform(2,5)},"steps":{random.randint(300,500)},"moveProb":{random.randint(50,700)}}}]}},')
+    fil.write(f',{{"type":"{typ}","destination":[{xd},{0},{zd}],"speed":{random.uniform(2,5)},"steps":{random.randint(300,500)},"moveProb":{random.randint(250,500)}}}]}},')
 
 
 
