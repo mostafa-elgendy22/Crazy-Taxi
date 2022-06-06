@@ -13,7 +13,7 @@ namespace our {
         bool inside = false; // being devlivered (inside the car)
         bool reached = false; // reached destination
         int steps = 500; // steps to take before stopping
-        int tknsteps = 0; // taken steps so far
+        int tknsteps = 500; // taken steps so far
 
         float speed = 5; // speed walking with
         int moveProb = 10;
