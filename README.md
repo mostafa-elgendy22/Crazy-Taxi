@@ -19,6 +19,13 @@ A game built using C++ and OpenGL
   - lite version: `  bin/GAME_APPLICATION.exe -c config/crazy-taxi/full-scene.jsonc` or directly: `bin/GAME_APPLICATION.exe`
 - Make sure you run in cmd from Crazy-Taxi/Phase2_3/
 
+## Controls
+`w` Move Forward  
+`s` Move Backwards  
+`a` Move Left  
+`d` Move Right  
+`space` brakes  
+`1->7, q, e` to change camera views
 
 ## Screenshots
 <div>
