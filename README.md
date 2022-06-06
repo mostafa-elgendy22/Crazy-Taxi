@@ -4,20 +4,24 @@ Computer Graphics Project
 ## Description
 A game built using C++ and OpenGL
 
-## VSCode
+
+## How to RUN
+- Clone the repo
+- `cd Phase2_3`
+- Build the Project
+- Run either:
+  - full version: `bin/GAME_APPLICATION.exe -c config/crazy-taxi/app.jsonc `
+  - lite version: `  bin/GAME_APPLICATION.exe -c config/crazy-taxi/full-scene.jsonc` or directly: `bin/GAME_APPLICATION.exe`
+
+
+### VSCode
 - You can build it with many compilers but here is a way using `Visual Studio Community Release 2019 ` 
 #### Needed Extensions:
 - C/C++ Extension Pack
 #### How to build
 - From Phase2_3/ directory : `Ctrl+shift+p` `Cmake Configure` `Ctrl+shift+p` `Select a kit`, and choose `Visual Studio Community Release 2019 ` 
 
-## How to RUN
-- Clone the repo
-- Build the Project
-- Run either:
-  - full version: `bin/GAME_APPLICATION.exe -c config/crazy-taxi/app.jsonc `
-  - lite version: `  bin/GAME_APPLICATION.exe -c config/crazy-taxi/full-scene.jsonc` or directly: `bin/GAME_APPLICATION.exe`
-- Make sure you run in cmd from Crazy-Taxi/Phase2_3/
+
 
 ## Controls
 `w` Move Forward  
