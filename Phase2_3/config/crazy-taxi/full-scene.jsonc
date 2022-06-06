@@ -530,7 +530,7 @@
             },
             {
                 "position": [0, 10, 0],
-                "rotation": [45, -45, 0],
+                "rotation": [-45, -45, 0],
                 "components": [
                     {
                         "type": "Light",
