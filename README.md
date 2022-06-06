@@ -1,6 +1,16 @@
 # Crazy-Taxi
 Computer Graphics Project
 
+## Description
+A game built using C++ and OpenGL
+
+## How to RUN
+- Clone the repo
+- Build the Project
+- Run either:
+  - full version: `bin/GAME_APPLICATION.exe -c config/crazy-taxi/app.jsonc `
+  - lite version: `  bin/GAME_APPLICATION.exe -c config/crazy-taxi/full-scene.jsonc` 
+
 ## Screenshots
 <div>
   <p align="center">
