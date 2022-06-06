@@ -5,7 +5,7 @@ Computer Graphics Project
 A game built using C++ and OpenGL
 
 ## VSCode
-- You can build it with many compiler but here is a way using `Visual Studio Community Release 2019 ` 
+- You can build it with many compilers but here is a way using `Visual Studio Community Release 2019 ` 
 #### Needed Extensions:
 - C/C++ Extension Pack
 #### How to build
